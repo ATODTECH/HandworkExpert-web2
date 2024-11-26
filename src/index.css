@@ -1,0 +1,51 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.home-input {
+  outline: none !important;
+  border: 0;
+  color: #292626;
+  font-size: 12;
+  width: 100%;
+}
+
+.home-input::placeholder {
+  color: #858585;
+  font-size: 12;
+}
+
+.service-list li::marker {
+  color: #f56f46;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* width */
+.app-customize ::-webkit-scrollbar {
+  width: 3px !important;
+}
+
+/* Track */
+.app-customize ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey !important;
+  border-radius: 10px !important;
+}
+
+/* Handle */
+.app-customize ::-webkit-scrollbar-thumb {
+  background: #a470c5 !important;
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+.app-customize ::-webkit-scrollbar-thumb:hover {
+  background: #a470c5 !important;
+}
