@@ -14,7 +14,7 @@ export const fetchCategories = async () => {
 };
 
 export const fetchAllServices = async () => {
-  return await getRequest("api/services/", "");
+  return await getRequest("api/services", "");
 };
 
 export const fetchService = async (id) => {
@@ -22,7 +22,7 @@ export const fetchService = async (id) => {
 };
 
 export const fetchServiceCategory = async () => {
-  return await getRequest("api/get_services", "");
+  return await getRequest("api/category", "");
 };
 
 export const fetchUserDetails = async (id) => {
