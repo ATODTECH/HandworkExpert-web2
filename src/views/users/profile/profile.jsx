@@ -1,17 +1,23 @@
 import { Box, Stack, Button } from "@mui/material";
 import ProfileImage from "../../../assets/img/profile-image.png";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import DeleteAccount from "./delete-account";
 import EditProfile from "./edit-profile";
+import { useSelector } from "react-redux";
 export default function Profile() {
-  const details = [
-    { title: "First Name", value: "Ajortisedere" },
-    { title: "Last Name", value: "Rone-Orugboh" },
-    { title: "Phone Number", value: "(+234)8032699233" },
-    { title: "Email", value: "ajoritsedere@gmail.com" },
-    { title: "Country of Residence", value: "Nigeria" },
-    { title: "Nationality", value: "Nigeria" },
-  ];
+  const { user_details } = useSelector((state) => state.user);
+  const details = useMemo(
+    () => [
+      { title: "First Name", value: user_details?.first_name || '' },
+      { title: "Last Name", value: user_details?.last_name || ''  },
+      { title: "Phone Number", value: user_details?.contact || ''  },
+      { title: "Email", value: user_details?.email || ''  },
+      { title: "State", value: user_details?.state || ''  },
+      { title: "Country ", value: user_details?.country || ''  },
+      // { title: "Nationality", value: "Nigeria" },
+    ],
+    [user_details]
+  );
 
   const [delDiag, setDelDialog] = useState(false);
   const [dialog, setDialog] = useState(false);

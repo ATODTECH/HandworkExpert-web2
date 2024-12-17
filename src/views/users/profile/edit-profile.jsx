@@ -14,11 +14,13 @@ import {
 } from "@mui/material";
 import { Close, EmailOutlined } from "@mui/icons-material";
 import DeleteImage from "../../../assets/img/featured-delete.png";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { MuiTelInput } from "mui-tel-input";
+import { useSelector } from "react-redux";
 export default function EditProfile({ dialog, setDialog }) {
+  const { user_details } = useSelector((state) => state.user);
   const formInput = useMemo(
     () => [
       {
@@ -94,6 +96,16 @@ export default function EditProfile({ dialog, setDialog }) {
       setDialog(false);
     },
   });
+
+  useEffect(()=>{
+    formik.setFieldValue('first_name', user_details?.first_name || '' )
+    formik.setFieldValue('last_name', user_details?.last_name || '' )
+    formik.setFieldValue('email', user_details?.email || '' )
+    formik.setFieldValue('phone', user_details?.contact || '' )
+    formik.setFieldValue('nationality', user_details?.country || '' )
+ 
+
+  }, [])
   return (
     <Dialog
       open={dialog}

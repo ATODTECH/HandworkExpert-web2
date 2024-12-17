@@ -73,6 +73,7 @@ const UserStore = createSlice({
     service_category: "",
     activeService: "",
     onboardingForm: {},
+    user_details: "",
   },
   reducers: {
     updateUserToken: (state, actions) => {
@@ -107,7 +108,7 @@ const UserStore = createSlice({
       if (action.payload.status) state.service_category = action.payload.data;
     });
     builder.addCase(getUserDetails.fulfilled, (state, action) => {
-      if (action.payload.status) state.user = action.payload.data;
+      if (action.payload.status) state.user_details = action.payload.data;
     });
   },
 });

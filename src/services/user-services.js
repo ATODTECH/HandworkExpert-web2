@@ -26,7 +26,6 @@ export const fetchServiceCategory = async () => {
 };
 
 export const fetchUserDetails = async (id) => {
-  console.log(id);
   return await getRequest("api/user", id);
 };
 

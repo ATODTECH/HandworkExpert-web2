@@ -4,13 +4,22 @@ import SideBar from "../../components/users/sidebar";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ChevronRight } from "@mui/icons-material";
 import Footer from "../../components/guests/footer";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetails } from "../../store/userStore";
 export default function UserIndex() {
   const { pathname } = useLocation();
+
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const activeLink = useMemo(() => {
     const array = pathname.split("/");
     return array.at(-1);
+  }, [pathname]);
+
+  useEffect(() => {
+    dispatch(getUserDetails(user?.id));
   }, [pathname]);
   return (
     <Box>
