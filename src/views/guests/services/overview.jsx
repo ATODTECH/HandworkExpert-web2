@@ -22,10 +22,10 @@ export default function Overview({activeService}) {
       </h6>
 
       <p style={{ fontSize: 14 }}>
-        {activeService?.about_me}
+        {activeService?.description}
       </p>
       <p style={{ fontSize: 14 }}>
-        Call or WhatsApp: <b>07036292257</b>
+        Call or WhatsApp: <b>{activeService?.contact}</b>
       </p>
      
     </Box>

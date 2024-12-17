@@ -85,6 +85,7 @@ const UserStore = createSlice({
       state.service_list = "";
     },
     updateActiveService: (state, actions) => {
+      console.log(actions.payload);
       state.activeService = actions.payload;
     },
     updateOnboardingForm: (state, actions) => {

@@ -16,8 +16,11 @@ import Footer from "../../components/guests/footer";
 import ReportProvider from "./services/report";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import formatAmount from "../../hooks/formatAmount";
 export default function ServiceDetails() {
-  const { activeService, service_category } = useSelector((state) => state.user);
+  const { activeService, service_category } = useSelector(
+    (state) => state.user
+  );
   const options = [
     { title: "Overview", value: "overview" },
     { title: "Services Offered", value: "services" },
@@ -46,7 +49,7 @@ export default function ServiceDetails() {
   }, [active]);
   return (
     <Box>
-      <Topbar popularServices={service_category}/>
+      <Topbar popularServices={service_category} />
       <Box
         sx={{
           pt: 16,
@@ -65,7 +68,7 @@ export default function ServiceDetails() {
                   fontSize: 35,
                 }}
               >
-                {activeService?.artisan}
+                {activeService?.desc}
               </h3>
               <Stack direction={"row"} alignItems={"center"} spacing={2}>
                 <IconButton
@@ -93,6 +96,7 @@ export default function ServiceDetails() {
                 defaultValue={1}
                 max={5}
                 readOnly
+                value={activeService?.average_rating}
                 emptyIcon={
                   <Star style={{ opacity: 0.55 }} fontSize="inherit" />
                 }
@@ -168,9 +172,9 @@ export default function ServiceDetails() {
                     color: "#292626",
                   }}
                 >
-                  {activeService?.services?.map((item) => (
-                    <p key={item} style={{ fontSize: 12 }}>
-                      {item}
+                  {activeService?.services?.map((item, index) => (
+                    <p key={index} style={{ fontSize: 12 }}>
+                      {item?.name}
                     </p>
                   ))}
                 </Box>
@@ -192,7 +196,8 @@ export default function ServiceDetails() {
                   fontWeight: "700",
                 }}
               >
-                ₦{activeService?.price_range}
+                ₦{formatAmount(activeService?.base_charge)} - ₦
+                {formatAmount(activeService?.cap_charge)}
               </h6>
               <Button
                 component={Link}
@@ -246,7 +251,9 @@ export default function ServiceDetails() {
                   />
                 </div>
                 <div style={{ color: "#292626", lineHeight: 1.4 }}>
-                  <b style={{ fontSize: 13 }}>{activeService?.artisan}</b>
+                  <b style={{ fontSize: 13 }}>
+                    {activeService?.first_name} {activeService?.last_name}
+                  </b>
                   <Stack direction={"row"} alignItems={"center"} spacing={1}>
                     <div>
                       <Circle sx={{ color: "#0FC04B", fontSize: 13 }} />
@@ -254,7 +261,7 @@ export default function ServiceDetails() {
                     <div style={{ fontSize: 12, color: "#4F4F4F" }}>Online</div>
                   </Stack>
                   <div style={{ fontSize: 12, color: "#4F4F4F" }}>
-                    Member Since Sep 2024
+                    {/* Member Since Sep 2024 */}
                   </div>
                 </div>
               </Stack>
@@ -289,7 +296,7 @@ export default function ServiceDetails() {
                       flexGrow: 1,
                     }}
                   >
-                    234-8144616963
+                    {activeService?.contact}
                   </div>
                 </Stack>
                 <Button

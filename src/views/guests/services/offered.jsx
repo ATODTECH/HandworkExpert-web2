@@ -31,7 +31,7 @@ export default function Offered({ activeService }) {
         <ul className="service-list" style={{ lineHeight: 2 }}>
           {activeService?.services?.map((item, index) => (
             <li key={index} style={{ fontSize: 13, color: "#292626" }}>
-              {item}
+              {item?.name}
             </li>
           ))}
         </ul>

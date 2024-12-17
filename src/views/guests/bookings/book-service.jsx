@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, IconButton, Button } from "@mui/material";
+import { Box, Grid, Stack, IconButton, Button, Rating } from "@mui/material";
 import Topbar from "../../../components/guests/topbar";
 import { act, useCallback, useMemo, useState } from "react";
 
@@ -21,6 +21,7 @@ import UserImage from "../../../assets/img/user.png";
 import Promotions from "../promotion";
 import Footer from "../../../components/guests/footer";
 import { useSelector } from "react-redux";
+import formatAmount from "../../../hooks/formatAmount";
 export default function BookService() {
   const { activeService } = useSelector((state) => state.user);
   const [steps, setSteps] = useState([
@@ -236,7 +237,7 @@ export default function BookService() {
                                 flexGrow: 1,
                               }}
                             >
-                              ₦ {activeService?.price_range}
+                              ₦ {formatAmount(activeService?.base_charge)} - {formatAmount(activeService?.cap_charge)}
                             </div>
                             <div>
                               <Button
@@ -267,7 +268,8 @@ export default function BookService() {
                               color: "#292626",
                             }}
                           >
-                           {activeService?.artisan}
+ 
+                            {activeService?.description}
                           </h6>
                         </Link>
 
@@ -277,12 +279,20 @@ export default function BookService() {
                           width={"100%"}
                           alignItems={"center"}
                         >
-                          {[1, 2, 3, 4, 5].map((item, index) => (
-                            <Star
-                              key={index}
-                              sx={{ fontSize: 20, color: "#D9D9D9" }}
-                            />
-                          ))}
+                          <Rating
+                            defaultValue={1}
+                            max={5}
+                            readOnly
+                            value={activeService?.average_rating}
+                            emptyIcon={
+                              <Star
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                          />
+
+                        
                         </Stack>
                         <br />
                         <Stack
@@ -309,7 +319,7 @@ export default function BookService() {
                               flexGrow: 1,
                             }}
                           >
-                            xxxxxxxxx19
+                            {activeService?.contact}
                           </div>
 
                           <div

@@ -22,7 +22,7 @@ export const fetchService = async (id) => {
 };
 
 export const fetchServiceCategory = async () => {
-  return await getRequest("api/category", "");
+  return await getRequest("api/get_services", "");
 };
 
 export const fetchUserDetails = async (id) => {

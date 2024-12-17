@@ -7,6 +7,7 @@ import {
   Pagination,
   PaginationItem,
   IconButton,
+  Rating,
 } from "@mui/material";
 import Topbar from "../../components/guests/topbar";
 import { Link, useParams } from "react-router-dom";
@@ -31,6 +32,8 @@ import {
   resetService,
   updateActiveService,
 } from "../../store/userStore";
+import EmptyImage from "../../assets/img/search.png";
+import formatAmount from "../../hooks/formatAmount";
 export default function CategoryDetails() {
   const { id } = useParams();
   const [currency, setCurrency] = useState("₦");
@@ -46,7 +49,6 @@ export default function CategoryDetails() {
 
   useEffect(() => {
     dispatch(getServiceList(id));
- 
   }, [id]);
   return (
     <Box
@@ -157,90 +159,108 @@ export default function CategoryDetails() {
                   </div>
                 </Stack>
                 <br />
-                <Grid container spacing={4}>
-                  {service_list?.client?.map((item, index) => (
-                    <Grid key={index} item xs={12} md={6} sm={6} lg={4}>
-                      <Link
-                        onClick={() => {
-                          dispatch(
-                            updateActiveService({
-                              ...item,
-                              name: service_list?.name,
-                              description: service_list?.description,
-                            })
-                          );
-                        }}
-                        to={`/service-details/${item.artisan_id}`}
-                      >
-                        <Box
-                          sx={{
-                            boxShadow: "0px 0px 4px 2px #E6E6E640",
-                            borderRadius: "18px 18px 8px 8px",
-                            backgroundColor: "white",
+                {service_list?.client?.length === 0 ? (
+                  <Box
+                    sx={{
+                      backgroundColor: "white",
+                      textAlign: "center",
+                      py: 6,
+                    }}
+                  >
+                    <img
+                      src={EmptyImage}
+                      style={{ width: 140, height: 140 }}
+                      className="w3-image"
+                    />
+                    <br />
+                    <br />
+                    <p>No service found!</p>
+                  </Box>
+                ) : (
+                  <Grid container spacing={4}>
+                    {service_list?.client?.map((item, index) => (
+                      <Grid key={index} item xs={12} md={6} sm={6} lg={4}>
+                        <Link
+                          onClick={() => {
+                            dispatch(
+                              updateActiveService({
+                                ...item,
+                                name: service_list?.name,
+                                desc: service_list?.description,
+                              })
+                            );
                           }}
+                          to={`/service-details/${item.artisan_id}`}
                         >
-                          <div className="w3-display-container">
-                            <img
-                              src={DetailsImage}
-                              className="w3-image"
-                              style={{
-                                width: "100%",
-                                height: 270,
-                                borderRadius: "8px 8px 0 0 ",
-                              }}
-                            />
-                            <div
-                              className="w3-display-bottommiddle"
-                              style={{
-                                width: "100%",
-                                padding: "0px 10px 10px",
-                              }}
-                            >
-                              <Stack
-                                spacing={1}
-                                direction={"row"}
-                                width={"100%"}
-                                alignItems={"center"}
+                          <Box
+                            sx={{
+                              boxShadow: "0px 0px 4px 2px #E6E6E640",
+                              borderRadius: "18px 18px 8px 8px",
+                              backgroundColor: "white",
+                            }}
+                          >
+                            <div className="w3-display-container">
+                              <img
+                                src={DetailsImage}
+                                className="w3-image"
+                                style={{
+                                  width: "100%",
+                                  height: 270,
+                                  borderRadius: "8px 8px 0 0 ",
+                                }}
+                              />
+                              <div
+                                className="w3-display-bottommiddle"
+                                style={{
+                                  width: "100%",
+                                  padding: "0px 10px 10px",
+                                }}
                               >
-                                <div>
-                                  <img
-                                    src={UserImage}
-                                    className="w3-image"
-                                    style={{ width: 40, height: 40 }}
-                                  />
-                                </div>
-                                <div
-                                  style={{
-                                    fontSize: 13,
-                                    color: "white",
-                                    fontWeight: "700",
-                                    flexGrow: 1,
-                                  }}
+                                <Stack
+                                  spacing={1}
+                                  direction={"row"}
+                                  width={"100%"}
+                                  alignItems={"center"}
                                 >
-                                  ₦ {item.price_range}
-                                </div>
-                                <div>
-                                  <Button
-                                    disableElevation
-                                    sx={{
-                                      textTransform: "none",
-                                      borderRadius: 50,
-                                      height: 27,
-                                      width: 100,
-                                      fontSize: 12,
+                                  <div>
+                                    <img
+                                      src={UserImage}
+                                      className="w3-image"
+                                      style={{ width: 40, height: 40 }}
+                                    />
+                                  </div>
+                                  <div
+                                    style={{
+                                      fontSize: 13,
                                       color: "white",
-                                      backgroundColor: "#F56F46",
+                                      fontWeight: "700",
+                                      flexGrow: 1,
                                     }}
-                                    variant="contained"
                                   >
-                                    Negotiable
-                                  </Button>
-                                </div>
-                              </Stack>
+                                    ₦{formatAmount(item?.base_charge)} - ₦
+                                    {formatAmount(item?.cap_charge)}
+                                  </div>
+                                  <div>
+                                    <Button
+                                      disableElevation
+                                      sx={{
+                                        textTransform: "none",
+                                        borderRadius: 50,
+                                        height: 27,
+                                        width: 100,
+                                        fontSize: 12,
+                                        color: "white",
+                                        backgroundColor: "#F56F46",
+                                      }}
+                                      variant="contained"
+                                    >
+                                      Negotiable
+                                    </Button>
+                                  </div>
+                                </Stack>
+                              </div>
                             </div>
-                          </div>
-                          <div style={{ padding: "10px 15px 15px" }}>
-                            <Link to={`/service-details/${id}`}>
+                            <div style={{ padding: "10px 15px 15px" }}>
                               <h6
                                 style={{
                                   fontSize: 13,
@@ -248,112 +268,131 @@ export default function CategoryDetails() {
                                   color: "#292626",
                                 }}
                               >
-                                {item?.artisan}
+                                {item?.description}
                               </h6>
-                            </Link>
 
-                            <Stack
-                              spacing={0.2}
-                              direction={"row"}
-                              width={"100%"}
-                              alignItems={"center"}
-                            >
-                              {[1, 2, 3, 4, 5].map((item, index) => (
-                                <Star
-                                  key={index}
-                                  sx={{ fontSize: 20, color: "#D9D9D9" }}
+                              <Stack
+                                spacing={0.2}
+                                direction={"row"}
+                                width={"100%"}
+                                alignItems={"center"}
+                              >
+                                {/* {[1, 2, 3, 4, 5].map((item, index) => (
+                               <Star
+                                 key={index}
+                                 sx={{ fontSize: 20, color: "#D9D9D9" }}
+                               />
+                             ))} */}
+                                <Rating
+                                  name="size-small"
+                                  defaultValue={1}
+                                  readOnly
+                                  precision={0.5}
+                                  color="#D9D9D9"
+                                  value={item?.average_rating}
+                                  size="small"
+                                  emptyIcon={
+                                    <Star
+                                      style={{ opacity: 0.55 }}
+                                      fontSize="inherit"
+                                    />
+                                  }
                                 />
-                              ))}
-                            </Stack>
-                            <br />
-                            <Stack
-                              spacing={1}
-                              direction={"row"}
-                              width={"100%"}
-                              alignItems={"center"}
-                            >
-                              <IconButton
-                                aria-label="call"
-                                sx={{
-                                  color: "#1E1E1E",
-                                  border: "1px dashed #1E1E1E",
-                                  width: 28,
-                                  height: 28,
-                                }}
+                              </Stack>
+                              <br />
+                              <Stack
+                                spacing={1}
+                                direction={"row"}
+                                width={"100%"}
+                                alignItems={"center"}
                               >
-                                <PhoneInTalkOutlined sx={{ fontSize: 18 }} />
-                              </IconButton>
-                              <div
-                                style={{
-                                  fontSize: 12,
-                                  color: "#4F4F4F",
-                                  flexGrow: 1,
-                                }}
-                              >
-                                xxxxxxxxx19
-                              </div>
+                                <IconButton
+                                  aria-label="call"
+                                  sx={{
+                                    color: "#1E1E1E",
+                                    border: "1px dashed #1E1E1E",
+                                    width: 28,
+                                    height: 28,
+                                  }}
+                                >
+                                  <PhoneInTalkOutlined sx={{ fontSize: 18 }} />
+                                </IconButton>
+                                <div
+                                  style={{
+                                    fontSize: 12,
+                                    color: "#4F4F4F",
+                                    flexGrow: 1,
+                                  }}
+                                >
+                                  {item?.contact}
+                                </div>
 
-                              <div
-                                style={{
-                                  fontSize: 12,
-                                  color: "#4F4F4F",
-                                }}
-                              >
-                                {item.address}
-                              </div>
-                              <IconButton
-                                aria-label="call"
+                                <div
+                                  style={{
+                                    fontSize: 12,
+                                    color: "#4F4F4F",
+                                  }}
+                                >
+                                  {item.address}
+                                </div>
+                                <IconButton
+                                  aria-label="call"
+                                  sx={{
+                                    color: "#1E1E1E",
+                                    border: "1px dashed #1E1E1E",
+                                    width: 28,
+                                    height: 28,
+                                  }}
+                                >
+                                  <LocationOn sx={{ fontSize: 14 }} />
+                                </IconButton>
+                              </Stack>
+                            </div>
+                          </Box>
+                        </Link>
+                      </Grid>
+                    ))}
+                    <Grid item lg={12} sm={12} xs={12} md={12}>
+                      <div style={{ margin: "-40px 0 30px" }}>
+                        <Stack
+                          spacing={2}
+                          justifyContent={"center"}
+                          alignItems={"center"}
+                          width={"100%"}
+                          sx={{}}
+                        >
+                          <Pagination
+                            sx={
+                              {
+                                //   width:200
+                              }
+                            }
+                            count={2}
+                            color="primary"
+                            renderItem={(item) => (
+                              <PaginationItem
                                 sx={{
-                                  color: "#1E1E1E",
-                                  border: "1px dashed #1E1E1E",
-                                  width: 28,
-                                  height: 28,
+                                  borderRadius: 1,
+                                  border: "1px solid #CACACA",
+                                  backgroundColor: "white",
+                                  color: "#BABABA",
                                 }}
-                              >
-                                <LocationOn sx={{ fontSize: 14 }} />
-                              </IconButton>
-                            </Stack>
-                          </div>
-                        </Box>
-                      </Link>
+                                slots={{
+                                  previous: ChevronLeft,
+                                  next: ChevronRight,
+                                }}
+                                {...item}
+                              />
+                            )}
+                          />
+                        </Stack>
+                      </div>
                     </Grid>
-                  ))}
-                </Grid>
+                  </Grid>
+                )}
               </Grid>
             </Grid>
           </Box>
-
-          <div style={{ margin: "-40px 0 30px" }}>
-            <Stack
-              spacing={2}
-              justifyContent={"center"}
-              alignItems={"center"}
-              width={"100%"}
-              sx={{}}
-            >
-              <Pagination
-                sx={
-                  {
-                    //   width:200
-                  }
-                }
-                count={2}
-                color="primary"
-                renderItem={(item) => (
-                  <PaginationItem
-                    sx={{
-                      borderRadius: 1,
-                      border: "1px solid #CACACA",
-                      backgroundColor: "white",
-                      color: "#BABABA",
-                    }}
-                    slots={{ previous: ChevronLeft, next: ChevronRight }}
-                    {...item}
-                  />
-                )}
-              />
-            </Stack>
-          </div>
         </Box>
       )}
 
