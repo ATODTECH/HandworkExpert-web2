@@ -43,9 +43,9 @@ export default function Topbar({ popularServices }) {
     { title: "Agriculture", url: "/category-details/agriculture" },
   ];
   const links = [
-    { title: "About Us", route: "about-us" },
-    { title: "Contact", route: "contact" },
-    { title: "Blog", route: "blog" },
+    { title: "About Us", route: "/about-us" },
+    { title: "Contact", route: "/contact" },
+    { title: "FAQs", route: "/faq" },
   ];
   const regLinks = [
     { title: "Become an Artisan", value: "Artisan", color: "#F56F46" },
@@ -284,8 +284,10 @@ export default function Topbar({ popularServices }) {
               {links.map((item, index) => (
                 <div key={index}>
                   <Button
+                    component={Link}
+                    to={item.route}
                     sx={{
-                      color: "white",
+                      color: pathname === item.route ? "#F56F46" : "white",
                       textTransform: "none",
                       fontWeight: "600",
                     }}
@@ -310,7 +312,7 @@ export default function Topbar({ popularServices }) {
                       textTransform: "uppercase",
                       fontSize: 11,
                       fontWeight: "600",
-                      backgroundColor: "transparent",
+                      backgroundColor: "#F56F46",
                     }}
                     variant="contained"
                   >
@@ -326,11 +328,11 @@ export default function Topbar({ popularServices }) {
                     aria-haspopup="true"
                     onClick={handleToggle2}
                     sx={{
-                      color: "#172153",
+                      color: "white",
 
                       fontSize: 11,
                       fontWeight: "600",
-                      backgroundColor: "#FFFFFF",
+                      backgroundColor: "#F56F46",
                       textTransform: "none",
                       "&:hover": {
                         backgroundColor: "#F56F46",
@@ -339,7 +341,7 @@ export default function Topbar({ popularServices }) {
                     variant="contained"
                     endIcon={<ExpandMore />}
                   >
-                    {"Sign up"}
+                    {"REGISTER"}
                   </Button>
 
                   <Popper

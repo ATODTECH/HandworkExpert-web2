@@ -8,6 +8,9 @@ import { ArtisanRoutes } from "./artisanRoutes.jsx";
 
 const Index = loadable(() => import("../views/index.jsx"));
 const Home = loadable(() => import("../views/guests/home.jsx"));
+const About = loadable(() => import("../views/guests/about-us.jsx"));
+const Contact = loadable(() => import("../views/guests/contact.jsx"));
+const FAQ = loadable(() => import("../views/guests/faq.jsx"));
 const Categories = loadable(() => import("../views/guests/categories.jsx"));
 const CategoryDetails = loadable(() =>
   import("../views/guests/category-details.jsx")
@@ -38,6 +41,18 @@ export const routes = createBrowserRouter([
       {
         path: "categories",
         element: <Categories />,
+      },
+      {
+        path: "about-us",
+        element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "faq",
+        element: <FAQ />,
       },
       {
         path: "category-details/:id",
