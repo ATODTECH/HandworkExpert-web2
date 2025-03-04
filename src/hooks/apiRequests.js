@@ -3,9 +3,9 @@ import ToastMessage from "./toastMessage";
 import localforage from "localforage";
 import { extractError } from "./extract-error";
 
-export const appURL = `https://atodapi-staging.up.railway.app/`;
-export const baseURL = `https://atodapi-staging.up.railway.app/`;
-export const websiteURL = `https://atodapi-staging.up.railway.app/`;
+export const appURL = `https://atodapi.up.railway.app/`;
+export const baseURL = `https://atodapi.up.railway.app/`;
+export const websiteURL = `https://atodapi.up.railway.app/`;
 
 const redirectUser = async (response) => {
   let { origin } = window.location;
