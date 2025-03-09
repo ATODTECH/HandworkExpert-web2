@@ -1,0 +1,115 @@
+import React from "react";
+import { Box, Typography, Grid, Card, Container } from "@mui/material";
+import searchImage from "../../../assets/img/hero_2.png";
+import chooseImage from "../../../assets/img/hero_2.png";
+import bookImage from "../../../assets/img/hero_2.png";
+import doneImage from "../../../assets/img/hero_2.png";
+
+const HowItWorks = () => {
+  const steps = [
+    {
+      title: "Search for a service",
+      description: "Browse through various artisans categories",
+      image: searchImage,
+    },
+    {
+      title: "Choose a skilled professional",
+      description: "View artisan profile, reviews and ratings",
+      image: chooseImage,
+    },
+    {
+      title: "Book and pay securely",
+      description: "Schedule your services with confidence",
+      image: bookImage,
+    },
+    {
+      title: "Get the job done",
+      description: "Sit back while the expert handles the work",
+      image: doneImage,
+    },
+  ];
+
+  return (
+    <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Typography
+        variant="h2"
+        component="h2"
+        align="center"
+        gutterBottom
+        sx={{
+          color: "#F85A2B",
+          fontWeight: 500,
+          mb: 6,
+          fontSize: { xs: "2.5rem", md: "2.8rem" },
+        }}
+      >
+        How It Works
+      </Typography>
+
+      <Grid container spacing={3}>
+        {steps.map((step, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Card
+              elevation={0}
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid #e0e0e0",
+                borderRadius: "16px",
+                overflow: "hidden",
+                transition: "transform 0.3s ease-in-out",
+                p: 1.5, // Added padding around the entire card content
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  mb: 2, // Margin bottom for spacing between image and text
+                  height: "200px",
+                }}
+              >
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
+              </Box>
+              <Box sx={{ flexGrow: 1 }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h3"
+                  sx={{
+                    fontWeight: 600,
+                    fontSize: "1.05rem",
+                    mb: 1,
+                  }}
+                >
+                  {step.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ fontSize: "0.93rem" }}
+                >
+                  {step.description}
+                </Typography>
+              </Box>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
+};
+
+export default HowItWorks;
