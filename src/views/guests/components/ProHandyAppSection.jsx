@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Button,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Typography, Container, useMediaQuery } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
-import AppleIcon from "@mui/icons-material/Apple";
-import AndroidIcon from "@mui/icons-material/Android";
 import PhoneImage from "../../../assets/img/phones-image.png";
+import GooglePlay from "../../../assets/img/google-play.png";
+import AppStore from "../../../assets/img/apple-store.png";
 
 // Custom styled components
 const SectionContainer = styled(Container)(({ theme }) => ({
@@ -54,24 +48,6 @@ const SubHeading = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const StoreButton = styled(Button)(({ theme }) => ({
-  borderRadius: 12,
-  padding: theme.spacing(1.5, 3),
-  textTransform: "none",
-  boxShadow: theme.shadows[2],
-  marginRight: theme.spacing(2),
-  marginBottom: theme.spacing(2),
-  backgroundColor: theme.palette.background.paper,
-  color: theme.palette.text.primary,
-  "&:hover": {
-    backgroundColor: theme.palette.grey[100],
-    boxShadow: theme.shadows[4],
-  },
-  "& .MuiButton-startIcon": {
-    marginRight: theme.spacing(1),
-  },
-}));
-
 const ProHandyAppSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -98,14 +74,29 @@ const ProHandyAppSection = () => {
           Book services on the go. Faster, easier, and more convenient.
         </SubHeading>
 
-        <Box>
-          <StoreButton variant="contained" startIcon={<AppleIcon />}>
-            Download on App Store
-          </StoreButton>
+        <Box sx={{ display: "flex", gap: 1, flexDirection: "row" }}>
+          <Box
+            component="img"
+            src={AppStore}
+            alt="Professional worker with safety equipment"
+            sx={{
+              // width: isMobile ? "100%" : "100%",
+              width: 200,
+              height: "auto",
+              cursor: "pointer",
+            }}
+          />
 
-          <StoreButton variant="contained" startIcon={<AndroidIcon />}>
-            Download on Google Play
-          </StoreButton>
+          <Box
+            component="img"
+            src={GooglePlay}
+            alt="Professional worker with safety equipment"
+            sx={{
+              // width: isMobile ? "100%" : "100%",
+              width: 200,
+              height: "auto",
+            }}
+          />
         </Box>
       </ContentContainer>
     </SectionContainer>

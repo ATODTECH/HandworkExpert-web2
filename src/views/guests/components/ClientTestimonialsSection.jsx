@@ -93,6 +93,9 @@ const QuoteText = styled(Typography)(({ theme }) => ({
   lineHeight: 1.6,
   position: "relative",
   paddingLeft: theme.spacing(1),
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+  },
 }));
 
 const QuotationMark = styled(Typography)(({ theme }) => ({
@@ -111,12 +114,16 @@ const NavigationButtons = styled(Box)(({ theme }) => ({
 }));
 
 const NavButton = styled(IconButton)(({ theme }) => ({
-  backgroundColor: "#1a237e",
+  backgroundColor: "#13183F",
   color: "white",
   "&:hover": {
-    backgroundColor: "#0d1752",
+    backgroundColor: "white",
+    color: "#232958",
+    border: "2px solid #232958",
   },
-  padding: 8,
+  width: 44,
+  height: 44,
+  borderRadius: "8px",
 }));
 
 const ClientTestimonialsSection = () => {

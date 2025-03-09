@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Typography, Grid, Card, Container } from "@mui/material";
-import searchImage from "../../../assets/img/hero_2.png";
-import chooseImage from "../../../assets/img/hero_2.png";
-import bookImage from "../../../assets/img/hero_2.png";
-import doneImage from "../../../assets/img/hero_2.png";
+import searchImage from "../../../assets/img/work_1.png";
+import chooseImage from "../../../assets/img/work_2.png";
+import bookImage from "../../../assets/img/work_3.png";
+import doneImage from "../../../assets/img/work_4.png";
 
 const HowItWorks = () => {
   const steps = [
@@ -38,9 +38,9 @@ const HowItWorks = () => {
         gutterBottom
         sx={{
           color: "#F85A2B",
-          fontWeight: 500,
+          fontWeight: 600,
           mb: 6,
-          fontSize: { xs: "2.5rem", md: "2.8rem" },
+          fontSize: { xs: "2.2rem", md: "2.1rem" },
         }}
       >
         How It Works
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                 borderRadius: "16px",
                 overflow: "hidden",
                 transition: "transform 0.3s ease-in-out",
-                p: 1.5, // Added padding around the entire card content
+                p: 1.3, // Added padding around the entire card content
                 "&:hover": {
                   transform: "translateY(-5px)",
                 },
