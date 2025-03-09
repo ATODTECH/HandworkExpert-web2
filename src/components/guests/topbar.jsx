@@ -583,7 +583,7 @@ export default function Topbar({ popularServices }) {
                         variant="contained"
                         endIcon={<ExpandMore />}
                       >
-                        {"REGISTER"}
+                        {"SIGN UP"}
                       </Button>
 
                       <Popper

@@ -73,12 +73,18 @@ const ClientNameWrapper = styled(Box)(({ theme }) => ({
 const ClientNameWhite = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
   fontSize: "1.75rem",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+  },
   color: "white",
 }));
 
 const ClientNameBlue = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
   fontSize: "1.75rem",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+  },
   color: "#1a237e",
 }));
 
