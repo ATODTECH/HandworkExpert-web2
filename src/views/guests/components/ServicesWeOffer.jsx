@@ -3,29 +3,54 @@ import {
   Box,
   Typography,
   Container,
-  Grid,
+  Stack,
   IconButton,
   useMediaQuery,
   useTheme,
+  Button,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-// Import your images
+// Import images
 import plumbingImage from "../../../assets/img/services_we_offer.png";
 import carpentryImage from "../../../assets/img/services_we_offer.png";
 import electricalImage from "../../../assets/img/services_we_offer.png";
+
+// Custom styled components
+const StyledButton = styled(Button)(({ theme }) => ({
+  backgroundColor: "#1a237e",
+  color: "white",
+  padding: "10px 20px",
+  textTransform: "none",
+  "&:hover": {
+    backgroundColor: "#0d1752",
+  },
+  borderRadius: 4,
+}));
+
+const SecondaryButton = styled(Button)(({ theme }) => ({
+  color: "#000",
+  textTransform: "none",
+  fontWeight: 500,
+}));
+
+const MainHeading = styled(Typography)(({ theme }) => ({
+  fontWeight: 600,
+  color: "#F85A2B",
+  marginBottom: theme.spacing(2),
+}));
 
 const ServicesWeOffer = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  // Services data
   const services = [
     {
       title: "Plumbing",
       description:
-        "Leak repairs, pip installations, tank replacement and more.",
+        "Leak repairs, pipe installations, tank replacement and more.",
       image: plumbingImage,
     },
     {
@@ -54,59 +79,43 @@ const ServicesWeOffer = () => {
 
   return (
     <Container maxWidth="xl" sx={{ py: 8 }}>
-      <Grid container spacing={4} alignItems="center">
-        {/* Left side - overlapping images */}
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              position: "relative",
-              height: { xs: "350px", md: "485px" },
-              width: "90%",
-              //   maxWidth: "300px",
-              //   width: "600px",
-            }}
-          >
-            {/* Main image - front layer */}
-            <Box
-              sx={{
-                position: "absolute",
-                top: { xs: "0%", md: "0%" },
-                left: { xs: "15%", md: "15%" },
-                width: "90%",
-                // height: "100%",
-                // borderRadius: "24px",
-                overflow: "hidden",
-                zIndex: 3,
-                // boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-              }}
-            >
-              <img
-                src={services[currentService].image}
-                alt={services[currentService].title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </Box>
-          </Box>
-        </Grid>
-
-        {/* Right side - Service description and navigation */}
-        <Grid
-          item
-          xs={12}
-          md={6}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: "center",
+          // justifyContent: "space-between",
+          gap: { xs: 4, md: 8 },
+          position: "relative",
+          px: { xs: 0, md: 10 },
+        }}
+      >
+        {/* Left Side - Image */}
+        <Box
           sx={{
+            width: isMobile ? "100%" : "50%",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
-            pl: { md: 6 },
+            mb: isMobile ? 4 : 0,
           }}
         >
-          <Typography
-            variant="h2"
+          <Box
+            component="img"
+            src={services[currentService].image}
+            alt={services[currentService].title}
+            sx={{
+              width: "90%",
+              height: "auto",
+              position: "relative",
+              zIndex: 1,
+            }}
+          />
+        </Box>
+
+        {/* Right Side - Content */}
+        <Box sx={{ maxWidth: isMobile ? "100%" : "45%" }}>
+          <MainHeading
+            variant="h3"
             sx={{
               color: "#F85A2B",
               fontWeight: 600,
@@ -115,8 +124,7 @@ const ServicesWeOffer = () => {
             }}
           >
             Services We Offer
-          </Typography>
-
+          </MainHeading>
           <Typography
             variant="h4"
             sx={{
@@ -128,11 +136,10 @@ const ServicesWeOffer = () => {
           >
             {services[currentService].title}
           </Typography>
-
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "1.1rem", md: "1.2rem" },
+              fontSize: { xs: "1.1rem", md: "1.24rem" },
               mb: 2.5,
               color: "#555",
               lineHeight: 1.5,
@@ -141,8 +148,8 @@ const ServicesWeOffer = () => {
             {services[currentService].description}
           </Typography>
 
-          {/* Navigation buttons */}
-          <Box sx={{ display: "flex", gap: 1.5 }}>
+          {/* Navigation Buttons */}
+          <Box sx={{ display: "flex", gap: 1.5, mt: 3 }}>
             <IconButton
               onClick={handlePrev}
               sx={{
@@ -175,8 +182,8 @@ const ServicesWeOffer = () => {
               <ArrowForwardIcon fontSize="small" />
             </IconButton>
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Container>
   );
 };

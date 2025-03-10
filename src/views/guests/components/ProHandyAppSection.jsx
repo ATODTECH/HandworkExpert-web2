@@ -8,7 +8,7 @@ import AppStore from "../../../assets/img/apple-store.png";
 
 // Custom styled components
 const SectionContainer = styled(Container)(({ theme }) => ({
-  padding: theme.spacing(10, 2),
+  padding: theme.spacing(5, 2),
   display: "flex",
   gap: theme.spacing(10),
   alignItems: "center",
@@ -80,7 +80,6 @@ const ProHandyAppSection = () => {
             src={AppStore}
             alt="Professional worker with safety equipment"
             sx={{
-              // width: isMobile ? "100%" : "100%",
               width: 200,
               height: "auto",
               cursor: "pointer",
@@ -92,7 +91,6 @@ const ProHandyAppSection = () => {
             src={GooglePlay}
             alt="Professional worker with safety equipment"
             sx={{
-              // width: isMobile ? "100%" : "100%",
               width: 200,
               height: "auto",
             }}

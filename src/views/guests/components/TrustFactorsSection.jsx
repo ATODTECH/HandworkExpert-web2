@@ -56,7 +56,13 @@ const TrustFactorsSection = () => {
         Services Guaranteed And Trust Factors
       </SectionTitle>
 
-      <Grid container spacing={5}>
+      <Grid
+        container
+        spacing={5}
+        sx={{
+          px: { xs: 0, md: 10 },
+        }}
+      >
         {/* Background Checked Card */}
         <Grid item xs={12} md={4}>
           <TrustFactorCard>

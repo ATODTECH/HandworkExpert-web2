@@ -46,8 +46,9 @@ const JoinAsArtisan = () => {
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
           alignItems: "center",
-          justifyContent: "space-between",
           position: "relative",
+          px: { xs: 0, md: 10 },
+          gap: { xs: 4, md: 8 },
         }}
       >
         {/* Left Content Section */}
@@ -69,9 +70,9 @@ const JoinAsArtisan = () => {
             sx={{
               fontWeight: 400,
               mb: 2.5,
-              fontSize: { xs: "1.8rem", md: "1.5rem" },
+              fontSize: { xs: "1.6rem", md: "1.5rem" },
               color: "#333",
-              width: "65%",
+              width: "100%",
               lineHeight: 1.6,
             }}
           >
@@ -85,12 +86,8 @@ const JoinAsArtisan = () => {
               sx={{
                 backgroundColor: "#172153",
                 color: "white",
-                // py: 1.5,
-                // px: 3,
                 borderRadius: "4px",
-                // textTransform: "none",
                 fontWeight: 600,
-                // fontSize: "1rem",
                 "&:hover": {
                   backgroundColor: "#232958",
                 },
@@ -100,8 +97,6 @@ const JoinAsArtisan = () => {
             </StyledButton>
             <SecondaryButton
               sx={{
-                // color: "#333",
-                // textTransform: "none",
                 fontWeight: 600,
                 fontSize: "1rem",
                 "&:hover": {
@@ -124,34 +119,16 @@ const JoinAsArtisan = () => {
             justifyContent: "flex-end",
           }}
         >
-          {/* Decorative element - light gray rectangle */}
-          {/* <Box
-            sx={{
-              width: "90%",
-              height: "90%",
-              position: "absolute",
-              right: -20,
-              top: -40,
-              border: "1px solid #e0e0e0",
-              borderRadius: "12px",
-              zIndex: 0,
-            }}
-          /> */}
-
           {/* Main image */}
           <Box
             component="img"
-            // src="/path/to/your/craftspeople-image.jpg" // Replace with your actual image path
             src={BgImage}
             alt="Skilled professionals working as artisans"
             sx={{
-              //   maxWidth: "100%",
               width: "90%",
               height: "auto",
-              //   borderRadius: "12px",
               position: "relative",
               zIndex: 1,
-              //   boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
             }}
           />
         </Box>

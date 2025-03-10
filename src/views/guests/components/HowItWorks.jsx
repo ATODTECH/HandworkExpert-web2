@@ -70,7 +70,8 @@ const HowItWorks = () => {
                   borderRadius: "12px",
                   overflow: "hidden",
                   mb: 2, // Margin bottom for spacing between image and text
-                  height: "200px",
+                  // height: "200px",
+                  height: "auto",
                 }}
               >
                 <img
