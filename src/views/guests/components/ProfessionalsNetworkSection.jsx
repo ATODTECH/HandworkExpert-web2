@@ -12,13 +12,18 @@ import ProImage from "../../../assets/img/professional-image.png";
 
 // Custom styled components
 const SectionContainer = styled(Container)(({ theme }) => ({
-  padding: theme.spacing(10, 2),
+  padding: theme.spacing(5, 2),
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
+  border: "1px solid #000000",
+  borderRadius: "8px",
+  marginBottom: theme.spacing(8),
+  marginTop: theme.spacing(4),
   [theme.breakpoints.down("md")]: {
     flexDirection: "column-reverse",
     textAlign: "center",
+    maxWidth: "calc(100% - 32px)",
   },
 }));
 
@@ -115,7 +120,6 @@ const ProfessionalsNetworkSection = () => {
       <ImageContainer>
         <Box
           component="img"
-          //   src="/path/to/your/professional-image.png" // Replace with your actual image path
           src={ProImage}
           alt="Professional worker with safety equipment"
           sx={{
