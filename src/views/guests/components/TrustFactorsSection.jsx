@@ -43,6 +43,9 @@ const CardTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
   fontSize: "1.2rem",
   marginBottom: theme.spacing(2),
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1.4rem",
+  },
 }));
 
 const CardDescription = styled(Typography)(({ theme }) => ({

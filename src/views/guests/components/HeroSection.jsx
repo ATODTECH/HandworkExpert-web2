@@ -367,11 +367,48 @@ const HeroSection = () => {
         </Grid>
 
         {/* Navigation dots */}
-        <Box
+        {/* <Box
           sx={{
             position: "absolute",
             bottom: "5%",
             left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: 1,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "10px",
+            zIndex: 10,
+          }}
+        >
+          {heroImages.map((_, index) => (
+            <Box
+              key={index}
+              component={motion.div}
+              whileHover={{ scale: 1.2 }}
+              onClick={() => handleDotClick(index)}
+              sx={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                bgcolor: index === currentIndex ? "#FF7043" : "#ccc",
+                cursor: "pointer",
+                transition: "background-color 0.3s ease",
+                display: "inline-block",
+                "&:hover": {
+                  bgcolor: index === currentIndex ? "#FF7043" : "#aaa",
+                },
+              }}
+            />
+          ))}
+        </Box> */}
+        {/* Navigation dots */}
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: { xs: "5%", md: isMobile ? "5%" : "23%" },
+            left: { xs: "50%", md: isMobile ? "50%" : "69.1%" },
             transform: "translateX(-50%)",
             display: "flex",
             gap: 1,

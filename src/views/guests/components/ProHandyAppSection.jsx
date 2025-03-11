@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import PhoneImage from "../../../assets/img/phones-image.png";
 import GooglePlay from "../../../assets/img/google-play.png";
 import AppStore from "../../../assets/img/apple-store.png";
+import ToastMessage from "../../../hooks/toastMessage";
 
 // Custom styled components
 const SectionContainer = styled(Container)(({ theme }) => ({
@@ -15,13 +16,13 @@ const SectionContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     textAlign: "center",
+    gap: theme.spacing(5),
   },
 }));
 
 const PhoneContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     marginRight: 0,
-    marginBottom: theme.spacing(6),
   },
 }));
 
@@ -51,6 +52,10 @@ const SubHeading = styled(Typography)(({ theme }) => ({
 const ProHandyAppSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleDownloadClick = (store) => {
+    ToastMessage("info", `${store} - Coming Soon!`);
+  };
 
   return (
     <SectionContainer maxWidth="lg">
@@ -84,6 +89,7 @@ const ProHandyAppSection = () => {
               height: "auto",
               cursor: "pointer",
             }}
+            onClick={() => handleDownloadClick("App Store")}
           />
 
           <Box
@@ -93,7 +99,9 @@ const ProHandyAppSection = () => {
             sx={{
               width: 200,
               height: "auto",
+              cursor: "pointer",
             }}
+            onClick={() => handleDownloadClick("Google Play")}
           />
         </Box>
       </ContentContainer>

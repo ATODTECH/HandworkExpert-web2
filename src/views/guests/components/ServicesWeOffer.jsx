@@ -139,7 +139,7 @@ const ServicesWeOffer = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "1.1rem", md: "2rem" },
+              fontSize: { xs: "1.49rem", md: "2rem" },
               mb: 2.5,
               color: "#292626",
               fontWeight: 400,

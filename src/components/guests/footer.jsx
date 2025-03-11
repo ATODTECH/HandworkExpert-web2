@@ -1,14 +1,7 @@
 import {
-  FacebookOutlined,
-  Instagram,
-  Telegram,
-  YouTube,
-} from "@mui/icons-material";
-import {
   Box,
   Grid,
   Stack,
-  Button,
   List,
   ListItem,
   ListItemButton,
@@ -33,7 +26,7 @@ export default function Footer() {
       item: [
         { title: "About Us", url: "" },
         { title: "Contact Us", url: "" },
-        { title: "Artisan’s Attic Reports", url: "" },
+        { title: "Artisan's Attic Reports", url: "" },
         { title: "FAQ", url: "" },
       ],
     },
@@ -42,16 +35,32 @@ export default function Footer() {
       item: [
         { title: "About Us", url: "" },
         { title: "Contact", url: "" },
-        { title: "Artisan’s Attic Reports", url: "" },
+        { title: "Artisan's Attic Reports", url: "" },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: FacebookOutlined, url: "https://facebook.com" },
-    { icon: Telegram, url: "https://t.me" },
-    { icon: Instagram, url: "https://instagram.com" },
-    { icon: YouTube, url: "https://youtube.com" },
+    {
+      icon: "/icons/facebook.png",
+      url: "https://facebook.com",
+      alt: "Facebook",
+    },
+    {
+      icon: "/icons/telegram.png",
+      url: "https://t.me",
+      alt: "Telegram",
+    },
+    {
+      icon: "/icons/instagram.png",
+      url: "https://instagram.com",
+      alt: "Instagram",
+    },
+    {
+      icon: "/icons/youtube.png",
+      url: "https://youtube.com",
+      alt: "YouTube",
+    },
   ];
 
   return (
@@ -109,16 +118,20 @@ export default function Footer() {
                 {socialLinks.map((item, index) => (
                   <IconButton
                     key={index}
-                    aria-label="link"
+                    aria-label={item.alt}
                     component={Link}
                     href={item.url}
                     target="_blank"
                     sx={{
-                      backgroundColor: "white",
-                      borderRadius: 2,
+                      width: 40,
+                      height: 40,
                     }}
                   >
-                    <item.icon sx={{ color: "#000000", fontSize: 22 }} />
+                    <img
+                      src={item.icon}
+                      alt={item.alt}
+                      style={{ width: 32, height: 30 }}
+                    />
                   </IconButton>
                 ))}
               </Stack>
