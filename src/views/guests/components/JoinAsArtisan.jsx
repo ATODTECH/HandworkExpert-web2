@@ -59,7 +59,7 @@ const JoinAsArtisan = () => {
               color: "#F85A2B",
               fontWeight: 600,
               mb: 2.5,
-              fontSize: { xs: "2.2rem", md: "2.1rem" },
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             Join As as Artisan
@@ -70,7 +70,7 @@ const JoinAsArtisan = () => {
             sx={{
               fontWeight: 400,
               mb: 2.5,
-              fontSize: { xs: "1.6rem", md: "1.5rem" },
+              fontSize: { xs: "1.6rem", md: "2rem" },
               color: "#333",
               width: "100%",
               lineHeight: 1.6,

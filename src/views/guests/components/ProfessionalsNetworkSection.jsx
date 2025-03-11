@@ -16,8 +16,8 @@ const SectionContainer = styled(Container)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  border: "1px solid #000000",
-  borderRadius: "8px",
+  // border: "1px solid #000000",
+  // borderRadius: "8px",
   marginBottom: theme.spacing(8),
   marginTop: theme.spacing(4),
   [theme.breakpoints.down("md")]: {

@@ -40,7 +40,7 @@ const HowItWorks = () => {
           color: "#F85A2B",
           fontWeight: 600,
           mb: 6,
-          fontSize: { xs: "2.2rem", md: "2.1rem" },
+          fontSize: { xs: "2rem", md: "3rem" },
         }}
       >
         How It Works
@@ -91,7 +91,8 @@ const HowItWorks = () => {
                   component="h3"
                   sx={{
                     fontWeight: 600,
-                    fontSize: "1.05rem",
+                    // fontSize: "1.13rem",
+                    fontSize: { xs: "1.5rem", md: "1.13rem" },
                     mb: 1,
                   }}
                 >
@@ -99,8 +100,15 @@ const HowItWorks = () => {
                 </Typography>
                 <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ fontSize: "0.93rem" }}
+                  // color="text.secondary"
+                  color="#292626"
+                  sx={{
+                    // fontSize: "15px",
+                    // fontSize: "1.1rem",
+                    fontSize: { xs: "1.2rem", md: "1.2rem" },
+                    fontWeight: 500,
+                    wordWrap: "break-word",
+                  }}
                 >
                   {step.description}
                 </Typography>

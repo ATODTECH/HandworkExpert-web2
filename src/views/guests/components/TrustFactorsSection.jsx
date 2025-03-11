@@ -33,7 +33,10 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   color: "#ff6f43",
   textAlign: "center",
   marginBottom: theme.spacing(5),
-  fontSize: "2.1rem",
+  fontSize: "3rem",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "2rem",
+  },
 }));
 
 const CardTitle = styled(Typography)(({ theme }) => ({

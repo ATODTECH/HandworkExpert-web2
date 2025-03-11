@@ -31,10 +31,10 @@ const ContentContainer = styled(Box)(({ theme }) => ({
 
 const MainHeading = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
-  fontSize: "2.1rem",
+  fontSize: "3rem",
   marginBottom: theme.spacing(3),
   [theme.breakpoints.down("md")]: {
-    fontSize: "2.5rem",
+    fontSize: "2rem",
   },
 }));
 

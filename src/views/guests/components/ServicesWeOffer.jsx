@@ -120,7 +120,7 @@ const ServicesWeOffer = () => {
               color: "#F85A2B",
               fontWeight: 600,
               mb: 2.5,
-              fontSize: { xs: "2.2rem", md: "2.1rem" },
+              fontSize: { xs: "2.2rem", md: "3rem" },
             }}
           >
             Services We Offer
@@ -130,7 +130,7 @@ const ServicesWeOffer = () => {
             sx={{
               fontWeight: 500,
               mb: 2.5,
-              fontSize: { xs: "1.8rem", md: "1.7rem" },
+              fontSize: { xs: "1.8rem", md: "2rem" },
               color: "#333",
             }}
           >
@@ -139,9 +139,10 @@ const ServicesWeOffer = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "1.1rem", md: "1.24rem" },
+              fontSize: { xs: "1.1rem", md: "2rem" },
               mb: 2.5,
-              color: "#555",
+              color: "#292626",
+              fontWeight: 400,
               lineHeight: 1.5,
             }}
           >
