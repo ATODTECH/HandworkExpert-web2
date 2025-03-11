@@ -11,6 +11,9 @@ import ScreenLoading from "./components/loaders/screenLoading.jsx";
 import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: '"Abrade", sans-serif',
+  },
   palette: {
     primary: {
       main: "#172153",

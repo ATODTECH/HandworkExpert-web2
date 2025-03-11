@@ -11,6 +11,9 @@
 // import BgImage from "../../../assets/img/home-bg.png";
 // import Hero_1 from "../../../assets/img/hero_1.png";
 // import Hero_2 from "../../../assets/img/hero_2.png";
+// import Hero_3 from "../../../assets/img/hero_3.png";
+// import Hero_4 from "../../../assets/img/hero_4.png";
+// import Hero_5 from "../../../assets/img/hero_5.png";
 
 // // You'll need to import more hero images or create placeholders
 // const heroImages = [
@@ -23,28 +26,28 @@
 //   },
 //   {
 //     main: Hero_2,
-//     secondary: Hero_1,
+//     secondary: Hero_3,
 //     title: "Electrician",
 //     description:
 //       "Professional electricians to handle all your electrical needs, from installation to repair, ensuring safety and efficiency in your home.",
 //   },
 //   {
-//     main: Hero_1,
-//     secondary: Hero_2,
+//     main: Hero_3,
+//     secondary: Hero_4,
 //     title: "Carpenter",
 //     description:
 //       "Skilled carpenters ready to transform your space with custom woodwork, furniture repair, and installation services.",
 //   },
 //   {
-//     main: Hero_2,
-//     secondary: Hero_1,
+//     main: Hero_4,
+//     secondary: Hero_5,
 //     title: "Painter",
 //     description:
 //       "Expert painters who deliver flawless finishes for your interior and exterior spaces, bringing your vision to life with precision.",
 //   },
 //   {
-//     main: Hero_1,
-//     secondary: Hero_2,
+//     main: Hero_5,
+//     secondary: Hero_1,
 //     title: "Gardener",
 //     description:
 //       "Professional gardeners to maintain and beautify your outdoor spaces, from lawn care to landscaping and garden design.",
@@ -75,7 +78,7 @@
 //     <Box
 //       sx={{
 //         position: "relative",
-//         height: "90vh",
+//         height: "88.5vh",
 //         overflow: "hidden",
 //       }}
 //     >
@@ -136,7 +139,7 @@
 //                   fontWeight: 500,
 //                   mb: 1,
 //                   color: "white",
-//                   fontSize: { xs: "2.5rem", md: "3.3rem" },
+//                   fontSize: { xs: "2.5rem", md: "4.31rem" },
 //                 }}
 //               >
 //                 Connecting You With Professional
@@ -162,6 +165,7 @@
 //                   mb: 4,
 //                   color: "white",
 //                   maxWidth: "90%",
+//                   fontSize: { xs: "1.2rem", md: "1.5rem" },
 //                   lineHeight: 1.6,
 //                   fontWeight: 400,
 //                   transition: "opacity 0.5s ease",
@@ -204,7 +208,7 @@
 //               <Box
 //                 sx={{
 //                   position: "absolute",
-//                   right: "29%",
+//                   right: "30%",
 //                   bottom: "18%", // Position from bottom instead of top
 //                   width: "250px",
 //                   height: "270px",
