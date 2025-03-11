@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography, Grid, Card, Container } from "@mui/material";
-// import searchImage from "../../../assets/img/work_1.png";
-// import chooseImage from "../../../assets/img/work_2.png";
-// import bookImage from "../../../assets/img/work_3.png";
+import searchImage from "../../../assets/img/work_1.png";
+import chooseImage from "../../../assets/img/work_2.png";
+import bookImage from "../../../assets/img/work_3.png";
 import doneImage from "../../../assets/img/work_4.png";
 
 const HowItWorks = () => {
@@ -10,20 +10,17 @@ const HowItWorks = () => {
     {
       title: "Search for a service",
       description: "Browse through various artisans categories",
-      // image: searchImage,
-      image: "/assets/img/work_1.png",
+      image: searchImage,
     },
     {
       title: "Choose a skilled professional",
       description: "View artisan profile, reviews and ratings",
-      // image: chooseImage,
-      image: "/assets/img/work_2.png",
+      image: chooseImage,
     },
     {
       title: "Book and pay securely",
       description: "Schedule your services with confidence",
-      // image: bookImage,
-      image: "/assets/img/work_3.png",
+      image: bookImage,
     },
     {
       title: "Get the job done",
