@@ -33,9 +33,9 @@ export default function ArtisanIndex() {
       return navigate("/", { replace: true });
     }
 
-    if (user?.role !== "ARTISAN") return navigate(-1, { replace: true });
+    if (user?.role !== "ADMIN") return navigate(-1, { replace: true });
 
-    if (user?.role === "ARTISAN" && !user?.onboardingComplete) {
+    if (user?.role === "ADMIN" && !user?.onboardingComplete) {
       return navigate("/artisan/onboarding", { replace: true });
     }
   }, []);

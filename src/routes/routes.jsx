@@ -5,6 +5,7 @@ import Error from "../views/error/error.jsx";
 import NotFound from "../views/error/notFound.jsx";
 import { UserRoutes } from "./userRoutes.jsx";
 import { ArtisanRoutes } from "./artisanRoutes.jsx";
+import { AdminRoutes  } from "./adminRoutes.jsx";
 
 const Index = loadable(() => import("../views/index.jsx"));
 const Home = loadable(() => import("../views/guests/home.jsx"));
@@ -72,6 +73,7 @@ export const routes = createBrowserRouter([
       },
       ...UserRoutes,
       ...ArtisanRoutes,
+      ...AdminRoutes,
       {
         path: "*",
         element: <NotFound />,
