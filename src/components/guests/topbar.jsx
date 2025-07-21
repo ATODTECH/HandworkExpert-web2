@@ -268,7 +268,7 @@ export default function Topbar({ popularServices }) {
         </ListItem>
         <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            {popularServices.map((service, index) => (
+            {(popularServices || []).map((service, index) => (
               <ListItem
                 key={index}
                 component={Link}

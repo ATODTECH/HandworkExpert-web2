@@ -1,9 +1,7 @@
 import { Box, Grid } from "@mui/material";
-import Activity from "./activity";
 import Appointments from "./appointment";
 import RecentBooking from "./recent-booking";
 import Stats from "./stat";
-import Payment from "./payment";
 
 export default function Dashboard() {
   return (
@@ -16,11 +14,7 @@ export default function Dashboard() {
           <br />
           <RecentBooking />
         </Grid>
-        <Grid item xs={12} sm={4} md={4} lg={4}>
-            <Activity/>
-            <br/>
-            <Payment/>
-        </Grid>
+        {/* Right section removed based on your instruction */}
       </Grid>
     </Box>
   );
