@@ -22,6 +22,9 @@ const ServiceDetails = loadable(() =>
 const BookService = loadable(() =>
   import("../views/guests/bookings/book-service.jsx")
 );
+const PrivacyPolicy = loadable(() =>
+  import("../views/guests/privacy-policy.jsx")
+);
 
 export const CustomError = () => {
   const error = useRouteError();
@@ -70,6 +73,10 @@ export const routes = createBrowserRouter([
       {
         path: "book-service/:id",
         element: <BookService />,
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicy />,
       },
       ...UserRoutes,
       ...ArtisanRoutes,

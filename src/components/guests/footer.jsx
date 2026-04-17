@@ -161,7 +161,7 @@ export default function Footer() {
                   color: "white",
                 }}
               >
-                <Link to={"/privacy"}>Privacy Policy</Link>
+                <Link to={"/privacy-policy"}>Privacy Policy</Link>
               </div>
               <div
                 style={{
