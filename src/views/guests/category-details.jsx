@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Box,
   CssBaseline,
@@ -57,6 +58,11 @@ export default function CategoryDetails() {
         minHeight: "100vh",
       }}
     >
+      <SEOHead
+        title={category ? `${category} Artisans` : "Find Artisans"}
+        description={`Browse and book verified ${category || "service"} artisans on Handwork Expert. Compare profiles, ratings, and prices to find the best professional near you.`}
+        canonical={`/category-details/${id}`}
+      />
       <Topbar popularServices={service_category} />
       <CssBaseline />
 

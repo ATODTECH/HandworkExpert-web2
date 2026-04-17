@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Box,
   CssBaseline,
@@ -84,6 +85,11 @@ export default function FAQ() {
         backgroundColor: "#fcfcfc",
       }}
     >
+      <SEOHead
+        title="Frequently Asked Questions"
+        description="Find answers to the most common questions about Handwork Expert — how to book artisans, payment methods, verification, and more."
+        canonical="/faq"
+      />
       <Topbar popularServices={popularServices} />
       <CssBaseline />
       <Hero

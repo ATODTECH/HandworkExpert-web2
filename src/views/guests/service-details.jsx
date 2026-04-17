@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Circle,
   LocationOn,
@@ -49,6 +50,12 @@ export default function ServiceDetails() {
   }, [active]);
   return (
     <Box>
+      <SEOHead
+        title={activeService?.business_name ? `${activeService.business_name} — Artisan Profile` : "Artisan Profile"}
+        description={`Book ${activeService?.business_name || "this artisan"} on Handwork Expert. View services offered, reviews, pricing, and availability.`}
+        canonical={`/service-details/${activeService?.id}`}
+        type="profile"
+      />
       <Topbar popularServices={service_category} />
       <Box
         sx={{

@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Box,
   CssBaseline,
@@ -39,6 +40,11 @@ export default function Categories() {
         minHeight: "100vh",
       }}
     >
+      <SEOHead
+        title="Browse Service Categories"
+        description="Explore all service categories on Handwork Expert — from plumbing and electrical to carpentry, painting, and more. Find the right artisan for any job."
+        canonical="/categories"
+      />
       <Topbar />
       <CssBaseline />
       <Box

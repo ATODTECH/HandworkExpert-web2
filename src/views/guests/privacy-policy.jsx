@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Box,
   CssBaseline,
@@ -245,6 +246,12 @@ export default function PrivacyPolicy() {
 
   return (
     <Box sx={{ backgroundColor: "#f5f7fb", minHeight: "100vh" }}>
+      <SEOHead
+        title="Privacy Policy"
+        description="Read the Handwork Expert Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with the Nigeria Data Protection Act (NDPA 2023)."
+        canonical="/privacy-policy"
+        noIndex={false}
+      />
       <Topbar popularServices={popularServices} />
       <CssBaseline />
 

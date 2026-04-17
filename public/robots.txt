@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block authenticated/dashboard routes from indexing
+Disallow: /user/
+Disallow: /artisan/
+Disallow: /admin/
+
+Sitemap: https://www.handworkexpert.com/sitemap.xml

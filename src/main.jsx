@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import ScreenLoading from "./components/loaders/screenLoading.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import { HelmetProvider } from "react-helmet-async";
 
 const theme = createTheme({
   typography: {
@@ -23,13 +24,15 @@ const theme = createTheme({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<ScreenLoading />} persistor={persistor}>
-        <ToastContainer />
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <PersistGate loading={<ScreenLoading />} persistor={persistor}>
+          <ToastContainer />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );

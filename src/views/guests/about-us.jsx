@@ -1,6 +1,7 @@
 import { Box, CssBaseline, Grid, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import Topbar from "../../components/guests/topbar";
+import SEOHead from "../../components/SEOHead";
 import { useMemo, useState } from "react";
 import Hero from "../../components/guests/hero";
 import { ExpandMore } from "@mui/icons-material";
@@ -42,6 +43,11 @@ export default function AboutUs() {
   const [openLogin, setOpenLogin] = useState(false);
   return (
     <Box>
+      <SEOHead
+        title="About Us"
+        description="Learn about Handwork Expert — our mission to connect users with trusted, verified artisans across Nigeria for reliable, professional home and business services."
+        canonical="/about-us"
+      />
       <Topbar popularServices={popularServices} />
       <CssBaseline />
       <Hero

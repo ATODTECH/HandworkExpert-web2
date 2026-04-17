@@ -1,5 +1,6 @@
 import { Box, CssBaseline } from "@mui/material";
 import Topbar from "../../components/guests/topbar";
+import SEOHead from "../../components/SEOHead";
 import { useEffect, useMemo } from "react";
 import Footer from "../../components/guests/footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +32,11 @@ export default function Home() {
 
   return (
     <Box>
+      <SEOHead
+        title="Book Trusted Artisans Near You"
+        description="Handwork Expert connects you with verified, skilled artisans for plumbing, electrical work, painting, carpentry, and more. Book trusted professionals near you in minutes."
+        canonical="/"
+      />
       {categories && !service_category ? (
         <DataLoading mt={50} />
       ) : (

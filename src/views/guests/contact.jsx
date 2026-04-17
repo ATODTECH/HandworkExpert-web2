@@ -1,3 +1,4 @@
+import SEOHead from "../../components/SEOHead";
 import {
   Box,
   CssBaseline,
@@ -117,6 +118,11 @@ export default function Contact() {
 
   return (
     <Box>
+      <SEOHead
+        title="Contact Us"
+        description="Get in touch with the Handwork Expert support team. We're here to help with questions, feedback, or anything about your bookings and artisan services."
+        canonical="/contact"
+      />
       <Topbar popularServices={popularServices} />
       <CssBaseline />
       <Hero
