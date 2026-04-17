@@ -22,6 +22,9 @@ FROM nginx:alpine
 # Copy the build output from the previous stage to the Nginx server
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Copy custom Nginx config to handle SPA routing
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose the port on which the app will run
 EXPOSE 80
 
