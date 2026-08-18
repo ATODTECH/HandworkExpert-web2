@@ -1,3 +1,19 @@
+@import "tailwindcss";
+
+html {
+  font-size: 100%;
+}
+body {
+  font-size: 1rem;
+}
+
+@theme {
+  --color-primary-text: #292626;
+  --color-primary-white: #FFFFFF;
+  --color-secondary-blue: #172153;
+  --color-secondary-orange: #F56F46;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;

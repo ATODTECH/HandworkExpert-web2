@@ -1,4 +1,4 @@
-import "./assets/css/w3.css";
+// import "./assets/css/w3.css";
 
 import { routes } from "./routes/routes";
 import { Outlet, RouterProvider } from "react-router-dom";

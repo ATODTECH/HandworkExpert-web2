@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography, Container, Grid, Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import BgCheck from "../../../assets/img/bg-check.png";
-import SecureTrans from "../../../assets/img/secure-trans.png";
+import BgCheck from "../../../assets/img/background-check.png";
+import SecureTrans from "../../../assets/img/credit-card.png";
 import CustomerSupport from "../../../assets/img/customer-support.png";
 
 // Custom styled components
