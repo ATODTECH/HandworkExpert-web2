@@ -49,6 +49,7 @@ const TopBarN = ({ popularServices }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
     const [regOpen, setRegOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
   
     const links = [
       { title: "About Us", route: "/about-us" },
@@ -229,41 +230,406 @@ const TopBarN = ({ popularServices }) => {
       setOpenReg(true);
     };
   
+  useEffect(() => {
+    const handleScroll = () => {
+      // Compares scroll position to the full viewport height
+      setIsScrolled(window.scrollY >= window.innerHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);  
+
+  // const mobileDrawer = (
+  //   <Box sx={{ width: 280 }} role="presentation">
+  //     <Box
+  //       sx={{
+  //         display: "flex",
+  //         justifyContent: "space-between",
+  //         p: 2,
+  //         backgroundColor: "#172153",
+  //       }}
+  //     >
+  //       <Link to="/" onClick={toggleDrawer(false)}>
+  //         <img
+  //           src={Logo}
+  //           style={{ width: '100%', height: 30 }}
+  //           className="w3-image"
+  //           alt="Logo"
+  //         />
+  //       </Link>
+  //       <IconButton onClick={toggleDrawer(false)} sx={{ color: "white" }}>
+  //         <CloseIcon />
+  //       </IconButton>
+  //     </Box>
+  //     <Divider />
+  //     <List>
+  //       <ListItem
+  //         component={Link}
+  //         to="/"
+  //         onClick={toggleDrawer(false)}
+  //         sx={{
+  //           color: pathname === "/" ? "#F56F46" : "#292626",
+  //           textDecoration: "none",
+  //         }}
+  //       >
+  //         <ListItemText primary="Home" />
+  //       </ListItem>
+
+  //       <ListItem>
+  //         <ListItemButton onClick={handleServicesMobileToggle} sx={{ p: 0 }}>
+  //           <ListItemText primary="Services" />
+  //           {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+  //         </ListItemButton>
+  //       </ListItem>
+  //       <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
+  //         <List component="div" disablePadding>
+  //           {(popularServices || []).map((service, index) => (
+  //             <ListItem
+  //               key={index}
+  //               component={Link}
+  //               to={`/services/${service.id}`}
+  //               onClick={toggleDrawer(false)}
+  //               sx={{
+  //                 pl: 4,
+  //                 color: "#292626",
+  //                 textDecoration: "none",
+  //                 fontSize: "0.9rem",
+  //               }}
+  //             >
+  //               <ListItemText primary={service.name} />
+  //             </ListItem>
+  //           ))}
+  //         </List>
+  //       </Collapse>
+
+  //       {links.map((item, index) => (
+  //         <ListItem
+  //           key={index}
+  //           component={Link}
+  //           to={item.route}
+  //           onClick={toggleDrawer(false)}
+  //           sx={{
+  //             color: pathname === item.route ? "#F56F46" : "#292626",
+  //             textDecoration: "none",
+  //           }}
+  //         >
+  //           <ListItemText primary={item.title} />
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //     <Divider />
+  //     {!user ? (
+  //       <List>
+  //         <ListItem>
+  //           <Button
+  //             fullWidth
+  //             onClick={handleMobileLogin}
+  //             sx={{
+  //               color: "#172153",
+  //               textTransform: "uppercase",
+  //               fontWeight: "600",
+  //               border: "1px solid #172153",
+  //             }}
+  //             variant="outlined"
+  //           >
+  //             Login
+  //           </Button>
+  //         </ListItem>
+
+  //         <ListItem>
+  //           <ListItemButton onClick={handleRegMobileToggle} sx={{ p: 0 }}>
+  //             <ListItemText
+  //               primary="Register"
+  //               sx={{
+  //                 color: "#172153",
+  //                 textTransform: "uppercase",
+  //                 fontWeight: "600",
+  //               }}
+  //             />
+  //             {regOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+  //           </ListItemButton>
+  //         </ListItem>
+  //         <Collapse in={regOpen} timeout="auto" unmountOnExit>
+  //           <List component="div" disablePadding>
+  //             {regLinks.map((item, index) => (
+  //               <ListItem
+  //                 key={index}
+  //                 button
+  //                 onClick={() => handleMobileRegister(item.value)}
+  //                 sx={{
+  //                   pl: 4,
+  //                   color: item.color,
+  //                   fontWeight: "500",
+  //                 }}
+  //               >
+  //                 <ListItemText primary={item.title} />
+  //               </ListItem>
+  //             ))}
+  //           </List>
+  //         </Collapse>
+  //       </List>
+  //     ) : (
+  //       <List>
+  //         <ListItem sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+  //           <div style={{ position: "relative" }}>
+  //             <img
+  //               src={UserImage}
+  //               style={{
+  //                 height: 30,
+  //                 width: 30,
+  //                 borderRadius: "50%",
+  //               }}
+  //               alt="User"
+  //             />
+  //             <div
+  //               style={{
+  //                 position: "absolute",
+  //                 bottom: -5,
+  //                 right: 0,
+  //                 zIndex: 0,
+  //               }}
+  //             >
+  //               <Circle
+  //                 sx={{
+  //                   fontSize: 10,
+  //                   color: "#667185",
+  //                   border: "2px solid white",
+  //                   borderRadius: "50%",
+  //                 }}
+  //               />
+  //             </div>
+  //           </div>
+  //           <ListItemText
+  //             primary={user?.name || `${user?.last_name} ${user?.first_name}`}
+  //             sx={{ fontWeight: "600" }}
+  //           />
+  //         </ListItem>
+  //         <ListItem
+  //           button
+  //           onClick={() => {
+  //             navigate(`/${user?.role?.toLowerCase()}/dashboard`);
+  //             setDrawerOpen(false);
+  //           }}
+  //         >
+  //           <ListItemText primary="Dashboard" />
+  //         </ListItem>
+  //         <ListItem button onClick={handleLogout}>
+  //           <ListItemText primary="Logout" sx={{ color: "red" }} />
+  //         </ListItem>
+  //       </List>
+  //     )}
+  //   </Box>
+  // );
+  const mobileDrawer = (
+    <div className=" w-full min-w-70 flex flex-col gap-2" role="presentation">
+      <div className="flex justify-between items-center p-4 bg-secondary-blue ">
+        <Link to="/" onClick={toggleDrawer(false)}>
+          <img
+            src={Logo}
+            style={{ width: "100%", height: 30 }}
+            alt="Logo"
+          />
+        </Link>
+        <button
+          onClick={toggleDrawer(false)}
+          className=" text-primary-white bg-none cursor-pointer border-none">
+          <CloseIcon />
+        </button>
+      </div>
+      <ul className="list-none m-0 p-0 flex flex-col" >
+        <li>
+          <Link
+            to="/"
+            onClick={toggleDrawer(false)}
+            className={` flex px-4 py-2 ${pathname === "/" ? "text-secondary-orange" : "text-primary-text"}`}
+          >
+            Home
+          </Link>
+        </li>
+
+        <li>
+          <button
+            onClick={handleServicesMobileToggle}
+            className="flex justify-between items-center w-full px-4 py-2 bg-none cursor-pointer text-left border-none"
+          >
+            <span>Services</span>
+            {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+          </button>
+        </li>
+
+        {servicesOpen && (
+          <ul className="list-none m-0 p-0" >
+            {(popularServices || []).map((service, index) => (
+              <li key={index}>
+                <Link
+                  to={`/services/${service.id}`}
+                  onClick={toggleDrawer(false)}
+                  className="flex pl-8 py-2 text-[0.9rem] text-primary-text"
+                >
+                  {service.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {links.map((item, index) => (
+          <li key={index}>
+            <Link
+              to={item.route}
+              onClick={toggleDrawer(false)}
+              className={` flex px-4 py-2 ${pathname === item.route ? "text-secondary-orange" : "text-primary-text"}`}
+            >
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {!user ? (
+        <ul className="list-none m-0 p-0">
+          <li className="px-4 py-2">
+            <button
+              onClick={handleMobileLogin}
+              className="w-full rounded-sm text-secondary-blue uppercase font-semibold border border-secondary-blue bg-none py-2 px-0 cursor-pointer "
+            >
+              Login
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={handleRegMobileToggle}
+              className="flex justify-between items-center w-full py-2 px-4 cursor-pointer text-left border-none"
+            >
+              <span
+              className="text-secondary-orange uppercase font-semibold"
+              >
+                Register
+              </span>
+              {regOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+            </button>
+          </li>
+
+          {regOpen && (
+            <ul className="list-none m-0 p-0">
+              {regLinks.map((item, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => handleMobileRegister(item.value)}
+                    className={`flex w-full text-left pl-8 py-2 font-medium cursor-pointer bg-none border-none ${item.color}`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </ul>
+      ) : (
+        <ul className="list-none m-0 p-0">
+          <li
+          className="flex items-center gap-4 py-2 px-4"
+          >
+            <div className={'relative'}>
+              <img
+                src={UserImage}
+                height={30}
+                width={30}
+                className="h-7.5 w-7.5 rounded-full"
+                alt="User"
+              />
+              <div
+              className="absolute -bottom-1.25 right-0 z-0"
+              >
+                <Circle
+                  sx={{
+                    fontSize: 10,
+                    color: "#667185",
+                    border: "2px solid white",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
+            </div>
+            <span className="font-semibold">
+              {user?.name || `${user?.last_name} ${user?.first_name}`}
+            </span>
+          </li>
+
+          <li>
+            <button
+              onClick={() => {
+                navigate(`/${user?.role?.toLowerCase()}/dashboard`);
+                setDrawerOpen(false);
+              }}
+              className="flex w-full text-left py-2 px-4 cursor-pointer border-none bg-none"
+            >
+              Dashboard
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={handleLogout}
+              className="flex w-full text-left py-2 px-4 cursor-pointer border-none bg-none"
+            >
+              <span className={" text-red-500"}>Logout</span>
+            </button>
+          </li>
+        </ul>
+      )}
+    </div>
+  );
 
 
   return (
     <>
-      <header id="topbar" className={`fixed top-0 backdrop-blur-[6px] w-full max-w-[1920px] py-3 px-16 xl:px-28 z-20 shadow-md ${colorManager} `}>
+      <header id="topbar" className={`fixed top-0 backdrop-blur-[6px] w-screen max-w-[1920px] py-3 px-16 xl:px-28 z-20 shadow-md ${isScrolled?'bg-secondary-blue':''} `}>
         <nav className="flex flex-row w-full items-center justify-between ">
-          <Link to={"/"}>
+          <Link to={"/"} className="outline-0">
             <img
               src={Logo}
-              style={{ height: 35 }}
+              draggable={false}
+              style={{ height: 30 }}
               className="w-auto "
               alt="Logo"
             />
           </Link>
-          <>
-          </>
           {/* Destop nav */}
           <div className="hidden lg:flex items-center text-sm text-primary-white font-medium gap-8 ">
             <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange':''}`}>Home</Link>
-            <button className="relative flex items-center gap-1 cursor-pointer ">
-              Categories
-              <KeyboardArrowDown />
-            </button>
-            {
-              links.map((link) =>
-                <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange':''}`}>{link.title}</Link>
-              )
-            }
+            <div className="flex relative">
+              <button className="relative flex items-center gap-1 cursor-pointer "
+              onClick={handleServicesMobileToggle}>
+                Categories
+                {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+              </button>
+              {servicesOpen && (
+                <ul className="flex flex-col absolute left-[-50%] top-13.5 gap-2 w-50 text-primary-white bg-secondary-blue p-4 rounded-sm ">
+                  {
+                    (popularServices || []).map((service, index) => (
+                      <li key={index} className={`pb-1 w-full ${popularServices.length-1 == index?'':'border-b-[.2px] border-b-gray-500/10'} `}>
+                        <Link to={`/services/${service.id}`}>
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+              )}
+            </div>
+            {links.map((link) =>
+              <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange':''}`}>{link.title}</Link>
+            )}
           </div>
           <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
-            <Link to={"/login"}className="flex items-center py-4 px-3 gap-0.5 ">
+            <Link to={"/login"}className={`flex items-center py-4 px-3 gap-0.5 ${isScrolled ?' text-primary-white':''} `}>
               Log in
               <KeyboardArrowDown />
             </Link>
-            <Link to={"/signup"} className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 ">
+            <Link to={"/signup"} className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
               Sign up
               <KeyboardArrowDown />
             </Link>
@@ -271,13 +637,17 @@ const TopBarN = ({ popularServices }) => {
           {/* Mobile Hamburger Menu */}
           <button
             onClick={toggleDrawer(true)}
-            className="flex lg:hidden ml-2"
+            className={`flex lg:hidden ml-2 ${isScrolled?'text-primary-white':'text-primary-text'}`}
           >
             <MenuIcon />
           </button>
 
         </nav>
       </header>
+      {/* Mobile Drawer */}
+      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+        {mobileDrawer}
+      </Drawer>
     </>
   )
 }

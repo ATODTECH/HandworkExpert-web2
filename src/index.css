@@ -12,6 +12,10 @@ body {
   --color-primary-white: #FFFFFF;
   --color-secondary-blue: #172153;
   --color-secondary-orange: #F56F46;
+
+  /* screens */
+  --breakpoint-1280xl: 1280px;
+  --breakpoint-640xl: 640px;
 }
 
 :root {

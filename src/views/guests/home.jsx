@@ -21,6 +21,9 @@ import JoinAsArtisanN from "./components/JoinAsArtisanN";
 import TrustFactorsSectionN from "./components/TrustFactorsSectionN";
 import ClientTestimonialsSectionN from "./components/ClientTestimonialsSectionN";
 import ProHandyAppSectionN from "./components/ProHandyAppSectionN";
+import ProfessionalsNetworkSectionN from "./components/ProfessionalsNetworkSectionN";
+import FooterN from "@/src/components/guests/footerN";
+import HeroSectionN from "./components/HeroSectionN";
 
 export default function Home() {
   const { categories, service_category } = useSelector((state) => state.user);
@@ -48,10 +51,11 @@ export default function Home() {
         <DataLoading mt={50} />
       ) : (
         <Box>
-          <TopBarN />
+          <TopBarN popularServices={popularServices} />
           {/* <Topbar popularServices={popularServices} /> */}
-          <CssBaseline />
-          <HeroSection />
+          {/* <CssBaseline /> */}
+          <HeroSectionN />
+          {/* <HeroSection /> */}
           <HowItWorksN />
           {/* <HowItWorks /> */}
           <ServicesWeOfferN />
@@ -64,8 +68,10 @@ export default function Home() {
           {/* <ClientTestimonialsSection /> */}
           <ProHandyAppSectionN />
           {/* <ProHandyAppSection /> */}
-          <ProfessionalsNetworkSection />
-          <Footer />
+          <ProfessionalsNetworkSectionN />
+          {/* <ProfessionalsNetworkSection /> */}
+          <FooterN />
+          {/* <Footer /> */}
         </Box>
       )}
     </Box>
