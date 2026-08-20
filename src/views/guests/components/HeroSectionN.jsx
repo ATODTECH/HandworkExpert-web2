@@ -95,6 +95,7 @@ const CarouselImage = ({ index, isMain = true }) => {
         bottom: "18%",
         width: isMain ? "250px" : "210px",
         height: isMain ? "270px" : "220px",
+        border: isMain ? "5px solid #FFF" : "",
         borderRadius: "16px",
         overflow: "hidden",
         boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
@@ -173,7 +174,7 @@ const HeroSectionN = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen w-full flex items-center isolate relative p-16 xl:px-28 bg-[#151327] ">
+    <section id="home" className="min-h-screen w-full flex items-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327] ">
       {/* Background photo — draggable for a subtle parallax "peek" interaction */}
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence mode="wait">
@@ -198,12 +199,11 @@ const HeroSectionN = () => {
       </div>
 
       {/* Foreground content */}
-      {/* <div className="relative z-10 flex min-h-[820px] flex-col"> */}
       <div className="relative z-10 flex w-full ">
         {/* <div className="mx-auto flex w-full flex-1 items-center gap-5 sm:gap-8 lg:gap-12"> */}
           <div className="grid w-full items-center gap-10 1280xl:grid-cols-[minmax(0,620px)_1fr]">
             {/* Text column */}
-            <div className="max-w-2xl md:py-30 lg:py-40">
+            <div className="max-w-2xl py-10 425xl:py-20 md:py-30 lg:py-40">
               <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.05] text-white">
                 {['Connecting You', 'With Professional'].map((line, i) => (
                   <motion.span
@@ -255,7 +255,7 @@ const HeroSectionN = () => {
                   transition={{ delay: 0.72, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.96 }}
-                  className="mt-8 flex items-center justify-center gap-2 rounded-sm bg-primary-white w-full max-w-50 px-7 py-4 text-[15px] font-semibold text-ink shadow-xl shadow-black/20"
+                  className="mt-8 flex items-center justify-center gap-2 rounded-sm bg-primary-white w-full max-w-35 sm:max-w-50 px-4 sm:px-7 py-3 text-[15px] font-semibold text-ink shadow-xl shadow-black/20"
                 >
                   Sign up
                   <KeyboardArrowDown />
@@ -290,28 +290,7 @@ const HeroSectionN = () => {
               </div>
             </div>
 
-            {/* Mobile-only compact carousel dots (image column hidden below md) */}
-            <div className="-mt-4 flex items-center gap-2 pb-8 md:hidden">
-              {SLIDES.map((slide, i) => (
-                <button
-                  key={slide.label}
-                  aria-label={`Show ${slide.label} slide`}
-                  onClick={() => setActiveSlide(i)}
-                  className="p-1"
-                >
-                  <motion.span
-                    animate={{
-                      width: activeSlide === i ? 22 : 8,
-                      backgroundColor: activeSlide === i ? '#F0743A' : 'rgba(255,255,255,0.5)',
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="block h-2 rounded-full"
-                  />
-                </button>
-              ))}
-            </div>
           </div>
-        {/* </div> */}
       </div>
 
     </section>

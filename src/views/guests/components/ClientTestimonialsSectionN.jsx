@@ -52,41 +52,37 @@ const ClientTestimonialsSectionN = () => {
 
 
   return (
-    <section className="flex relative justify-center w-full p-16 xl:px-28 mb-28.5 ">
-      <div className="flex flex-col relative w-full max-w-[80%] justify-center items-center gap-15 ">
-        <h3 className="font-semibold text-[45px] text-secondary-orange mb-4">What Clients Says</h3>
-        <div className="flex relative w-full gap-17.5 ">
-          <div className="flex relative w-[50%] h-fit ">
+    <section className="flex relative justify-center overflow-hidden w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5">
+      <div className="flex flex-col relative w-full max-w-[80%] justify-center items-center 425xl:gap-15 ">
+        <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-4 text-center">What Clients Says</h3>
+        <div className="flex flex-col md:flex-row relative w-full gap-17.5 md:gap-9.5 lg:gap-17.5 ">
+          <div className="flex relative 425xl:self-center sm:self-start w-[80%] 425xl:w-[60%] sm:w-[50%] h-fit ">
             <img src={ClientTestimonial} height={"55px"} width={"100%"} alt="client_testimonal" draggable={false}
             className="w-full h-full " />
-            <div className="absolute flex items-end justify-end font-semibold text-xl w-[85%] h-full ">
+            <div className="absolute flex items-end justify-end font-semibold text-sm lg:text-xl w-[85%] h-full ">
               <span className=" text-primary-white flex absolute bottom-5 ">{testimonial.name.slice(0, 4)}</span>
             </div>
-            <div className="absolute flex items-end justify-end font-semibold text-xl w-[15%] right-0 h-full ">
+            <div className="absolute flex items-end justify-end font-semibold text-sm lg:text-xl w-[15%] right-0 h-full ">
               <span className=" text-primary-text flex absolute bottom-5 w-full truncate overflow-visible ">{testimonial.name.slice(4,)}</span>
             </div>
-            {/* <div className="absolute flex items-end justify-end font-semibold text-xl w-full h-full bg-gray-400/70 ">
-              <div className="flex flex-nowrap relative bottom-5 -right-[155px] w-full overflow-hidden bg-amber-200 ">
-                <span className=" text-primary-white ">{testimonial.name.slice(0, 4)}</span><span className="">{testimonial.name.slice(4,)}</span>
-              </div>
-            </div> */}
+
           </div>
           <div className="flex flex-col relative justify-between w-full gap-10">
             <div className="flex relative ">
-              <QuotationMark sx={{ top: -40, left: -10 }} className="flex absolute text-primary-white  ">&ldquo;</QuotationMark>
-              <p className="text-primary-text font-normal text-[25px] pt-6.5 pb-3.25 px-16.25 ">
+              <QuotationMark sx={{ top: -40, left: -10 }}>&ldquo;</QuotationMark>
+              <p className="text-primary-text font-normal text-lg 425xl:text-xl sm:text-2xl pt-6.5 pb-3.25 px-5 425xl:pt-6.5 425xl:pb-3.25 425xl:px-16.25 ">
                 {testimonial.quote}
               </p>
-              <QuotationMark sx={{ bottom: -60, right: 0 }}>&rdquo;</QuotationMark>
+              <QuotationMark sx={{ bottom: -80, right: 0 }}>&rdquo;</QuotationMark>
             </div>
             <div className="flex self-end gap-4 z-10">
               <button 
-              className="bg-secondary-blue rounded-[5px] text-primary-white h-11 w-11 outline-0 cursor-pointer "
+              className="bg-secondary-blue rounded-[5px] text-primary-white h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
               onClick={handlePrev} aria-label="Previous testimonial">
                 <ArrowBackIcon fontSize="small" />
               </button>
               <button 
-              className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-11 w-11 outline-0 cursor-pointer "
+              className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
               onClick={handleNext} aria-label="Next testimonial">
                 <ArrowForwardIcon fontSize="small" />
               </button>

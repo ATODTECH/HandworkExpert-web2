@@ -15,7 +15,7 @@ body {
 
   /* screens */
   --breakpoint-1280xl: 1280px;
-  --breakpoint-640xl: 640px;
+  --breakpoint-425xl: 425px;
 }
 
 :root {

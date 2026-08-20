@@ -80,34 +80,34 @@ const ServicesWeOfferN = () => {
   };
 
   return (
-    <section className="w-full p-16 xl:px-28 mb-28.5 ">
-      <div className="flex flex-row justify-center items-center relative gap-15 ">
+    <section className="w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:my-12 sm:mb-28.5 sm:mt-0 ">
+      <div className="flex flex-col sm:flex-row justify-center items-center relative gap-15  ">
         {/* image */}
-        <div className="w-[45%] h-auto ">
+        <div className="w-50 425xl:w-75 sm:w-[45%] h-auto order-2 sm:order-1 ">
           <img 
-            width={"598px"}
-            height={"498px"}
+            width={"98px"}
+            height={"88px"}
             src={services[currentService].image}
             alt={services[currentService].title}
             className=" w-full h-full "
           />
         </div>
         {/* content */}
-        <div className="flex flex-col items-start w-[45%] ">
-          <h3 className="font-semibold text-[45px] text-secondary-orange mb-4 ">Services We Offer</h3>
-          <div className="flex flex-col text-[25px] gap-2 mb-4">
+        <div className="flex flex-col items-start order-1 sm:order-2 w-full sm:w-[45%] ">
+          <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-4 self-center sm:self-start ">Services We Offer</h3>
+          <div className="flex flex-col text-lg 425xl:text-xl sm:text-2xl gap-2 mb-4">
             <h4 className="font-medium  ">{services[currentService].title}</h4>
             <p className=" ">{services[currentService].description}</p>
           </div>
           {/* Navigation Buttons */}
           <div className="flex gap-4">
             <button 
-            className="bg-secondary-blue rounded-[5px] text-primary-white h-11 w-11 outline-0 cursor-pointer "
+            className="bg-secondary-blue rounded-[5px] text-primary-white h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
             onClick={handlePrev}>
               <ArrowBackIcon fontSize="small" />
             </button>
             <button 
-            className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-11 w-11 outline-0 cursor-pointer "
+            className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
             onClick={handleNext}>
               <ArrowForwardIcon fontSize="small" />
             </button>
