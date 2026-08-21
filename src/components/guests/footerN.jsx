@@ -76,7 +76,7 @@ const FooterN = () => {
               {
                 socialLinks.map(item => (
                   <Link to={item.url} className=" w-fit rounded-md hover:text-secondary-orange ">
-                    <img src={item.icon} draggable={false} height={"24px"} width={"24px"} alt={item.alt} className="h-6 w-auto cursor-pointer " />
+                    <img src={item.icon} draggable={false} height={"24px"} width={"24px"} alt={item.alt} className="h-5 sm:h-6 w-auto cursor-pointer " />
                   </Link>
                 ))
               }

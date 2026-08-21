@@ -200,97 +200,96 @@ const HeroSectionN = () => {
 
       {/* Foreground content */}
       <div className="relative z-10 flex w-full ">
-        {/* <div className="mx-auto flex w-full flex-1 items-center gap-5 sm:gap-8 lg:gap-12"> */}
-          <div className="grid w-full items-center gap-10 1280xl:grid-cols-[minmax(0,620px)_1fr]">
-            {/* Text column */}
-            <div className="max-w-2xl py-10 425xl:py-20 md:py-30 lg:py-40">
-              <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.05] text-white">
-                {['Connecting You', 'With Professional'].map((line, i) => (
-                  <motion.span
-                    key={line}
-                    custom={i}
-                    variants={headlineWord}
-                    initial="hidden"
-                    animate="show"
-                    className="block"
-                  >
-                    {line}
-                  </motion.span>
-                ))}
+        <div className="grid w-full items-center gap-10 1280xl:grid-cols-[minmax(0,620px)_1fr]">
+          {/* Text column */}
+          <div className="max-w-2xl py-10 425xl:py-20 md:py-30 lg:py-40">
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.05] text-primary-white">
+              {['Connecting You', 'With Professional'].map((line, i) => (
                 <motion.span
-                  custom={2}
+                  key={line}
+                  custom={i}
                   variants={headlineWord}
                   initial="hidden"
                   animate="show"
-                  className="mt-1 block text-accent"
+                  className="block"
                 >
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={SLIDES[activeSlide].label}
-                      initial={{ opacity: 0, x: -12 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 12 }}
-                      transition={{ duration: 0.35 }}
-                      className="inline-block text-secondary-orange"
-                    >
-                      {SLIDES[activeSlide].label}
-                    </motion.span>
-                  </AnimatePresence>
+                  {line}
                 </motion.span>
-              </h1>
+              ))}
+              <motion.span
+                custom={2}
+                variants={headlineWord}
+                initial="hidden"
+                animate="show"
+                className="mt-1 block text-accent"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={SLIDES[activeSlide].label}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 12 }}
+                    transition={{ duration: 0.35 }}
+                    className="inline-block text-secondary-orange"
+                  >
+                    {SLIDES[activeSlide].label}
+                  </motion.span>
+                </AnimatePresence>
+              </motion.span>
+            </h1>
 
-              <motion.p
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 max-w-[34rem] text-[15px] leading-relaxed text-primary-white/85 sm:text-base"
+            >
+              From home repairs to expert craftsmanship, find verified artisans ready to dliver quality services quickly, efficiently, and at your convenience.
+            </motion.p>
+
+            <Link to={"/signup"}>
+              <motion.button
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.55, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-6 max-w-[34rem] text-[15px] leading-relaxed text-primary-white/85 sm:text-base"
+                transition={{ delay: 0.72, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+                className="mt-8 flex items-center justify-center gap-2 rounded-sm bg-primary-white w-full max-w-35 sm:max-w-50 px-4 sm:px-7 py-3 text-[15px] font-semibold text-ink shadow-xl shadow-black/20"
               >
-                From home repairs to expert craftsmanship, find verified artisans ready to dliver quality services quickly, efficiently, and at your convenience.
-              </motion.p>
-
-              <Link to={"/signup"}>
-                <motion.button
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.72, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.96 }}
-                  className="mt-8 flex items-center justify-center gap-2 rounded-sm bg-primary-white w-full max-w-35 sm:max-w-50 px-4 sm:px-7 py-3 text-[15px] font-semibold text-ink shadow-xl shadow-black/20"
-                >
-                  Sign up
-                  <KeyboardArrowDown />
-                </motion.button>
-              </Link>
-            </div>
-
-            {/* Image column: floating photo cards, only meaningfully visible on larger screens */}
-            <div className="flex gap-10 flex-col-reverse w-full h-full relative overflow-visible ">
-              {/* Using AnimatePresence to handle the animations */}
-              <div className="hidden lg:block ">
-                <AnimatePresence mode="popLayout">
-                  <CarouselImage
-                    key={`main-${currentIndex}`}
-                    index={currentIndex}
-                    isMain={true}
-                  />
-                  <CarouselImage
-                    key={`secondary-${currentIndex}`}
-                    index={currentIndex}
-                    isMain={false}
-                  />
-                </AnimatePresence>
-              </div>
-
-              {/* Navigation dots */}
-              <div className="flex relative gap-2 ">
-                {heroImages.map((_, index) => (
-                  <button key={index} className={`h-2.5 w-2.5 rounded-full cursor-pointer ${index === currentIndex ? "bg-secondary-orange":"bg-gray-400 "} `}
-                  onClick={() => handleDotClick(index)}></button>
-                ))}                
-              </div>
-            </div>
-
+                Sign up
+                <KeyboardArrowDown />
+              </motion.button>
+            </Link>
           </div>
+
+          {/* Image column: floating photo cards, only meaningfully visible on larger screens */}
+          <div className="flex gap-10 flex-col-reverse w-full h-full relative overflow-visible ">
+            {/* Using AnimatePresence to handle the animations */}
+            <div className="hidden lg:block ">
+              <AnimatePresence mode="popLayout">
+                <CarouselImage
+                  key={`main-${currentIndex}`}
+                  index={currentIndex}
+                  isMain={true}
+                />
+                <CarouselImage
+                  key={`secondary-${currentIndex}`}
+                  index={currentIndex}
+                  isMain={false}
+                />
+              </AnimatePresence>
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex relative gap-2 ">
+              {heroImages.map((_, index) => (
+                <button key={index} className={`h-2.5 w-2.5 rounded-full cursor-pointer ${index === currentIndex ? "bg-secondary-orange":"bg-gray-400 "} `}
+                onClick={() => handleDotClick(index)}></button>
+              ))}                
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </section>

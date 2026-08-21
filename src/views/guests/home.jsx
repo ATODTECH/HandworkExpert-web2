@@ -1,19 +1,8 @@
-import { Box, CssBaseline } from "@mui/material";
-import Topbar from "../../components/guests/topbar";
-import SEOHead from "../../components/SEOHead";
+import SEOHead from "@/src/components/SEOHead";
 import { useEffect, useMemo } from "react";
-import Footer from "../../components/guests/footer";
 import { useDispatch, useSelector } from "react-redux";
-import DataLoading from "../../components/data-loading";
-import { getCategories, getServiceCategories } from "../../store/userStore";
-import HeroSection from "./components/HeroSection";
-import HowItWorks from "./components/HowItWorks";
-import ServicesWeOffer from "./components/ServicesWeOffer";
-import JoinAsArtisan from "./components/JoinAsArtisan";
-import TrustFactorsSection from "./components/TrustFactorsSection";
-import ClientTestimonialsSection from "./components/ClientTestimonialsSection";
-import ProHandyAppSection from "./components/ProHandyAppSection";
-import ProfessionalsNetworkSection from "./components/ProfessionalsNetworkSection";
+import DataLoading from "@/src/components/data-loading";
+import { getCategories, getServiceCategories } from "@/src/store/userStore";
 import TopBarN from "@/src/components/guests/topbarN";
 import HowItWorksN from "./components/HowItWorksN";
 import ServicesWeOfferN from "./components/ServicesWeOfferN";
@@ -41,7 +30,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Box>
+    <div>
       <SEOHead
         title="Book Trusted Artisans Near You"
         description="Handwork Expert connects you with verified, skilled artisans for plumbing, electrical work, painting, carpentry, and more. Book trusted professionals near you in minutes."
@@ -50,30 +39,19 @@ export default function Home() {
       {categories && !service_category ? (
         <DataLoading mt={50} />
       ) : (
-        <Box>
+        <div>
           <TopBarN popularServices={popularServices} />
-          {/* <Topbar popularServices={popularServices} /> */}
-          {/* <CssBaseline /> */}
           <HeroSectionN />
-          {/* <HeroSection /> */}
           <HowItWorksN />
-          {/* <HowItWorks /> */}
           <ServicesWeOfferN />
-          {/* <ServicesWeOffer /> */}
           <JoinAsArtisanN />
-          {/* <JoinAsArtisan /> */}
           <TrustFactorsSectionN />
-          {/* <TrustFactorsSection /> */}
           <ClientTestimonialsSectionN />
-          {/* <ClientTestimonialsSection /> */}
           <ProHandyAppSectionN />
-          {/* <ProHandyAppSection /> */}
           <ProfessionalsNetworkSectionN />
-          {/* <ProfessionalsNetworkSection /> */}
           <FooterN />
-          {/* <Footer /> */}
-        </Box>
+        </div>
       )}
-    </Box>
+    </div>
   );
 }
