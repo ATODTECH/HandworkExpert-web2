@@ -195,7 +195,7 @@ const HeroSectionN = () => {
           </motion.div>
         </AnimatePresence>
         {/* Gradient scrim: dark on the left for text legibility, fading toward the photo */}
-        <div className="absolute inset-0 bg-linear-to-t from-[#151327]/90 via-trnasparent to-[#151327]/0" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#151327]/90 via-transparent to-[#151327]/0" />
       </div>
 
       {/* Foreground content */}

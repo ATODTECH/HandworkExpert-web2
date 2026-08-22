@@ -18,6 +18,20 @@ body {
   --breakpoint-425xl: 425px;
 }
 
+
+.marquee-content {
+  animation: marquee calc(var(--char-count)* 4s) linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;

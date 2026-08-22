@@ -52,9 +52,48 @@ const CategoriesContentIndex = () => {
               </div>
               <span className=" text-[1rem] leading-[1.5rem] tracking-[1.5%] font-bold">{responseData.category}</span>
             </div>
-            <p className=" text-[1rem] leading-[1.5rem] font-medium w-[70%]">{ responseData.caption }</p>
-            <div className="flex flex-wrap max-w-[80%]">
-              {/*  */}
+            <p className=" text-[1rem] leading-[1.5rem] font-medium w-[70%] mb-10">{responseData.caption}</p>
+            {/* continune with before bgColor */}
+            <div className="flex flex-wrap select-none relative w-fit max-w-[80%] overflow-hidden rounded-[.625rem] bg-secondary-blue px-6 py-4">
+              <div className="absolute w-10 h-auto inset-0 left-0 bg-linear-to-r from-secondary-blue via-secondary-blue to-[#151327]/0 z-20 "></div>
+              <div className=" flex w-max marquee-content" style={{'--char-count': responseData.brands.length} as React.CSSProperties}>
+                <div className="flex whitespace-nowrap gap-4">
+                  {responseData.brands.map((brand, i) => (
+                    <span key={i} className="flex items-center gap-4 text-[1rem]">
+                      <span
+                        className={
+                          i === 1
+                            ? "text-sm font-medium text-secondary-orange"
+                            : "text-sm font-medium text-[#F3F5FF]"
+                        }
+                      >
+                        {brand}
+                      </span>
+                      <span className={`text-sm text-primary-white ${i===responseData.brands.length-1 ? 'mr-4':''}`}>|</span>
+                    </span>
+                  ))}
+                </div>
+                <div className="flex whitespace-nowrap gap-4">
+                  {responseData.brands.map((brand, i) => (
+                    <span key={i} className="flex items-center gap-4 text-[1rem]">
+                      <span
+                        className={
+                          i === 1
+                            ? "text-sm font-medium text-secondary-orange"
+                            : "text-sm font-medium text-[#F3F5FF]"
+                        }
+                      >
+                        {brand}
+                      </span>
+                      <span className={`text-sm text-primary-white ${i===responseData.brands.length-1 ? 'mr-4':''}`}>|</span>
+                    </span>
+                  ))}
+                </div>
+
+              </div>
+              <div className="absolute flex w-full h-full top-0 left-0 justify-end pointer-events-none marquee-overlay">
+                <div className=" w-10 h-full bg-linear-to-l to-[#151327]/0 via-secondary-blue  from-secondary-blue z-20 "></div>
+              </div>
             </div>
           </div>
           <div className="relative h-auto w-[20rem] lg:w-[35%] max-w-[40%] rounded-[1rem] overflow-hidden">
@@ -65,7 +104,7 @@ const CategoriesContentIndex = () => {
             width={517}
             className=" h-full w-full object-cover" />
             <div className="absolute h-full w-full bg-[#17215333] top-0"></div>
-            <button type="submit" className="absolute bottom-5 left-[30%] bg-secondary-orange text-primary-white py-2 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer"
+            <button type="submit" className="absolute bottom-5 flex left-1/2 -translate-x-1/2 bg-secondary-orange text-primary-white py-1.75 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer"
           onClick={()=>alert("In progress!")}>View All Service</button>
           </div>
         </div>
@@ -86,7 +125,7 @@ const CategoriesContentIndex = () => {
       <div className="flex flex-col text-primary-text w-full gap-13.25">
         { content() }
         <div className="flex w-full justify-center ">
-          <button type="submit" className="bg-secondary-blue text-primary-white py-[.9rem] px-12 text-sm tracking-[2%] font-bold rounded-[5px] leading-6 outline-0"
+          <button type="submit" className="bg-secondary-blue text-primary-white py-[.9rem] px-12 text-sm tracking-[2%] font-bold rounded-[5px] leading-6 outline-0 cursor-pointer"
           onClick={()=>alert("In progress!")}>View All</button>
         </div>
       </div>
