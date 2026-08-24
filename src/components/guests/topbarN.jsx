@@ -272,7 +272,7 @@ const TopBarN = ({ popularServices }) => {
             onClick={handleServicesMobileToggle}
             className="flex justify-between items-center w-full px-4 py-2 bg-none cursor-pointer text-left border-none"
           >
-            <span>Services</span>
+            <span>Categories</span>
             {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </button>
         </li>
@@ -418,29 +418,13 @@ const TopBarN = ({ popularServices }) => {
           </Link>
           {/* Destop nav */}
           <div className="hidden lg:flex items-center text-sm text-primary-white font-medium gap-8 ">
-            <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange':''}`}>Home</Link>
-            <div className="flex relative">
-              <button className="relative flex items-center gap-1 cursor-pointer "
-              onClick={handleServicesMobileToggle}>
-                Categories
-                {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-              </button>
-              {servicesOpen && (
-                <ul className="flex flex-col absolute left-[-50%] top-13.5 gap-2 w-50 text-primary-white bg-secondary-blue p-4 rounded-sm ">
-                  {
-                    (popularServices || []).map((service, index) => (
-                      <li key={index} className={`pb-1 w-full ${popularServices.length-1 == index?'':'border-b-[.2px] border-b-gray-500/10'} `}>
-                        <Link to={`/services/${service.id}`}>
-                          {service.name}
-                        </Link>
-                      </li>
-                    ))
-                  }
-                </ul>
-              )}
-            </div>
+            <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange font-bold':''}`}>Home</Link>
+            <Link to={"/categories"} className={`flex items-center gap-1 ${pathname==="/categories"? 'text-secondary-orange font-bold':''}`}>
+              <span className="">Categories</span>
+              <KeyboardArrowDown />
+            </Link>
             {links.map((link) =>
-              <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange':''}`}>{link.title}</Link>
+              <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange font-bold':''}`}>{link.title}</Link>
             )}
           </div>
           <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
@@ -472,3 +456,19 @@ const TopBarN = ({ popularServices }) => {
 }
 
 export default TopBarN
+
+
+
+// {servicesOpen && (
+//   <ul className="flex flex-col absolute left-[-50%] top-13.5 gap-2 w-50 text-primary-white bg-secondary-blue p-4 rounded-sm ">
+//     {
+//       (popularServices || []).map((service, index) => (
+//         <li key={index} className={`pb-1 w-full ${popularServices.length-1 == index?'':'border-b-[.2px] border-b-gray-500/10'} `}>
+//           <Link to={`/services/${service.id}`}>
+//             {service.name}
+//           </Link>
+//         </li>
+//       ))
+//     }
+//   </ul>
+// )}

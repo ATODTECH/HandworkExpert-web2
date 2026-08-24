@@ -116,13 +116,6 @@ const CarouselImage = ({ index, isMain = true }) => {
   )
 }
 
-const SLIDES = [
-  { label: 'Plumber', body: Hero_1 },
-  { label: 'Electrician', body: Hero_2 },
-  { label: 'Carpenter', body: Hero_3 },
-  { label: 'Painter', body: Hero_4 },
-  { label: 'Gardener', body: Hero_5 },
-]
 
 const headlineWord = {
   hidden: { y: 28, opacity: 0 },
@@ -156,7 +149,7 @@ const HeroSectionN = () => {
     };
   }, []);
 
-  // Handle dot click
+  // Handle dot click, changes after 5secs
   const handleDotClick = (index) => {
     // Clear the current interval and restart it
     if (intervalRef.current) {
@@ -179,7 +172,7 @@ const HeroSectionN = () => {
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeSlide}
+            key={currentIndex}
             initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.04 }}
@@ -187,10 +180,10 @@ const HeroSectionN = () => {
             className="absolute inset-0"
           >
             <motion.img
-              src={SLIDES[activeSlide].body}
+              src={heroImages[currentIndex].main}
               alt="Professional tradesperson at work"
               draggable={false}
-              className="h-full w-full cursor-grab select-none object-cover object-[55%_30%]"
+              className="h-full w-full cursor-grab select-none opacity-70 object-cover object-[55%_30%]"
             />
           </motion.div>
         </AnimatePresence>
@@ -225,14 +218,14 @@ const HeroSectionN = () => {
               >
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={SLIDES[activeSlide].label}
+                    key={heroImages[currentIndex].title}
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 12 }}
                     transition={{ duration: 0.35 }}
                     className="inline-block text-secondary-orange"
                   >
-                    {SLIDES[activeSlide].label}
+                    {heroImages[currentIndex].title}
                   </motion.span>
                 </AnimatePresence>
               </motion.span>
@@ -297,51 +290,3 @@ const HeroSectionN = () => {
 }
 
 export default HeroSectionN
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="relative mx-auto hidden h-[420px] w-full max-w-[560px] md:flex">
-  <FloatingPhoto
-    src={Hero_1}
-    alt="Plumber fixing a pipe under a sink, tool bag beside him"
-    onExpand={() => setExpanded({ src: Hero_1, alt: 'Plumber fixing a pipe under a sink' })}
-    className="absolute left-[6%] top-[8%] h-[78%] w-[62%]"
-  />
-  <FloatingPhoto
-    src={Hero_2}
-    alt="Carpenter smiling while measuring wood in a workshop"
-    onExpand={() =>
-      setExpanded({ src: Hero_2, alt: 'Carpenter smiling while measuring wood in a workshop' })
-    }
-    className="absolute bottom-[4%] right-[-6%] h-[54%] w-[46%]"
-    dragRange={28}
-  />
-
-  <div className="absolute -bottom-10 left-[6%] flex items-center gap-2">
-    {SLIDES.map((slide, i) => (
-      <button
-        key={slide.label}
-        aria-label={`Show ${slide.label} slide`}
-        onClick={() => setActiveSlide(i)}
-        className="p-1"
-      >
-        <motion.span
-          animate={{
-            width: activeSlide === i ? 22 : 8,
-            backgroundColor: activeSlide === i ? '#F0743A' : 'rgba(255,255,255,0.5)',
-          }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="block h-2 rounded-full"
-        />
-      </button>
-    ))}
-  </div>
-</div> */}
