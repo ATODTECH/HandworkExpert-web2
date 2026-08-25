@@ -1,11 +1,11 @@
 import {
   CalendarMonth,
-  DeleteOutline,
   EditNoteOutlined,
   Email,
   EmailOutlined,
   MapOutlined,
   PhoneOutlined,
+  DeleteOutlined,
 } from "@mui/icons-material";
 import { Box, Grid, Stack, Button } from "@mui/material";
 import { useState } from "react";
@@ -79,7 +79,7 @@ export default function Address() {
                   <Button
                     variant="text"
                     sx={{ textTransform: "none", color: "#344054" }}
-                    startIcon={<DeleteOutline />}
+                    startIcon={<DeleteOutlined />}
                   >
                     Delete
                   </Button>

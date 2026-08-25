@@ -1,12 +1,12 @@
 import {
-    AccountBalanceOutlined,
+  AccountBalanceOutlined,
   CalendarMonth,
-  DeleteOutline,
+  DeleteOutlined,
   EditNoteOutlined,
   Email,
   EmailOutlined,
   MapOutlined,
-  PersonOutline,
+  PersonOutlined,
   PhoneOutlined,
 } from "@mui/icons-material";
 import { Box, Grid, Stack, Button } from "@mui/material";
@@ -16,7 +16,7 @@ import { useState } from "react";
 export default function Payment() {
   const details = [
     {
-      icon: PersonOutline,
+      icon: PersonOutlined,
       value: "Oluwadamilola Blaq",
     },
     {
@@ -68,7 +68,7 @@ export default function Payment() {
                   <Button
                     variant="text"
                     sx={{ textTransform: "none", color: "#344054" }}
-                    startIcon={<DeleteOutline />}
+                    startIcon={<DeleteOutlined />}
                   >
                     Delete
                   </Button>
