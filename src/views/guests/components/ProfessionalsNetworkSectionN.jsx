@@ -6,7 +6,7 @@ const ProfessionalsNetworkSectionN = () => {
       <div className="flex flex-col md:grid 425xl:grid-cols-2 relative w-full max-w-[80%] gap-4  items-center ">
         {/* content */}
         <div className="flex flex-col justify-center z-10">
-          <div className="flex flex-col gap-[28px]">
+          <div className="flex flex-col gap-7">
             <h2 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.125rem] sm:leading-11 text-primary-text text-center md:text-start ">Join the network of professionals around you</h2>
             <h5 className="text-[1rem] 425xl:text-xl sm:text-2xl text-primary-text ">
               Become part the working class community and find your next client and extra income.
