@@ -131,3 +131,5 @@ dist
 
 # FE
 draft.txt
+Dockerfile
+nginx.conf

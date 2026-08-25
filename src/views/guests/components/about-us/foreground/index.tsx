@@ -27,7 +27,7 @@ const ForegroundAboutUsIndex = () => {
       {/* Foreground content */}
       <div className="relative flex flex-col items-center w-full max-w-[80%] py-10 425xl:py-20 md:py-30 lg:pt-40 lg:pb-21 gap-8.75">
         <h1 className="text-4xl 425xl:text-5xl sm:text-6xl lg:text-[4rem] font-bold leading-tight text-primary-white "><span className="text-secondary-orange">About</span>&nbsp;Us</h1>
-        <h2 className="w-full font-medium text-center flex flex-col lg:max-w-[60%] text-2xl text-primary-white">
+        <h2 className="w-full font-medium text-center flex flex-col lg:max-w-[60%] text-xl lg:text-2xl text-primary-white">
           Connecting You with Trusted Artisans for Every Handiwork Need.
         </h2>
       </div>
