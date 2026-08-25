@@ -35,6 +35,7 @@ const CategoriesContentIndex = () => {
       brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
     },
   ]
+
   const content = () => {
     const contents: ReactNode[] = []
     ResData.map((responseData, index) => (
@@ -94,7 +95,7 @@ const CategoriesContentIndex = () => {
             width={517}
             className=" h-full w-full object-cover" />
             <div className="absolute h-full w-full bg-[#17215333] top-0"></div>
-            <button type="submit" className="hidden lg:flex absolute bottom-5 flex left-1/2 -translate-x-1/2 bg-secondary-orange text-primary-white py-1.75 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer"
+            <button type="submit" className="hidden lg:flex absolute bottom-5 left-1/2 -translate-x-1/2 bg-secondary-orange text-primary-white py-1.75 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer"
             onClick={()=>alert("In progress!")}>View All Service</button>
           </div>
         </div>

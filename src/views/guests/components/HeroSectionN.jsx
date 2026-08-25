@@ -1,13 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Container,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import Hero_1 from "@/src/assets/img/hero_1.png";
 import Hero_2 from "@/src/assets/img/hero_2.png";
@@ -170,7 +161,7 @@ const HeroSectionN = () => {
     <section id="home" className="min-h-screen w-full flex items-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327] ">
       {/* Background photo — draggable for a subtle parallax "peek" interaction */}
       <div className="absolute inset-0 overflow-hidden">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, scale: 1.06 }}

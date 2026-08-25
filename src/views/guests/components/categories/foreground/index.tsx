@@ -4,7 +4,7 @@ import { DesktopWindowsOutlined, FmdGoodOutlined } from "@mui/icons-material"
 
 const ForegroundCatIndex = () => {
   return (
-    <section className="min-h-screen w-full flex items-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#172153CC]">
+    <section className="min-h-screen w-full flex items-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327]">
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
@@ -25,7 +25,7 @@ const ForegroundCatIndex = () => {
       </div>
       {/* Foreground Content */}
       <div className="flex flex-col justify-end items-center text-center text-primary-text relative z-10 w-full ">
-        <div className="max-w-[80%] lg:max-w-2xl py-10 425xl:py-20 md:py-30 lg:pt-40 lg:pb-[5.25rem] ">
+        <div className="max-w-[80%] lg:max-w-2xl py-10 425xl:py-20 md:py-30 lg:pt-40 lg:pb-21 ">
           <h1 className="text-4xl 425xl:text-5xl sm:text-6xl lg:text-[4rem] font-bold leading-tight text-primary-white ">What can we do for you today?</h1>
         </div>
 
