@@ -5,10 +5,17 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 5173;
+
   return {
     server: {
-      port: 5173,
+      port: port,
       host: '0.0.0.0',
+    },
+    preview: {
+      port: port,
+      host: '0.0.0.0',
+      allowedHosts: true,
     },
     plugins: [
       tailwindcss(),
