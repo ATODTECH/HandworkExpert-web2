@@ -2,10 +2,6 @@ import { useSelector } from "react-redux";
 import SEOHead from "../../components/SEOHead";
 import { useMemo, useState } from "react";
 // import Hero from "../../components/guests/hero";
-import { ExpandMore } from "@mui/icons-material";
-import AboutImage1 from "../../assets/img/about-1.png";
-import AboutImage2 from "../../assets/img/about-2.png";
-import VisionImage from "../../assets/img/vision.png";
 import AboutIcon1 from "../../assets/img/about-icon-1.png";
 import AboutIcon2 from "../../assets/img/about-icon-2.png";
 import AboutIcon3 from "../../assets/img/about-icon-3.png";
@@ -22,23 +18,6 @@ export default function AboutUs() {
     return data.slice(0, 7);
   }, [service_category]);
 
-  const choices = [
-    {
-      icon: AboutIcon1,
-      title: "Reliable Services",
-      content: "Verified artisans with proven expertise.",
-    },
-    {
-      icon: AboutIcon2,
-      title: "Empowering Artisans",
-      content: "We provide a platform for artisans to grow and succeed.",
-    },
-    {
-      icon: AboutIcon3,
-      title: "Convenience",
-      content: "Find and book skilled professionals in just a few clicks.",
-    },
-  ];
   const [regAs, setRegAs] = useState("User");
   const [openReg, setOpenReg] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
@@ -51,7 +30,7 @@ export default function AboutUs() {
         description="Learn about Handwork Expert — our mission to connect users with trusted, verified artisans across Nigeria for reliable, professional home and business services."
         canonical="/about-us"
       />
-      <TopBarN />
+      <TopBarN popularServices={popularServices} />
       <ForegroundAboutUsIndex />
       <AboutUsContIndex />
       <FooterN />
