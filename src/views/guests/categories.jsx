@@ -26,7 +26,15 @@ import TopBarN from "@/src/components/guests/topbarN";
 import FooterN from "@/src/components/guests/footerN";
 import ForegroundCatIndex from "./components/categories/foreground";
 import CategoriesContentIndex from "./components/categories/content";
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
 export default function Categories() {
+  const { service_category } = useSelector((state) => state.user);
+  const popularServices = useMemo(() => {
+    let data = service_category || [];
+    return data.slice(0, 7);
+  }, [service_category]);
+
   const list = [
     { title: "Tech/IT", image: Category1 },
     { title: "Legal", image: Category2 },

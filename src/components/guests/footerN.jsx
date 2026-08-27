@@ -59,12 +59,12 @@ const FooterN = () => {
       <div className="border-b-[.5px] sm:border-b-[1.34px] border-b-[#7B7E86] w-full mb-4 ">
         <div className="grid grid-cols-2 md:flex gap-4 lg:gap-8 pb-16 justify-between w-full lg:max-w-[80%] text-[12px] ">
           {
-            footerLinks.map(item => (
-              <div className="flex flex-col gap-2 ">
+            footerLinks.map((item, index) => (
+              <div key={index} className="flex flex-col gap-2 ">
                 <h5 className=" font-bold text-[1rem] sm:text-xl mb-4">{item.title}</h5>
                 {
                   item.item.map(val => (
-                    <Link to={val.url} className="text-[.75rem] sm:text-sm hover:text-secondary-orange ">{val.title}</Link>
+                    <Link key={val.title} to={val.url} className="text-[.75rem] sm:text-sm hover:text-secondary-orange ">{val.title}</Link>
                   ))
                 }
               </div>
@@ -75,7 +75,7 @@ const FooterN = () => {
             <div className="flex gap-2">
               {
                 socialLinks.map(item => (
-                  <Link to={item.url} className=" w-fit rounded-md hover:text-secondary-orange ">
+                  <Link key={item.alt} to={item.url} className=" w-fit rounded-md hover:text-secondary-orange ">
                     <img src={item.icon} draggable={false} height={"24px"} width={"24px"} alt={item.alt} className="h-5 sm:h-6 w-auto cursor-pointer " />
                   </Link>
                 ))
