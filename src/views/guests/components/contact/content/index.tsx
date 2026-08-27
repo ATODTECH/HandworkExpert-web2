@@ -117,12 +117,6 @@ function Field({
 
 
 const ContentContactIndex = () => {
-  // const [values, setValues] = useState<Record<FieldName, string>>({
-  //   name: "",
-  //   phone: "",
-  //   email: "",
-  //   message: "",
-  // });
   const [focusedField, setFocusedField] = useState<FieldName | null>(null);
     const formik = useFormik({
     initialValues: {
@@ -137,14 +131,6 @@ const ContentContactIndex = () => {
       resetForm();
     },
   });
-
-  // const handleChange = (name: FieldName, v: string) =>
-  //   setValues((prev) => ({ ...prev, [name]: v }));
-
-  // const handleSubmit = (e: FormDataEvent) => {
-  //   e.preventDefault();
-  //   console.log(values);
-  // };
   
   const renderField = (config: FieldConfig) => (
     <Field
@@ -173,7 +159,7 @@ const ContentContactIndex = () => {
               <form 
               noValidate
               onSubmit={formik.handleSubmit}>
-                <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex flex-col gap-x-4 sm:flex-row">
                   {FIELDS.map(renderField)}
                 </div>
                 {renderField(EMAIL_FIELD)}
@@ -187,7 +173,7 @@ const ContentContactIndex = () => {
                 </button>
               </form>
             </div>
-            <div className="relative overflow-hidden rounded-2xl h-auto w-[80%] md:w-140 my-16 md:my-0">
+            <div className="relative overflow-hidden rounded-2xl h-auto w-[90%] md:w-140 my-16 md:my-0">
               <img 
               src={newsletter} 
               alt="newsletter" 
