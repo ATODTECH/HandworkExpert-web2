@@ -1,4 +1,5 @@
 import loadable from "@loadable/component";
+import NotFound from "../views/error/not-found.jsx";
 const ArtisanIndex = loadable(() =>
   import("../views/artisan/artisanIndex.jsx")
 );
@@ -26,40 +27,49 @@ const Onboarding = loadable(() =>
 export const ArtisanRoutes = [
   {
     path: "artisan/",
-    element: <ArtisanIndex />,
+    element: <NotFound />,
+    // element: <ArtisanIndex />,
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <NotFound />,
+        // element: <Dashboard />,
       },
       {
         path: "bookings",
-        element: <Bookings />,
+        element: <NotFound />,
+        // element: <Bookings />,
       },
       {
         path: "Earnings",
-        element: <Earnings />,
+        element: <NotFound />,
+        // element: <Earnings />,
       },
       {
         path: "Settings",
-        element: <Settings />,
+        element: <NotFound />,
+        // element: <Settings />,
       },
       {
         path: "support",
-        element: <Support />,
+        element: <NotFound />,
+        // element: <Support />,
       },
       {
         path: "calendar",
-        element: <Calendar />,
+        element: <NotFound />,
+        // element: <Calendar />,
       },
       {
         path: "reviews",
-        element: <Review />,
+        element: <NotFound />,
+        // element: <Review />,
       },
     ],
   },
   {
     path: "artisan/onboarding",
-    element: <Onboarding />,
+    element: <NotFound />,
+    // element: <Onboarding />,
   },
 ];

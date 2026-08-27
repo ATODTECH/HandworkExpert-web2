@@ -42,7 +42,7 @@ export default function Categories() {
         description="Explore all service categories on Handwork Expert — from plumbing and electrical to carpentry, painting, and more. Find the right artisan for any job."
         canonical="/categories"
       />
-      <TopBarN />
+      <TopBarN popularServices={popularServices} />
       <ForegroundCatIndex />
       <CategoriesContentIndex />
       <FooterN />

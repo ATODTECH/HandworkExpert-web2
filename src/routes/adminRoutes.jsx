@@ -1,4 +1,5 @@
 import loadable from "@loadable/component";
+import NotFound from "../views/error/not-found.jsx";
 
 const AdminIndex = loadable(() => import("../views/admin/adminIndex.jsx"));
 const AdminDashboard = loadable(() =>
@@ -25,39 +26,48 @@ const Notifications = loadable(() =>
 export const AdminRoutes = [
   {
     path: "admin/",
-    element: <AdminIndex />,
+    element: <NotFound />,
+    // element: <AdminIndex />,
     children: [
       {
         path: "dashboard",
-        element: <AdminDashboard />,
+        element: <NotFound />,
+        // element: <AdminDashboard />,
       },
       {
         path: "users",
-        element: <Users />,
+        element: <NotFound />,
+        // element: <Users />,
       },
       {
         path: "artisans",
-        element: <Artisans />,
+        element: <NotFound />,
+        // element: <Artisans />,
       },
       {
         path: "bookings",
-        element: <AdminBookings />,
+        element: <NotFound />,
+        // element: <AdminBookings />,
       },
       {
         path: "settings",
-        element: <AdminSettings />,
+        element: <NotFound />,
+        // element: <AdminSettings />,
       },
       {
         path: "support",
-        element: <AdminSupport />,
+        element: <NotFound />,
+        // element: <AdminSupport />,
       },
       {
         path: "reports",
-        element: <Reports />,
+        element: <NotFound />,
+        // element: <Reports />,
       },
       {
         path: "notifications",
-        element: <Notifications />,
+        element: <NotFound />
+        // element: <Notifications />,
       },
     ],
   },

@@ -18,11 +18,6 @@ import {
 import { useSelector } from "react-redux";
 import localforage from "localforage";
 
-// interface TopBarProps {
-//   popularServices: [{id: number, name: string}]
-// }
-
-// const TopBarN = ({ popularServices }: TopBarProps) => {
 const TopBarN = ({ popularServices }) => {
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -157,7 +152,7 @@ const TopBarN = ({ popularServices }) => {
         <Link to="/" onClick={toggleDrawer(false)}>
           <img
             src={Logo}
-            style={{ width: "100%", height: 30 }}
+            style={{ width: "100%", height: 40 }}
             alt="Logo"
           />
         </Link>
@@ -322,13 +317,13 @@ const TopBarN = ({ popularServices }) => {
             <img
               src={Logo}
               draggable={false}
-              style={{ height: 30 }}
+              style={{ height: 40 }}
               className="w-auto "
               alt="Logo"
             />
           </Link>
           {/* Destop nav */}
-          <div className="hidden lg:flex items-center text-sm text-primary-white font-medium gap-8 ">
+          <div className={"hidden lg:flex items-center text-sm font-medium gap-8 text-primary-white"}>
             <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange font-bold':''}`}>Home</Link>
             <Link to={"/categories"} className={`flex items-center gap-1 ${pathname==="/categories"? 'text-secondary-orange font-bold':''}`}>
               <span className="">Categories</span>

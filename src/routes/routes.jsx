@@ -2,7 +2,7 @@ import loadable from "@loadable/component";
 import { createBrowserRouter, useRouteError } from "react-router-dom";
 
 import Error from "../views/error/error.jsx";
-import NotFound from "../views/error/notFound.jsx";
+import NotFound from "../views/error/not-found.jsx";
 import { UserRoutes } from "./userRoutes.jsx";
 import { ArtisanRoutes } from "./artisanRoutes.jsx";
 import { AdminRoutes  } from "./adminRoutes.jsx";
@@ -10,7 +10,7 @@ import { AdminRoutes  } from "./adminRoutes.jsx";
 const Index = loadable(() => import("../views/index.jsx"));
 const Home = loadable(() => import("../views/guests/home.jsx"));
 const About = loadable(() => import("../views/guests/about-us.jsx"));
-const Contact = loadable(() => import("../views/guests/contact.jsx"));
+const Contact = loadable(() => import("../views/guests/contactN.jsx"));
 const FAQ = loadable(() => import("../views/guests/faq.jsx"));
 const Categories = loadable(() => import("../views/guests/categories.jsx"));
 const CategoryDetails = loadable(() =>
@@ -56,27 +56,33 @@ export const routes = createBrowserRouter([
       },
       {
         path: "faq",
-        element: <FAQ />,
+        element: <NotFound />,
+        // element: <FAQ />,
       },
       {
         path: "category-details/:id",
-        element: <CategoryDetails />,
+        element: <NotFound />,
+        // element: <CategoryDetails />,
       },
       {
         path: "services/:id",
-        element: <CategoryDetails />,
+        element: <NotFound />,
+        // element: <CategoryDetails />,
       },
       {
         path: "service-details/:id",
-        element: <ServiceDetails />,
+        element: <NotFound />,
+        // element: <ServiceDetails />,
       },
       {
         path: "book-service/:id",
-        element: <BookService />,
+        element: <NotFound />,
+        // element: <BookService />,
       },
       {
         path: "privacy-policy",
-        element: <PrivacyPolicy />,
+        element: <NotFound />,
+        // element: <PrivacyPolicy />,
       },
       ...UserRoutes,
       ...ArtisanRoutes,

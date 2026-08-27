@@ -1,4 +1,5 @@
 import loadable from "@loadable/component";
+import NotFound from "../views/error/not-found.jsx";
 const UserIndex = loadable(() => import("../views/users/userIndex.jsx"));
 const Profile = loadable(() => import("../views/users/profile/profile.jsx"));
 const Address = loadable(() => import("../views/users/address/address.jsx"));
@@ -13,35 +14,43 @@ const Reviews = loadable(() => import("../views/users/reviews/reviews.jsx"));
 export const UserRoutes = [
   {
     path: "user/",
-    element: <UserIndex />,
+    element: <NotFound />,
+    // element: <UserIndex />,
     children: [
       {
         path: "profile",
-        element: <Profile />,
+        element: <NotFound />,
+        // element: <Profile />,
       },
       {
         path: "dashboard",
-        element: <Profile />,
+        element: <NotFound />,
+        // element: <Profile />,
       },
       {
         path: "addresses",
-        element: <Address />,
+        element: <NotFound />,
+        // element: <Address />,
       },
       {
         path: "notifications",
-        element: <Notifications />,
+        element: <NotFound />,
+        // element: <Notifications />,
       },
       {
         path: "booking-history",
-        element: <Bookings />,
+        element: <NotFound />,
+        // element: <Bookings />,
       },
       {
         path: "reviews",
-        element: <Reviews />,
+        element: <NotFound />,
+        // element: <Reviews />,
       },
       {
         path: "password",
-        element: <Password />,
+        element: <NotFound />,
+        // element: <Password />,
       },
     ],
   },
