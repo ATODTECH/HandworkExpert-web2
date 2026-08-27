@@ -14,7 +14,7 @@ const ContactHomeIndex = () => {
   }, [service_category]);
 
   return (
-    <div className="">
+    <div className="flex flex-col justify-between min-h-screen">
       <SEOHead
         title="Contact Us"
         description="Get in touch with the Handwork Expert support team. We're here to help with questions, feedback, or anything about your bookings and artisan services."

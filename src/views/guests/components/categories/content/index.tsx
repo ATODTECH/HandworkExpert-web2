@@ -107,7 +107,7 @@ const CategoriesContentIndex = () => {
   return (
     <section className="w-full flex items-center relative px-4 p-16 sm:px-16 xl:px-28 bg-primary-white">
      <div className="flex flex-col gap-30 items-center w-full my-16">
-      <div className="flex flex-col items-center w-full max-w-[80%]">
+      <div className="flex flex-col items-center w-full max-w-[90%]">
         <h3 className="font-semibold text-center text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 text-secondary-orange w-[70%] mb-6.25 ">Discover Our Full Range Of Services</h3>
         <p className=" text-[#858585] tracking-[2%] text-center text-[1rem]">
           Artisan’s Attic offers a diverse array of expertly crafted services, seamlessly  merging creativity and technology to deliver solutions that exceed and drive digital success  

@@ -11,7 +11,7 @@ const Index = loadable(() => import("../views/index.jsx"));
 const Home = loadable(() => import("../views/guests/home.jsx"));
 const About = loadable(() => import("../views/guests/about-us.jsx"));
 const Contact = loadable(() => import("../views/guests/contactN.jsx"));
-const FAQ = loadable(() => import("../views/guests/faq.jsx"));
+const FAQ = loadable(() => import("../views/guests/faqN.jsx"));
 const Categories = loadable(() => import("../views/guests/categories.jsx"));
 const CategoryDetails = loadable(() =>
   import("../views/guests/category-details.jsx")
@@ -56,8 +56,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "faq",
-        element: <NotFound />,
-        // element: <FAQ />,
+        element: <FAQ />,
       },
       {
         path: "category-details/:id",

@@ -17,7 +17,7 @@ const ForegroundContactIndex = () => {
           >
             <motion.img
               src={contactForegroundImage}
-              alt="Professional tradesperson at work"
+              alt=""
               draggable={false}
               className="h-full w-full select-none pointer-events-none object-cover object-[55%_30%] opacity-70"
             />
