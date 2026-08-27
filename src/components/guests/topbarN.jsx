@@ -323,7 +323,7 @@ const TopBarN = ({ popularServices }) => {
             />
           </Link>
           {/* Destop nav */}
-          <div className="hidden lg:flex items-center text-sm text-primary-white font-medium gap-8 ">
+          <div className={"hidden lg:flex items-center text-sm font-medium gap-8 text-primary-white"}>
             <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange font-bold':''}`}>Home</Link>
             <Link to={"/categories"} className={`flex items-center gap-1 ${pathname==="/categories"? 'text-secondary-orange font-bold':''}`}>
               <span className="">Categories</span>
