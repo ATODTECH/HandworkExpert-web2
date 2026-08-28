@@ -1,4 +1,4 @@
-import engineer from  "@/src/assets/img/professional-image.png"
+import engineer from  "@/src/assets/img/professional-image.webp"
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";

@@ -1,7 +1,7 @@
-import searchImage from "@/src/assets/img/work_1.png";
-import chooseImage from "@/src/assets/img/work_2.png";
-import bookImage from "@/src/assets/img/work_3.png";
-import doneImage from "@/src/assets/img/work_4.png";
+import searchImage from "@/src/assets/img/work_1.webp";
+import chooseImage from "@/src/assets/img/work_2.webp";
+import bookImage from "@/src/assets/img/work_3.webp";
+import doneImage from "@/src/assets/img/work_4.webp";
 
 
 const HowItWorksN = () => {
@@ -41,13 +41,11 @@ const HowItWorksN = () => {
         </div>
         
         {/* Content */}
-        <div className="flex flex-col grow">
-          <h3 className="text-[1rem] font-semibold text-primary-text mb-3 leading-tight">
+        <div className="flex flex-col grow text-base text-primary-text">
+          <h3 className=" font-semibold mb-3 leading-tight">
             {title}
           </h3>
-          <p className="text-primary-text text-[1rem]">
-            {description}
-          </p>
+          <p>{description}</p>
         </div>
       </div>
     );
@@ -55,7 +53,7 @@ const HowItWorksN = () => {
   
   return (
     <section className=" w-full p-16 px-4 py-10 sm:px-16 xl:px-28 lg:mt-12 ">
-      <div className="flex flex-col mt-16.25 mb-0 sm:my-16.25 ">
+      <div className="flex flex-col my-16.25 sm:my-16.25 ">
         <h3 className="font-semibold text-center text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6.25 ">How It Works</h3>
         <div className="flex justify-center py-6 sm:py-12 sm:px-4 max-w-360 mx-auto">
           <div className="grid grid-cols-1 w-[80%] 425xl:w-[60%] sm:w-full sm:grid-cols-2 lg:grid-cols-4 gap-6">

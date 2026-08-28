@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import ForegroundContactIndex from "./components/contact/foreground";
 import ContentContactIndex from "./components/contact/content";
+import DataLoading from "@/src/components/data-loading";
 
 const ContactHomeIndex = () => {
   const { service_category } = useSelector((state) => state.user);
@@ -20,10 +21,16 @@ const ContactHomeIndex = () => {
         description="Get in touch with the Handwork Expert support team. We're here to help with questions, feedback, or anything about your bookings and artisan services."
         canonical="/contact"
       />
-      <TopBarN popularServices={popularServices} />
-      <ForegroundContactIndex />
-      <ContentContactIndex />
-      <FooterN />
+      { !service_category ? (
+        <DataLoading mt={50} />
+      ) : (
+        <>
+          <TopBarN popularServices={popularServices} />
+          <ForegroundContactIndex />
+          <ContentContactIndex />
+          <FooterN />
+        </>
+      )}
     </div>
   )
 }

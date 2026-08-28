@@ -1,12 +1,12 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 
-import carpentryImage from "@/src/assets/img/services_we_offer.png";
-import painter from "@/src/assets/img/painter.png";
+import carpentryImage from "@/src/assets/img/services_we_offer.webp";
+import painter from "@/src/assets/img/painter.webp";
 import servicesProvider from "@/src/assets/img/services-provider.png"
 import humanResources from "@/src/assets/img/human-resources.png"
 import convenience from "@/src/assets/img/convenience.png"
-import vision from "@/src/assets/img/vision.png"
-import engineer from  "@/src/assets/img/professional-image.png"
+import vision from "@/src/assets/img/vision.webp"
+import engineer from  "@/src/assets/img/professional-image.webp"
 
 const AboutUsContIndex = () => {
 
@@ -67,7 +67,7 @@ const AboutUsContIndex = () => {
               />
               <span className=" absolute left-1/2 -translate-x-1/2 -bottom-7 text-[.75rem] font-semibold tracking-[2%] text-black bg-primary-white rounded-[10px] py-5 px-4 shadow-[0px_4px_25px_#0000000D] text-nowrap">“every task finds its expert touch”</span>
             </div>
-            <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-[1rem]   425xl:leading-7 mb-5 ">
+            <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-base   425xl:leading-7 mb-5 ">
               Our mission is simple, to create seamless access to reliable artisans while empowering professionals to showcase their skills. We aim to build a community where trust, excellence, and convenience come together to transform how people find and deliver services.
             </p>
             <button type="button"
@@ -84,7 +84,7 @@ const AboutUsContIndex = () => {
             </p>
           </div>
           <div className="flex flex-col sm:grid items-center justify-center sm:grid-cols-2 lg:grid-cols-3 gap-6.25 lg:gap-11.25 w-[80%] 425xl:w-auto text-[1rem] ">
-            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-[300px] lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
+            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
               <div className=" mb-8 lg:mb-10.5 p-4 rounded-full bg-secondary-blue h-auto w-18 ">
                 <img src={servicesProvider} alt="services" className="w-full h-full " />
               </div>
@@ -97,7 +97,7 @@ const AboutUsContIndex = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-[300px] lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
+            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
               <div className="mb-8 lg:mb-10.5 p-4 rounded-full bg-secondary-blue h-auto w-18 ">
                 <img src={humanResources} alt="human resources" height={28} width={28} className="w-full h-full " />
               </div>
@@ -110,7 +110,7 @@ const AboutUsContIndex = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-[300px] lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] sm:col-span-2 sm:mx-auto lg:col-span-1 lg:mx-0 ">
+            <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] sm:col-span-2 sm:mx-auto lg:col-span-1 lg:mx-0 ">
               <div className="mb-8 lg:mb-10.5 p-4 rounded-full bg-secondary-blue h-auto w-18 ">
                 <img src={convenience} alt="convenience" className="w-full h-full " />
               </div>
@@ -145,7 +145,7 @@ const AboutUsContIndex = () => {
               Sign up <KeyboardArrowDown />
             </button>
           </div>
-          <div className="hidden sm:flex overflow-hidden h-auto w-[30rem]">
+          <div className="hidden sm:flex overflow-hidden h-auto w-120">
             <img 
             height={98}
             width={108}
@@ -175,7 +175,7 @@ const AboutUsContIndex = () => {
               </button>
             </div>
           </div>
-          <div className="hidden sm:flex h-auto w-[35rem]">
+          <div className="hidden sm:flex h-auto w-140">
             <img src={engineer} alt="engineer"
             className=" w-full h-full object-cover" />
           </div>

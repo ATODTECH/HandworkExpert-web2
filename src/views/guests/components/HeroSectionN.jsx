@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Hero_1 from "@/src/assets/img/hero_1.png";
-import Hero_2 from "@/src/assets/img/hero_2.png";
-import Hero_3 from "@/src/assets/img/hero_3.png";
-import Hero_4 from "@/src/assets/img/hero_4.png";
-import Hero_5 from "@/src/assets/img/hero_5.png";
+import Hero_1 from "@/src/assets/img/hero_1.webp";
+import Hero_2 from "@/src/assets/img/hero_2.webp";
+import Hero_3 from "@/src/assets/img/hero_3.webp";
+import Hero_4 from "@/src/assets/img/hero_4.webp";
+import Hero_5 from "@/src/assets/img/hero_5.webp";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
@@ -158,7 +158,7 @@ const HeroSectionN = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen w-full flex items-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327] ">
+    <section id="home" className="min-h-screen w-full flex items-center justify-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327] ">
       {/* Background photo — draggable for a subtle parallax "peek" interaction */}
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence mode="sync">
@@ -172,7 +172,7 @@ const HeroSectionN = () => {
           >
             <motion.img
               src={heroImages[currentIndex].main}
-              alt="Professional tradesperson at work"
+              alt={`Professional ${heroImages[currentIndex].title} at work`}
               draggable={false}
               className="h-full w-full cursor-grab select-none opacity-70 object-cover object-[55%_30%]"
             />
@@ -187,7 +187,7 @@ const HeroSectionN = () => {
         <div className="grid w-full items-center gap-10 1280xl:grid-cols-[minmax(0,620px)_1fr]">
           {/* Text column */}
           <div className="max-w-2xl py-10 425xl:py-20 md:py-30 lg:py-40">
-            <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.05] text-primary-white">
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.25] text-primary-white">
               {['Connecting You', 'With Professional'].map((line, i) => (
                 <motion.span
                   key={line}
@@ -222,14 +222,14 @@ const HeroSectionN = () => {
               </motion.span>
             </h1>
 
-            <motion.p
+            <motion.h2
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 max-w-[34rem] text-[15px] leading-relaxed text-primary-white/85 sm:text-base"
+              className="mt-6 max-w-136 h-28 425xl:h-full font-medium text-base text-primary-white/85 "
             >
-              From home repairs to expert craftsmanship, find verified artisans ready to dliver quality services quickly, efficiently, and at your convenience.
-            </motion.p>
+              {heroImages[currentIndex].description}
+            </motion.h2>
 
             <Link to={"/signup"}>
               <motion.button

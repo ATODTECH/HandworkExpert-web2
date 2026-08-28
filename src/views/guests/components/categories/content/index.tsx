@@ -1,9 +1,9 @@
 import { ReactNode } from "react"
-import ClothingStore from "@/src/assets/img/clothing-store.png";
-import Exportation from "@/src/assets/img/export-services.png";
-import homesProperty from "@/src/assets/img/homes-property.png";
-import Logistics from "@/src/assets/img/logistics-warehousing.png";
-import Media from "@/src/assets/img/media-communication.png";
+import ClothingStore from "@/src/assets/img/clothing-store.webp";
+import Exportation from "@/src/assets/img/export-services.webp";
+import homesProperty from "@/src/assets/img/homes-property.webp";
+import Logistics from "@/src/assets/img/logistics-warehousing.webp";
+import Media from "@/src/assets/img/media-communication.webp";
 
 const CategoriesContentIndex = () => {
 
@@ -51,9 +51,9 @@ const CategoriesContentIndex = () => {
                 alt={responseData.category}
                 className=" h-full w-full object-cover" />
               </div>
-              <span className=" text-[1rem] leading-[1.5rem] tracking-[1.5%] font-bold">{responseData.category}</span>
+              <span className=" text-[1rem] leading-6 tracking-[1.5%] font-bold">{responseData.category}</span>
             </div>
-            <p className=" text-[1rem] leading-[1.5rem] font-medium w-full sm:w-[80%] lg:w-[70%] mb-10">{responseData.caption}</p>
+            <p className=" text-[1rem] leading-6 font-medium w-full sm:w-[80%] lg:w-[70%] mb-10">{responseData.caption}</p>
             {/* continune with before bgColor */}
             <div className="flex flex-wrap select-none relative w-full sm:max-w-[90%] lg:w-fit overflow-hidden rounded-[.625rem] bg-secondary-blue px-6 py-4 z-0">
               <div className="absolute w-10 h-auto inset-0 left-0 bg-linear-to-r from-secondary-blue via-secondary-blue to-[#151327]/0 z-20 "></div>
@@ -108,7 +108,7 @@ const CategoriesContentIndex = () => {
     <section className="w-full flex items-center relative px-4 p-16 sm:px-16 xl:px-28 bg-primary-white">
      <div className="flex flex-col gap-30 items-center w-full my-16">
       <div className="flex flex-col items-center w-full max-w-[90%]">
-        <h3 className="font-semibold text-center text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 text-secondary-orange w-[70%] mb-6.25 ">Discover Our Full Range Of Services</h3>
+        <h3 className="font-semibold text-center text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 text-secondary-orange w-[80%] lg:w-[70%] mb-6.25 ">Discover Our Full Range Of Services</h3>
         <p className=" text-[#858585] tracking-[2%] text-center text-[1rem]">
           Artisan’s Attic offers a diverse array of expertly crafted services, seamlessly  merging creativity and technology to deliver solutions that exceed and drive digital success  
         </p>

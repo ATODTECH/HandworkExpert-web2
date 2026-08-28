@@ -28,6 +28,7 @@ import ForegroundCatIndex from "./components/categories/foreground";
 import CategoriesContentIndex from "./components/categories/content";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
+import DataLoading from "@/src/components/data-loading";
 export default function Categories() {
   const { service_category } = useSelector((state) => state.user);
   const popularServices = useMemo(() => {
@@ -50,10 +51,16 @@ export default function Categories() {
         description="Explore all service categories on Handwork Expert — from plumbing and electrical to carpentry, painting, and more. Find the right artisan for any job."
         canonical="/categories"
       />
-      <TopBarN popularServices={popularServices} />
-      <ForegroundCatIndex />
-      <CategoriesContentIndex />
-      <FooterN />
+      { !service_category ? (
+        <DataLoading mt={50} />
+      ) : (
+        <>
+          <TopBarN popularServices={popularServices} />
+          <ForegroundCatIndex />
+          <CategoriesContentIndex />
+          <FooterN />
+        </>
+      )}
     </div>
   );
 }

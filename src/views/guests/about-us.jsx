@@ -9,6 +9,7 @@ import TopBarN from "@/src/components/guests/topbarN";
 import FooterN from "@/src/components/guests/footerN";
 import ForegroundAboutUsIndex from "./components/about-us/foreground";
 import AboutUsContIndex from "./components/about-us/content";
+import DataLoading from "@/src/components/data-loading";
 
 
 export default function AboutUs() {
@@ -30,10 +31,16 @@ export default function AboutUs() {
         description="Learn about Handwork Expert — our mission to connect users with trusted, verified artisans across Nigeria for reliable, professional home and business services."
         canonical="/about-us"
       />
-      <TopBarN popularServices={popularServices} />
-      <ForegroundAboutUsIndex />
-      <AboutUsContIndex />
-      <FooterN />
+      { !service_category ? (
+        <DataLoading mt={50} />
+      ) : (
+        <>
+          <TopBarN popularServices={popularServices} />
+          <ForegroundAboutUsIndex />
+          <AboutUsContIndex />
+          <FooterN />
+        </>
+      )}
     </div>
   );
 }

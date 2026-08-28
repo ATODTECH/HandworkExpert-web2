@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "@/src/assets/img/logo.png"
-import notFoundIcon from "@/src/assets/img/not-found.png"
+import error from "@/src/assets/img/not-found.webp"
 import { ArrowBack, KeyboardArrowDown } from "@mui/icons-material";
 
 const Error = () => {
@@ -35,7 +35,7 @@ const Error = () => {
       <div className="flex flex-col justify-center items-center flex-1 h-full text-[#101828] relative px-4 pt-20 sm:px-16 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center gap-4 mb-2">
           <div className=" h-auto w-15 425xl:w-18 sm:w-20 mb-4">
-            <img src={notFoundIcon} alt="404" 
+            <img src={error} alt="Error" 
             className=" w-full h-full object-cover" />
           </div>
           <h1 className=" font-bold text-[1.75rem] leading-7 425xl:text-[2rem] sm:text-[2.75rem] 425xl:leading-[100%]">Error just occurred</h1>

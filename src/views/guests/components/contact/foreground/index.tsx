@@ -1,5 +1,4 @@
-
-import contactForegroundImage from "@/src/assets/img/contact-us.png"
+import contactForegroundImage from "@/src/assets/img/contact-us.webp"
 import { AnimatePresence, motion } from "framer-motion"
 
 const ForegroundContactIndex = () => {

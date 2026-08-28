@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"
-import foreground from "@/src/assets/img/happy-young-african-businessman.png"
+import foreground from "@/src/assets/img/happy-young-african-businessman.webp"
 
 
 const ForegroundAboutUsIndex = () => {
