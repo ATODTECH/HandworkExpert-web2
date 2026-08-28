@@ -1,4 +1,4 @@
-import foreground from "@/src/assets/img/faq-lady-foreground.png"
+import foreground from "@/src/assets/img/faq-lady-foreground.webp"
 import { AnimatePresence, motion } from "framer-motion"
 
 const ForegroundFAQIndex = () => {

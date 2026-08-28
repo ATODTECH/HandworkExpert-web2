@@ -133,3 +133,4 @@ dist
 draft.txt
 Dockerfile
 nginx.conf
+.DS_Store

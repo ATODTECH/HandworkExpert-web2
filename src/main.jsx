@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import ScreenLoading from "./components/loaders/screenLoading.jsx";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 import { HelmetProvider } from "react-helmet-async";
 
 const theme = createTheme({
@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <HelmetProvider>
       <Provider store={store}>
         <PersistGate loading={<ScreenLoading />} persistor={persistor}>
-          <ToastContainer />
+          {/* <ToastContainer /> */}
           <ThemeProvider theme={theme}>
             <App />
           </ThemeProvider>

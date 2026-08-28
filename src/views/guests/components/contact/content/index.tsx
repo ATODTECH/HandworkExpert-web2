@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import engineer from  "@/src/assets/img/professional-image.png"
-import newsletter from "@/src/assets/img/email-newsletter.png"
+import engineer from  "@/src/assets/img/professional-image.webp"
+import newsletter from "@/src/assets/img/email-newsletter.webp"
 import caller from "@/src/assets/img/contact-us-icon.png"
 import email from "@/src/assets/img/email-icon.png"
 import location from "@/src/assets/img/location-pin-icon.png"
-import map from "@/src/assets/img/map-location.png"
+import map from "@/src/assets/img/map-location.webp"
 
 import { FieldConfig, FieldName } from "@/types/contact-us";
 

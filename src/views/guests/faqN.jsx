@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import ForegroundFAQIndex from "./components/faq/foreground";
 import ContentFAQIndex from "./components/faq/content";
+import DataLoading from "@/src/components/data-loading";
 
 const FAQHomeIndex = () => {
   const { service_category } = useSelector((state) => state.user);
@@ -20,10 +21,16 @@ const FAQHomeIndex = () => {
         description="Find answers to the most common questions about Handwork Expert — how to book artisans, payment methods, verification, and more."
         canonical="/faq"
       />
-      <TopBarN popularServices={popularServices} />
-      <ForegroundFAQIndex />
-      <ContentFAQIndex />
-      <FooterN />
+      { !service_category ? (
+        <DataLoading mt={50} />
+      ) : (
+        <>
+          <TopBarN popularServices={popularServices} />
+          <ForegroundFAQIndex />
+          <ContentFAQIndex />
+          <FooterN />
+        </>
+      )}
     </div>
   )
 }

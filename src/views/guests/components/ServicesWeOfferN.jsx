@@ -13,9 +13,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // Import images
-import plumbingImage from "@/src/assets/img/services_we_offer.png";
-import carpentryImage from "@/src/assets/img/services_we_offer.png";
-import electricalImage from "@/src/assets/img/services_we_offer.png";
+import plumbingImage from "@/src/assets/img/services_we_offer.webp";
+import carpentryImage from "@/src/assets/img/services_we_offer.webp";
+import electricalImage from "@/src/assets/img/services_we_offer.webp";
 import { useState } from "react";
 
 // Custom styled components
@@ -80,10 +80,10 @@ const ServicesWeOfferN = () => {
   };
 
   return (
-    <section className="w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:my-12 sm:mb-28.5 sm:mt-0 ">
-      <div className="flex flex-col sm:flex-row justify-center items-center relative gap-15  ">
-        {/* image */}
-        <div className="w-50 425xl:w-75 sm:w-[45%] h-auto order-2 sm:order-1 ">
+    <section className="flex flex-col items-center w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:my-12 sm:mb-28.5 sm:mt-0 ">
+      <div className="flex flex-col sm:flex-row justify-center items-center relative gap-15 w-[90%] sm:w-full mb-16 sm:mb-0 ">
+        {/* main image */}
+        <div className="hidden sm:flex w-60 425xl:w-75 sm:w-[45%] h-auto">
           <img 
             width={"98px"}
             height={"88px"}
@@ -94,20 +94,32 @@ const ServicesWeOfferN = () => {
         </div>
         {/* content */}
         <div className="flex flex-col items-start order-1 sm:order-2 w-full sm:w-[45%] ">
-          <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-4 self-center sm:self-start ">Services We Offer</h3>
-          <div className="flex flex-col text-lg 425xl:text-xl sm:text-2xl gap-2 mb-4">
-            <h4 className="font-medium  ">{services[currentService].title}</h4>
-            <p className=" ">{services[currentService].description}</p>
+          <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6 self-center sm:self-start ">Services We Offer</h3>
+          {/* centre image */}
+          <div className="flex sm:hidden self-center w-60 425xl:w-75 h-auto mb-6">
+            <img 
+              width={"98px"}
+              height={"88px"}
+              src={services[currentService].image}
+              alt={services[currentService].title}
+              className=" w-full h-full "
+            />
+          </div>
+          <div className="flex flex-col gap-2 mb-4">
+            <h4 className="font-medium text-lg 425xl:text-xl sm:text-2xl ">{services[currentService].title}</h4>
+            <p className="font-normal text-sm leading-6  425xl:text-xl sm:text-2xl 425xl:leading-relaxed ">{services[currentService].description}</p>
           </div>
           {/* Navigation Buttons */}
           <div className="flex gap-4">
             <button 
-            className="bg-secondary-blue rounded-[5px] text-primary-white h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
+            type="button"
+            className="bg-secondary-blue rounded-[5px] text-primary-white h-8 w-8 sm:h-11 sm:w-11 outline-0 cursor-pointer "
             onClick={handlePrev}>
               <ArrowBackIcon fontSize="small" />
             </button>
             <button 
-            className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-8 w-10 sm:h-11 sm:w-11 outline-0 cursor-pointer "
+            type="button"
+            className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-8 w-8 sm:h-11 sm:w-11 outline-0 cursor-pointer "
             onClick={handleNext}>
               <ArrowForwardIcon fontSize="small" />
             </button>

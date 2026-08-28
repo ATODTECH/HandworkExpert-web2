@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "@/src/assets/img/logo.png"
-import notFoundIcon from "@/src/assets/img/not-found.png"
+import notFoundIcon from "@/src/assets/img/not-found.webp"
 import { ArrowBack, KeyboardArrowDown } from "@mui/icons-material";
 
 const NotFound = () => {
