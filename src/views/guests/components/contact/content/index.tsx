@@ -153,7 +153,7 @@ const ContentContactIndex = () => {
     <section className="w-full flex flex-col items-center relative px-4 p-16 sm:px-16 xl:px-28">
       <div className="flex flex-col w-full lg:max-w-[90%] items-center bg-primary-white">
         <div className="flex flex-col w-[90%] md:w-full my-16">
-          <h3 className="font-semibold text-center sm:text-start text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 tracking-[2%] text-secondary-orange mb-6.25">GET IN TOUCH</h3>
+          <h3 id="report" className="font-semibold text-center sm:text-start text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 tracking-[2%] text-secondary-orange mb-6.25">GET IN TOUCH</h3>
           <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full gap-15 rounded-[25px] ">
             <div className="w-full ">
               <form 

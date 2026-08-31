@@ -9,26 +9,31 @@ const CategoriesContentIndex = () => {
 
   const ResData = [
     {
+      id: 'fashion',
       icon: ClothingStore,
       category: "Fashion And Beauty Shop",
       caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly  merging creativity merging creativity.",
       brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
     }, {
+      id: 'export',
       icon: Exportation,
       category: "Export Services",
       caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly  merging creativity merging creativity.",
       brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
     }, {
+      id: 'property',
       icon: homesProperty,
       category: "Home And Property",
       caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly  merging creativity merging creativity.",
       brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
     }, {
+      id: 'media',
       icon: Media,
       category: "Media",
       caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly  merging creativity merging creativity.",
       brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
     }, {
+      id: 'logistics',
       icon: Logistics,
       category: "Logistics And Warehousing",
       caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly  merging creativity merging creativity.",
@@ -40,7 +45,7 @@ const CategoriesContentIndex = () => {
     const contents: ReactNode[] = []
     ResData.map((responseData, index) => (
       contents.push(
-        <div key={index} className="flex justify-end h-full min-h-16 py-5 px-4.25 shadow-[0px_0px_4px_2px_#E6E6E640] rounded-[1.25rem] 425xl:max-w-[80%] sm:max-w-full ">
+        <div key={index} id={(responseData.id)} className="flex justify-end h-full min-h-16 py-5 px-4.25 shadow-[0px_0px_4px_2px_#E6E6E640] rounded-[1.25rem] 425xl:max-w-[80%] sm:max-w-full ">
           <div className="flex flex-col justify-end w-full sm:max-w-[60%] pb-10 ">
             <div className="flex items-center mb-4 gap-4 lg:gap-2">
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">

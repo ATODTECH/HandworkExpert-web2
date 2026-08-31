@@ -5,28 +5,28 @@ const FooterN = () => {
     {
       title: "Categories",
       item: [
-        { title: "Fashion and Beauty", url: "" },
-        { title: "Automotive", url: "" },
-        { title: "Export Services", url: "" },
-        { title: "Agriculture", url: "" },
-        { title: "Logistics and warehousing", url: "" },
+        { title: "Fashion and Beauty", url: "/categories" },
+        { title: "Automotive", url: "/categories" },
+        { title: "Export Services", url: "/categories" },
+        { title: "Agriculture", url: "/categories" },
+        { title: "Logistics and warehousing", url: "/categories" },
       ],
     },
     {
       title: "Quick Links",
       item: [
-        { title: "About Us", url: "" },
-        { title: "Contact Us", url: "" },
-        { title: "Artisan's Attic Reports", url: "" },
-        { title: "FAQ", url: "" },
+        { title: "About Us", url: "/about-us" },
+        { title: "Contact Us", url: "/contact" },
+        { title: "Artisan's Attic Reports", url: "/contact" },
+        { title: "FAQ", url: "/faq" },
       ],
     },
     {
       title: "Contact Us",
       item: [
-        { title: "About Us", url: "" },
-        { title: "Contact", url: "" },
-        { title: "Artisan's Attic Reports", url: "" },
+        { title: "About Us", url: "/about-us" },
+        { title: "Contact", url: "/contact" },
+        { title: "Artisan's Attic Reports", url: "/contact" },
       ],
     },
   ];
