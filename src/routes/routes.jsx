@@ -14,7 +14,7 @@ const Contact = loadable(() => import("../views/guests/contactN.jsx"));
 const FAQ = loadable(() => import("../views/guests/faqN.jsx"));
 const Categories = loadable(() => import("../views/guests/categories.jsx"));
 const CategoryDetails = loadable(() =>
-  import("../views/guests/category-details.jsx")
+  import("../views/guests/categories-details.jsx")
 );
 const ServiceDetails = loadable(() =>
   import("../views/guests/service-details.jsx")
@@ -59,9 +59,8 @@ export const routes = createBrowserRouter([
         element: <FAQ />,
       },
       {
-        path: "category-details/:id",
-        element: <NotFound />,
-        // element: <CategoryDetails />,
+        path: "categories/:id",
+        element: <CategoryDetails />,
       },
       {
         path: "services/:id",
