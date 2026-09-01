@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -118,7 +118,14 @@ function Field({
 
 const ContentContactIndex = () => {
   const [focusedField, setFocusedField] = useState<FieldName | null>(null);
-    const formik = useFormik({
+  const inputNewsletterRef = useRef<HTMLInputElement>(null)
+
+  // newsLetter
+  const changeValue = () => {
+    if (inputNewsletterRef.current) inputNewsletterRef.current.value = ""
+  }
+
+  const formik = useFormik({
     initialValues: {
       name: "",
       phone: "",
@@ -127,7 +134,7 @@ const ContentContactIndex = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      console.log(values);
+      // console.log(values); send to BE
       resetForm();
     },
   });
@@ -152,7 +159,7 @@ const ContentContactIndex = () => {
   return (
     <section className="w-full flex flex-col items-center relative px-4 p-16 sm:px-16 xl:px-28">
       <div className="flex flex-col w-full lg:max-w-[90%] items-center bg-primary-white">
-        <div className="flex flex-col w-[90%] md:w-full my-16">
+        <div className="flex flex-col w-[90%] md:w-full my-26">
           <h3 id="report" className="font-semibold text-center sm:text-start text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 tracking-[2%] text-secondary-orange mb-6.25">GET IN TOUCH</h3>
           <div className="flex flex-col items-center md:items-start md:flex-row justify-between w-full gap-15 rounded-[25px] ">
             <div className="w-full ">
@@ -180,11 +187,12 @@ const ContentContactIndex = () => {
               height={28}
               width={28}
               className="relative w-full h-full object-cover object-top-left"/>
-              <form className="absolute flex flex-col -bottom-6 left-1/2 -translate-1/2 w-[85%] gap-2">
-                <input type="email" name="email" id="email" placeholder="Email"
+              {/* change back to form */}
+              <div className="absolute flex flex-col -bottom-6 left-1/2 -translate-1/2 w-[85%] gap-2">
+                <input type="email" name="email" id="email" placeholder="Email" ref={inputNewsletterRef}
                 className=" bg-primary-white outline-0 text-sm py-3 px-2 rounded-xl placeholder:text-black placeholder:text-sm" />
-                <button type="submit" className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 ">Subscribe</button>
-              </form>
+                <button type="submit" onClick={changeValue} className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer">Subscribe</button>
+              </div>
             </div>
           </div>
         </div>

@@ -30,12 +30,12 @@ const ForegroundCatIndex = () => {
         </div>
 
         <div className="flex justify-between md:grid grid-cols-2 place-content-center bg-primary-white rounded-[20px] sm:rounded-full 425xl:max-w-[90%] sm:max-w-full w-full px-2 lg:h-17.5 md:px-4 md:py-2 lg:p-5 mb-10">
-          <form method="POST" className="flex relative flex-1">
+          <div id="search" className="flex relative flex-1">
             <div className="hidden lg:flex absolute top-[30%] left-2">
               <DesktopWindowsOutlined fontSize="small" className=" text-[#858585]" />
             </div>
             <input type="search" id="search" name="search" autoFocus placeholder="What are you looking for?" className=" text-[1rem] placeholder:text-[#858585] placeholder:text-sm lg:placeholder:text-[1rem] border-r-0 md:border-r-[1.5px] border-r-[#858585] lg:pl-10 p-3 w-full outline-0 ring-0 [&::-webkit-search-cancel-button]:hidden [&::-ms-clear]:hidden " />
-          </form>
+          </div>
           <div className="flex items-center justify-between gap-2 select-none">
             <div className="hidden md:flex truncate items-center ml-4">
               <FmdGoodOutlined fontSize="small" className="text-[#858585]" />
