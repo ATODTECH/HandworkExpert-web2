@@ -5,7 +5,8 @@ import Hero_2 from "@/src/assets/img/hero_2.webp";
 import Hero_3 from "@/src/assets/img/hero_3.webp";
 import Hero_4 from "@/src/assets/img/hero_4.webp";
 import Hero_5 from "@/src/assets/img/hero_5.webp";
-import { KeyboardArrowDown } from "@mui/icons-material";
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 import { Link } from "react-router-dom";
 
 const heroImages = [
@@ -157,6 +158,7 @@ const HeroSectionN = () => {
     }, 5000);
   };
 
+
   return (
     <section id="home" className="min-h-screen w-full flex items-center justify-center isolate relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327] ">
       {/* Background photo — draggable for a subtle parallax "peek" interaction */}
@@ -187,7 +189,7 @@ const HeroSectionN = () => {
         <div className="grid w-full items-center gap-10 1280xl:grid-cols-[minmax(0,620px)_1fr]">
           {/* Text column */}
           <div className="max-w-2xl py-10 425xl:py-20 md:py-30 lg:py-40">
-            <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[1.25] text-primary-white">
+            <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-tight text-primary-white">
               {['Connecting You', 'With Professional'].map((line, i) => (
                 <motion.span
                   key={line}
@@ -231,19 +233,10 @@ const HeroSectionN = () => {
               {heroImages[currentIndex].description}
             </motion.h2>
 
-            <Link to={"/signup"}>
-              <motion.button
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.72, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.96 }}
-                className="mt-8 flex items-center justify-center gap-2 rounded-sm bg-primary-white w-full max-w-35 sm:max-w-50 px-4 sm:px-7 py-3 text-[15px] font-semibold text-ink shadow-xl shadow-black/20"
-              >
-                Sign up
-                <KeyboardArrowDown />
-              </motion.button>
-            </Link>
+            <div role="link" className="mt-8 flex items-center gap-2 rounded-sm w-fit py-3 font-semibold text-ink shadow-xl shadow-black/20">
+              <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto " onClick={() => alert("Coming soon!")} />
+              <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto " onClick={() => alert("Coming soon!")} />
+            </div>
           </div>
 
           {/* Image column: floating photo cards, only meaningfully visible on larger screens */}

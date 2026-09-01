@@ -17,13 +17,16 @@ import {
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import localforage from "localforage";
+import PopUpRegister from "./become-professional";
 
 const TopBarN = ({ popularServices }) => {
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [regOpen, setRegOpen] = useState(false);
+  const [isPopUp, setPopUp] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const popUpRef = useRef(null)
 
   // use this links instead of remPopularServices
   const remPopularServices = [
@@ -50,6 +53,16 @@ const TopBarN = ({ popularServices }) => {
       name: "Tech/IT",
     },
   ]
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (popUpRef.current && !popUpRef.current.contains(e.target)) {
+        setPopUp(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   
   const links = [
     { title: "About Us", route: "/about-us" },
@@ -339,7 +352,7 @@ const TopBarN = ({ popularServices }) => {
     <>
       <header id="topbar" className={`fixed top-0 backdrop-blur-[6px] w-screen max-w-[1920px] py-3 px-4 sm:px-16 xl:px-28 z-20 shadow-md ${isScrolled?'bg-secondary-blue':''} `}>
         <nav className="flex flex-row w-full items-center justify-between ">
-          <Link to={"/"} className="outline-0">
+          <Link to={"/"} className="outline-0 w-[21%]">
             <img
               src={Logo}
               draggable={false}
@@ -364,10 +377,16 @@ const TopBarN = ({ popularServices }) => {
               Log in
               <KeyboardArrowDown />
             </button>
-            <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
-              Sign up
-              <KeyboardArrowDown />
-            </button>
+            <div className=" relative" ref={popUpRef}>
+              <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] "
+              onClick={() => setPopUp(!isPopUp)}>
+                Sign up
+                <KeyboardArrowDown />
+              </button>
+              {isPopUp && (
+                <PopUpRegister key={"popUp"} position={{x:"right-0", y:" mt-5"}} setPop={()=> setPopUp(false)} />
+              )}
+            </div>
           </div>
           {/* Mobile Hamburger Menu */}
           <button

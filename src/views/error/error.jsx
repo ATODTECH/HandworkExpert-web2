@@ -2,9 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "@/src/assets/img/logo.png"
 import error from "@/src/assets/img/not-found.webp"
 import { ArrowBack, KeyboardArrowDown } from "@mui/icons-material";
+import { useEffect, useRef, useState } from "react";
+import PopUpRegister from "@/src/components/guests/become-professional";
 
 const Error = () => {
   const navigate = useNavigate();
+  const popUpRef = useRef(null)
+  const [isPopUp, setPopUp] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (popUpRef.current && !popUpRef.current.contains(e.target)) {
+        setPopUp(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className=" bg-[#FAFAFA] h-screen w-full overflow-y-auto">
@@ -21,14 +35,20 @@ const Error = () => {
           </Link>
           {/* Destop nav */}
           <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
-             <button role="link" className="flex items-center py-4 px-3 gap-0.5 text-[#101928]">
+            <button role="link" className="flex items-center py-4 px-3 gap-0.5 text-[#101928]">
               Log in
               <KeyboardArrowDown />
             </button>
-             <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
-              Sign up
-              <KeyboardArrowDown />
-            </button>
+            <div className=" relative" ref={popUpRef}>
+             <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] " 
+             onClick={() => setPopUp(!isPopUp)}>
+                Sign up
+                <KeyboardArrowDown />
+              </button>
+              {isPopUp && (
+                <PopUpRegister key={"popUp"} position={{x:"right-0", y:" mt-5"}} setPop={()=> setPopUp(false)} />
+              )}
+            </div>
           </div>
         </nav>
       </header>

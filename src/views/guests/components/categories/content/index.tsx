@@ -136,8 +136,7 @@ const CategoriesContentIndex = () => {
             className=" h-full w-full object-cover" />
             <div className="absolute h-full w-full bg-[#17215333] top-0"></div>
             <Link to={responseData.name}>
-              <button type="submit" className="hidden lg:flex absolute bottom-5 left-1/2 -translate-x-1/2 bg-secondary-orange text-primary-white py-1.75 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer"
-              onClick={()=>alert("In progress!")}>View All Service</button>
+              <button type="submit" className="hidden lg:flex absolute bottom-5 left-1/2 -translate-x-1/2 bg-secondary-orange text-primary-white py-1.75 px-5 text-[.75rem] tracking-[2%] font-bold rounded-full leading-6 outline-0 cursor-pointer">View All Service</button>
             </Link>
           </div>
         </div>
