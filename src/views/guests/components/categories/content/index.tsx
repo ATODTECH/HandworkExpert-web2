@@ -1,12 +1,9 @@
-import { ReactNode, useRef, useState } from "react"
+import { ReactNode, useState } from "react"
 import ClothingStore from "@/src/assets/img/clothing-store.webp";
 import Exportation from "@/src/assets/img/export-services.webp";
 import homesProperty from "@/src/assets/img/homes-property.webp";
 import Logistics from "@/src/assets/img/logistics-warehousing.webp";
-import Media from "@/src/assets/img/media-communication.webp";
 import Tech_IT from "@/src/assets/img/category-1.webp";
-import Legal from "@/src/assets/img/category-2.webp";
-import Environmental from "@/src/assets/img/category-3.webp";
 import Automotive from "@/src/assets/img/category-4.webp";
 import Agriculture from "@/src/assets/img/category-5.webp";
 import { ChevronRight } from "lucide-react";
@@ -20,22 +17,18 @@ const ResData = [
     category: "Fashion And Beauty",
     caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
     brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
-  }, {
+  }, 
+  {
     name: 'export',
     icon: Exportation,
     category: "Export Services",
     caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
     brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
-  }, {
+  }, 
+  {
     name: 'property',
     icon: homesProperty,
     category: "Home And Property",
-    caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
-    brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
-  }, {
-    name: 'media',
-    icon: Media,
-    category: "Media",
     caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
     brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
   }, 
@@ -50,20 +43,6 @@ const ResData = [
     name: 'tech-IT',
     icon: Tech_IT,
     category: "Tech/IT",
-    caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
-    brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
-  },
-  {
-    name: 'legal',
-    icon: Legal,
-    category: "Legal",
-    caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
-    brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
-  },
-  {
-    name: 'environmental-Services',
-    icon: Environmental,
-    category: "Environmental Services",
     caption: "ATOD TECH offers a diverse array of expertly crafted services, seamlessly merging creativity.",
     brands: ["Happiness store", "Grace kampala", "Joyce store", "Anointed store", "G&D gadgets", "Kano price", ]
   },

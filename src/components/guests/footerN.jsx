@@ -5,11 +5,11 @@ const FooterN = () => {
     {
       title: "Categories",
       item: [
-        { title: "Fashion and Beauty", url: "/categories" },
-        { title: "Automotive", url: "/categories" },
-        { title: "Export Services", url: "/categories" },
-        { title: "Agriculture", url: "/categories" },
-        { title: "Logistics and warehousing", url: "/categories" },
+        { title: "Fashion and Beauty", url: "/categories/fashion" },
+        { title: "Automotive", url: "/categories/automotive" },
+        { title: "Export Services", url: "/categories/export" },
+        { title: "Agriculture", url: "/categories/agriculture" },
+        { title: "Logistics and warehousing", url: "/categories/logistics" },
       ],
     },
     {
@@ -87,8 +87,10 @@ const FooterN = () => {
       <div className="flex items-center justify-between gap-5 w-full lg:pr-25 text-[.75rem] sm:text-sm ">
         <span className="">© 2023 All Rights Reserved</span>
         <p className="flex gap-4  ">
-          <Link to={"/privacy-policy"}>Privacy Policy</Link>
-          <Link to={"/privacy"}>Terms and conditions</Link>
+          <button role="link" onClick={()=> alert("Coming soon!")}>Privacy Policy</button>
+          <button role="link" onClick={()=> alert("Coming soon!")}>Terms and conditions</button>
+          {/* <Link to={""}>Privacy Policy</Link>
+          <Link to={""}>Terms and conditions</Link> */}
         </p>
       </div>
     </footer>
