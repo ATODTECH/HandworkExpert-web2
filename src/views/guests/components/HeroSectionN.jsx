@@ -7,7 +7,6 @@ import Hero_4 from "@/src/assets/img/hero_4.webp";
 import Hero_5 from "@/src/assets/img/hero_5.webp";
 import GooglePlay from "@/src/assets/img/google-play.png";
 import AppStore from "@/src/assets/img/apple-store.png";
-import { Link } from "react-router-dom";
 
 const heroImages = [
   {

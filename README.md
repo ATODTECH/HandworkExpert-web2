@@ -1,8 +1,19 @@
-# React + Vite
+# ProHandy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**On-demand professional services marketplace connecting customers with verified artisans across Nigeria.**
 
-Currently, two official plugins are available:
+Status: `v2.0`
+--
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Vision & Mission
+
+- **Vision** — Become Africa's most trusted digital platform for connecting customers with verified service professionals, through a secure, transparent, end-to-end service experience.
+- **Mission** — Help customers find reliable professionals in minutes, while enabling artisans to access consistent work, manage their business digitally, and build a durable professional reputation.
+
+## System Architecture
+
+FRONT-END
+* Tailwindcss
+* Typescript / Javascript
+* React / Vite
+---

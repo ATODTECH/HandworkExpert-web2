@@ -1,7 +1,10 @@
 import engineer from  "@/src/assets/img/professional-image.webp"
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+
 
 interface FaqItem {
   question: string;
@@ -132,16 +135,15 @@ const ContentFAQIndex = () => {
             </p>
             {/* Navigation Buttons */}
             <div className="flex items-center w-fit gap-4">
-              <button 
-              className=" text-nowrap bg-secondary-blue text-primary-white p-4 outline-0 cursor-pointer font-bold text-[.75rem] 425xl:text-sm hover:bg-[#232958] rounded-sm"
-              >
-                Register as a Professional
-              </button>
-              <button 
+              <div role="link" className=" flex items-center gap-2 rounded-sm w-fit font-semibold">
+                <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+                <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+              </div>
+              {/* <button 
               className=" text-nowrap text-secondary-blue outline-0 cursor-pointer text-[.625rem] 425xl:text-[.75rem] h-fit font-semibold hover:underline hover:bg-transparent "
               >
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="hidden sm:flex h-auto w-[35rem]">
