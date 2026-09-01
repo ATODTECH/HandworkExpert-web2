@@ -2,6 +2,8 @@ import SEOHead from "@/src/components/SEOHead"
 import { ChevronDown, ChevronRight, MapPin, PhoneCall, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import engineer from  "@/src/assets/img/professional-image.webp"
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 
 
 interface CatDetailsProps {
@@ -57,7 +59,7 @@ function CurrencyDropdown({ currency, onChange }: {currency: any, onChange: any}
     <div className="relative" ref={ref}>
       <button
         ref={btnRefCurrency}
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => setOpen((o) => false)}
         className="flex items-center gap-1.5 bg-[#B6B6B6] hover:bg-[#B6B6B6]/60 transition-colors rounded-lg px-3 py-2 text-sm font-medium text-primary-white cursor-not-allowed"
       >
         <span>{currency.symbol}</span>
@@ -105,7 +107,7 @@ function SubCategoryDropdown() {
   return (
     <div className="relative" ref={ref}>
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => setOpen((o) => false)}
         ref={btnRefSubCategory}
         className="flex items-center gap-1.5 bg-[#B6B6B6] hover:bg-[#B6B6B6]/60 transition-colors rounded-lg px-3 py-2 text-sm font-medium text-primary-white cursor-not-allowed"
       >
@@ -277,16 +279,15 @@ const CatDetailsContentIndex = ({ id, details } : CatDetailsProps) => {
             </p>
             {/* Navigation Buttons */}
             <div className="flex items-center w-fit gap-4">
-              <button 
-              className=" text-nowrap bg-secondary-blue text-primary-white p-4 outline-0 cursor-pointer font-bold text-[.75rem] 425xl:text-sm hover:bg-[#232958] rounded-sm"
-              >
-                Register as a Professional
-              </button>
-              <button 
+              <div role="link" className=" flex items-center gap-2 rounded-sm w-fit font-semibold">
+                <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+                <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+              </div>
+              {/* <button 
               className=" text-nowrap text-secondary-blue outline-0 cursor-pointer text-[.625rem] 425xl:text-[.75rem] h-fit font-semibold hover:underline hover:bg-transparent "
               >
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="hidden sm:flex h-auto w-[35rem]">

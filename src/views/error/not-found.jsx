@@ -34,7 +34,9 @@ const NotFound = () => {
             />
           </Link>
           {/* Destop nav */}
-          <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
+          {/*......... replace this div below with the commented div:hidden................................... */}
+          <div className="w-[21%] py-6"></div>
+          {/* <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
             <button role="link" className="flex items-center py-4 px-3 gap-0.5 text-[#101928]">
               Log in
               <KeyboardArrowDown />
@@ -49,7 +51,7 @@ const NotFound = () => {
                 <PopUpRegister key={"popUp"} position={{x:"right-0", y:" mt-5"}} setPop={()=> setPopUp(false)} />
               )}
             </div>
-          </div>
+          </div> */}
         </nav>
       </header>
       <div className="flex flex-col justify-center items-center flex-1 h-full text-[#101828] relative px-4 pt-20 sm:px-16 xl:px-28">

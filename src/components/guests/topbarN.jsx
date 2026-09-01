@@ -251,7 +251,8 @@ const TopBarN = ({ popularServices }) => {
         ))}
       </ul>
 
-      {!user ? (
+      {/*......... replace this div below with the commented div:hidden................................... */}
+      {/* {!user ? (
         <ul className="list-none m-0 p-0">
           <li className="px-4 py-2">
             <button
@@ -343,7 +344,7 @@ const TopBarN = ({ popularServices }) => {
             </button>
           </li>
         </ul>
-      )}
+      )} */}
     </div>
   );
 
@@ -372,7 +373,9 @@ const TopBarN = ({ popularServices }) => {
               <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange font-bold':''}`}>{link.title}</Link>
             )}
           </div>
-          <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
+          {/*......... replace this div below with the commented div:hidden................................... */}
+          <div className="w-[21%] py-6"></div>
+          {/* <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
             <button role="link" className={`flex items-center py-4 px-3 gap-0.5 ${isScrolled ?' text-primary-white':''} `}>
               Log in
               <KeyboardArrowDown />
@@ -387,7 +390,7 @@ const TopBarN = ({ popularServices }) => {
                 <PopUpRegister key={"popUp"} position={{x:"right-0", y:" mt-5"}} setPop={()=> setPopUp(false)} />
               )}
             </div>
-          </div>
+          </div> */}
           {/* Mobile Hamburger Menu */}
           <button
             onClick={toggleDrawer(true)}

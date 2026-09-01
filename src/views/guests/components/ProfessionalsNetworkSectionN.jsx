@@ -1,4 +1,6 @@
 import ProImage from "@/src/assets/img/professional-image.webp";
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 
 const ProfessionalsNetworkSectionN = () => {
   return (
@@ -13,16 +15,15 @@ const ProfessionalsNetworkSectionN = () => {
             </h5>
             {/* Navigation Buttons */}
             <div className="flex items-center gap-4">
-              <button 
-              className=" text-nowrap bg-secondary-blue text-primary-white p-4 outline-0 cursor-pointer font-bold text-[.75rem] 425xl:text-sm sm:text-[1rem] hover:bg-[#232958] rounded-sm"
-              >
-                Register as a Professional
-              </button>
-              <button 
+              <div role="link" className="mt-8 flex items-center gap-2 rounded-sm w-fit font-semibold">
+                <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+                <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+              </div>
+              {/* <button 
               className=" text-nowrap text-secondary-blue outline-0 cursor-pointer text-[.625rem] 425xl:text-[.75rem] sm:text-sm h-fit font-semibold hover:underline hover:bg-transparent "
-              >
+              onClick={()=> alert("Coming soon!")}>
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

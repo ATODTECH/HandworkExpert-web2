@@ -1,5 +1,7 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 import carpentryImage from "@/src/assets/img/services_we_offer.webp";
 import painter from "@/src/assets/img/painter.webp";
 import servicesProvider from "@/src/assets/img/services-provider.png"
@@ -29,10 +31,10 @@ const AboutUsContIndex = () => {
             <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-[1rem] 425xl:leading-7 mb-5 ">
               At prohandy, we bridge the gap between people and skilled artisans, offering a platform that delivers quality handiwork services with ease and professionalism. Whether it’s plumbing, painting, electrical repairs, or carpentry, we ensure that every task is handled by trusted experts who take pride in their craft.
             </p>
-            <button type="button"
+            {/* <button type="button"
             className=" flex items-center font-semibold w-fit gap-2 p-3 425xl:p-4 rounded-sm text-sm 425xl:text-[1rem] leading-6 text-primary-white bg-secondary-blue cursor-pointer">
               Sign up <KeyboardArrowDown />
-            </button>
+            </button> */}
           </div>
           <div className="hidden sm:flex overflow-hidden h-auto w-120">
             <img 
@@ -70,10 +72,10 @@ const AboutUsContIndex = () => {
             <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-base   425xl:leading-7 mb-5 ">
               Our mission is simple, to create seamless access to reliable artisans while empowering professionals to showcase their skills. We aim to build a community where trust, excellence, and convenience come together to transform how people find and deliver services.
             </p>
-            <button type="button"
+            {/* <button type="button"
             className=" flex items-center font-semibold w-fit gap-2 p-3 425xl:p-4 rounded-sm text-sm 425xl:text-[1rem] leading-6 text-primary-white bg-secondary-blue cursor-pointer ">
               Sign up <KeyboardArrowDown />
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="flex flex-col gap-8 items-center justify-center w-full my-16 ">
@@ -140,10 +142,10 @@ const AboutUsContIndex = () => {
             <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-[1rem] 425xl:leading-7 mb-5 ">
               We envision a world where finding skilled artisans is no longer a challenge. By fostering connections based on trust and quality, ProHandy strives to become the go-to platform for handiwork services, revolutionizing how people connect with professionals.
             </p>
-            <button type="button"
+            {/* <button type="button"
             className=" flex items-center font-semibold w-fit gap-2 p-3 425xl:p-4 rounded-sm text-sm 425xl:text-[1rem] leading-6 text-primary-white bg-secondary-blue cursor-pointer">
               Sign up <KeyboardArrowDown />
-            </button>
+            </button> */}
           </div>
           <div className="hidden sm:flex overflow-hidden h-auto w-120">
             <img 
@@ -163,16 +165,15 @@ const AboutUsContIndex = () => {
             </p>
             {/* Navigation Buttons */}
             <div className="flex items-center w-fit gap-4">
-              <button 
-              className=" text-nowrap bg-secondary-blue text-primary-white p-4 outline-0 cursor-pointer font-bold text-[.75rem] 425xl:text-sm hover:bg-[#232958] rounded-sm"
-              >
-                Register as a Professional
-              </button>
-              <button 
+              <div role="link" className=" flex items-center gap-2 rounded-sm w-fit font-semibold">
+                <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+                <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+              </div>
+              {/* <button 
               className=" text-nowrap text-secondary-blue outline-0 cursor-pointer text-[.625rem] 425xl:text-[.75rem] h-fit font-semibold hover:underline hover:bg-transparent "
               >
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="hidden sm:flex h-auto w-140">
