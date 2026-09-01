@@ -21,14 +21,14 @@ const NotFound = () => {
           </Link>
           {/* Destop nav */}
           <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
-            <Link to={"/login"}className="flex items-center py-4 px-3 gap-0.5 text-[#101928]">
+             <button role="link" className="flex items-center py-4 px-3 gap-0.5 text-[#101928]">
               Log in
               <KeyboardArrowDown />
-            </Link>
-            <Link to={"/signup"} className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
+            </button>
+             <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
               Sign up
               <KeyboardArrowDown />
-            </Link>
+            </button>
           </div>
         </nav>
       </header>

@@ -25,6 +25,32 @@ const TopBarN = ({ popularServices }) => {
   const [regOpen, setRegOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // use this links instead of remPopularServices
+  const remPopularServices = [
+    {
+      id: 'fashion',
+      name: "Fashion And Beauty",
+    }, {
+      id: 'export',
+      name: "Export Services",
+    }, {
+      id: 'property',
+      name: "Home And Property",
+    }, {
+      id: 'logistics',
+      name: "Logistics And Warehousing",
+    }, {
+      id: 'agriculture',
+      name: "Agriculture",
+    }, {
+      id: 'automotive',
+      name: "Automotive",
+    }, {
+      id: 'tech-IT',
+      name: "Tech/IT",
+    },
+  ]
+  
   const links = [
     { title: "About Us", route: "/about-us" },
     { title: "Contact Us", route: "/contact" },
@@ -176,7 +202,7 @@ const TopBarN = ({ popularServices }) => {
         <li>
           <button
             onClick={handleServicesMobileToggle}
-            className="flex justify-between items-center w-full px-4 py-2 bg-none cursor-pointer text-left border-none"
+            className={`flex justify-between items-center w-full px-4 py-2 bg-none cursor-pointer text-left border-none ${pathname === "/categories" ? "text-secondary-orange" : "text-primary-text"}`}
           >
             <span>Categories</span>
             {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
@@ -185,10 +211,10 @@ const TopBarN = ({ popularServices }) => {
 
         {servicesOpen && (
           <ul className="list-none m-0 p-0" >
-            {(popularServices || []).map((service, index) => (
+            {(remPopularServices || []).map((service, index) => (
               <li key={index}>
                 <Link
-                  to={`/services/${service.id}`}
+                  to={`/categories/${service.id}`}
                   onClick={toggleDrawer(false)}
                   className="flex pl-8 py-2 text-[0.9rem] text-primary-text"
                 >
@@ -334,14 +360,14 @@ const TopBarN = ({ popularServices }) => {
             )}
           </div>
           <div className="hidden lg:flex items-center font-semibold text-[1rem] leading-6 gap-6 ">
-            <Link to={"/login"}className={`flex items-center py-4 px-3 gap-0.5 ${isScrolled ?' text-primary-white':''} `}>
+            <button role="link" className={`flex items-center py-4 px-3 gap-0.5 ${isScrolled ?' text-primary-white':''} `}>
               Log in
               <KeyboardArrowDown />
-            </Link>
-            <Link to={"/signup"} className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
+            </button>
+            <button role="link" className="flex items-center py-3 px-3 bg-secondary-blue rounded-sm text-primary-white gap-0.5 hover:bg-secondary-orange shadow-[0px_1px_1px_#000000fa] ">
               Sign up
               <KeyboardArrowDown />
-            </Link>
+            </button>
           </div>
           {/* Mobile Hamburger Menu */}
           <button
@@ -368,8 +394,8 @@ export default TopBarN
 // {servicesOpen && (
 //   <ul className="flex flex-col absolute left-[-50%] top-13.5 gap-2 w-50 text-primary-white bg-secondary-blue p-4 rounded-sm ">
 //     {
-//       (popularServices || []).map((service, index) => (
-//         <li key={index} className={`pb-1 w-full ${popularServices.length-1 == index?'':'border-b-[.2px] border-b-gray-500/10'} `}>
+//       (remPopularServices || []).map((service, index) => (
+//         <li key={index} className={`pb-1 w-full ${remPopularServices.length-1 == index?'':'border-b-[.2px] border-b-gray-500/10'} `}>
 //           <Link to={`/services/${service.id}`}>
 //             {service.name}
 //           </Link>
