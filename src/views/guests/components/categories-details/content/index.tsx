@@ -95,8 +95,8 @@ function SubCategoryDropdown() {
   if (btnRefSubCategory.current) btnRefSubCategory.current.disabled = true
 
   useEffect(() => {
-    const handleClick = (e: any) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);

@@ -572,7 +572,7 @@ const CategoriesDetailsIndex = () => {
       case "tech-IT":
         return(<CatDetailsContentIndex id={id} details={ResData[6]} />)
       default:
-        break;
+        return (<div className=""></div>)
     }
   }
 

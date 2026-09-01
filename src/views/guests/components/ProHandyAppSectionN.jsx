@@ -1,12 +1,8 @@
 import PhoneImage from "@/src/assets/img/phones-image.webp";
 import GooglePlay from "@/src/assets/img/google-play.png";
 import AppStore from "@/src/assets/img/apple-store.png";
-import ToastMessage from "@/src/hooks/toastMessage";
 
 const ProHandyAppSectionN = () => {
-  const handleDownloadClick = (store) => {
-    ToastMessage("info", `${store} - Coming Soon!`);
-  };
   
   return (
     <section className="flex relative justify-center w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5 ">
@@ -24,10 +20,10 @@ const ProHandyAppSectionN = () => {
             <div className="flex gap-4 lg:flex-wrap">
               <img src={AppStore} draggable={false} alt="Professional worker with safety equipment"
               className="h-8 lg:h-11 w-auto " 
-              onClick={() => handleDownloadClick("App Store")} />
+              onClick={() => alert("Coming soon!")} />
               <img src={GooglePlay} draggable={false} alt="Professional worker with safety equipment"
               className="h-8 lg:h-11 w-auto "
-              onClick={() => handleDownloadClick("Google Play")} />
+              onClick={() => alert("Coming soon!")} />
             </div>
           </div>
         </div>
