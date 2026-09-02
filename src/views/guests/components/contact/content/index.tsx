@@ -238,11 +238,8 @@ const ContentContactIndex = () => {
             </p>
           </div>
         </div>
-        <div className="relative bg-amber-100 h-80 w-[90%] lg:w-full my-30 rounded-3xl overflow-hidden">
-          <img src={map} alt="map location contact" height={28} width={28}
-          className=" h-full w-full object-cover" />
-        </div>
 
+        {/* map was here previously */}
 
         <div className="flex justify-center w-full max-w-[90%] my-16 pt-0 lg:pt-16 text-primary-text">
           <div className=" flex flex-col justify-end 425xl:max-w-[80%]">
