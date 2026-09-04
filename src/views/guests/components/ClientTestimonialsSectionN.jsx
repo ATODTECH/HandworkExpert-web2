@@ -8,6 +8,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTheme } from "@mui/material/styles";
 import ClientTestimonial from "@/src/assets/img/client-testimonial.webp";
+import ClientTestimonial2 from "@/src/assets/img/client-testimonial_2.webp";
 
 
 const QuotationMark = styled(Typography)(({ theme }) => ({
@@ -32,7 +33,7 @@ const ClientTestimonialsSectionN = () => {
     {
       id: 2,
       name: "Sarah Johnson",
-      image: ClientTestimonial,
+      image: ClientTestimonial2,
       quote:
         "The electrician was knowledgeable and fixed my wiring issue in no time. I'll definitely use ProHandy again!",
     },
@@ -57,7 +58,7 @@ const ClientTestimonialsSectionN = () => {
         <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6 text-center">What Clients Says</h3>
         <div className="flex flex-col md:flex-row relative w-full gap-17.5 md:gap-9.5 lg:gap-17.5 ">
           <div className="flex relative self-center md:self-start w-[80%] 425xl:w-[60%] h-fit ">
-            <img src={ClientTestimonial} height={"55px"} width={"100%"} alt="client_testimonal" draggable={false}
+            <img src={testimonial.image} height={"55px"} width={"100%"} alt="client_testimonal" draggable={false}
             className="w-full h-full " />
             <div className="absolute flex items-end justify-end font-semibold text-sm sm:text-base lg:text-xl w-[85%] h-full ">
               <span className=" text-primary-white flex absolute bottom-5 ">{testimonial.name.slice(0, 4)}</span>

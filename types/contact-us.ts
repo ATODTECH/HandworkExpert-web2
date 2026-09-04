@@ -6,3 +6,14 @@ export interface FieldConfig {
   label: string;
   type?: "text" | "email" | "tel" | "textarea";
 }
+
+export interface ContactUsType {
+  name: string,
+  phone: string,
+  email: string,
+  message: string,
+}
+
+export interface SubscribeType {
+  email: string
+}

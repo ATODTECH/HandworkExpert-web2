@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useFormik } from "formik";
+import { FormikHelpers, useFormik } from "formik";
 import * as Yup from "yup";
 
 import engineer from  "@/src/assets/img/professional-image.webp"
@@ -7,11 +7,13 @@ import newsletter from "@/src/assets/img/email-newsletter.webp"
 import caller from "@/src/assets/img/contact-us-icon.png"
 import email from "@/src/assets/img/email-icon.png"
 import location from "@/src/assets/img/location-pin-icon.png"
-import map from "@/src/assets/img/map-location.webp"
 import GooglePlay from "@/src/assets/img/google-play.png";
 import AppStore from "@/src/assets/img/apple-store.png";
 
-import { FieldConfig, FieldName } from "@/types/contact-us";
+import { ContactUsType, FieldConfig, FieldName, SubscribeType } from "@/types/contact-us";
+import { useContactPost } from "@/src/hooks/useContact";
+import ToastMessage from "@/src/hooks/toastMessage";
+import { useSubscribePost } from "@/src/hooks/useSubscribePost";
 
 const FIELDS: FieldConfig[] = [
   { name: "name", label: "Name" },
@@ -21,6 +23,12 @@ const FIELDS: FieldConfig[] = [
 const EMAIL_FIELD: FieldConfig = { name: "email", label: "Email", type: "email" };
 const MESSAGE_FIELD: FieldConfig = { name: "message", label: "Message", type: "textarea" };
 
+const validationSubSchema = Yup.object({
+  email: Yup.string()
+    .trim()
+    .email("Enter a valid email address")
+    .required("Email is required"),
+});
 const validationSchema = Yup.object({
   name: Yup.string()
     .trim()
@@ -120,14 +128,9 @@ function Field({
 
 const ContentContactIndex = () => {
   const [focusedField, setFocusedField] = useState<FieldName | null>(null);
-  const inputNewsletterRef = useRef<HTMLInputElement>(null)
+  const subRef = useRef<HTMLInputElement>(null)
 
-  // newsLetter
-  const changeValue = () => {
-    if (inputNewsletterRef.current) inputNewsletterRef.current.value = ""
-  }
-
-  const formik = useFormik({
+  const formik = useFormik<ContactUsType>({
     initialValues: {
       name: "",
       phone: "",
@@ -135,12 +138,28 @@ const ContentContactIndex = () => {
       message: "",
     },
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      // console.log(values); send to BE
+    onSubmit: async (values: ContactUsType, { resetForm }: FormikHelpers<ContactUsType>) => {
+      let {data} = await useContactPost(values)
       resetForm();
+      const isSuccess = data=="success"
+      ToastMessage(isSuccess?"success":"error", isSuccess?"you have successfully submitted this form":"something occurred with this submission")
     },
   });
-  
+
+  const subscribe = useFormik<SubscribeType>({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: validationSubSchema,
+    onSubmit: async (values: SubscribeType, { resetForm }: FormikHelpers<SubscribeType>) => {
+      let {data} = await useSubscribePost(values)
+      subRef.current? subRef.current.value="":''
+      resetForm()
+      const isSuccess = data=="success"
+      ToastMessage(isSuccess?"success":"error", isSuccess?"message successfully sent":"something occurred with this submission")
+    },
+  });
+
   const renderField = (config: FieldConfig) => (
     <Field
       key={config.name}
@@ -190,11 +209,11 @@ const ContentContactIndex = () => {
               width={28}
               className="relative w-full h-full object-cover object-top-left"/>
               {/* change back to form */}
-              <div className="absolute flex flex-col -bottom-6 left-1/2 -translate-1/2 w-[85%] gap-2">
-                <input type="email" name="email" id="email" placeholder="Email" ref={inputNewsletterRef}
+              <form noValidate onSubmit={subscribe.handleSubmit} className="absolute flex flex-col -bottom-6 left-1/2 -translate-1/2 w-[85%] gap-2">
+                <input type="email" name="email" id="email" placeholder="Email" ref={subRef} onChange={subscribe.handleChange}
                 className=" bg-primary-white outline-0 text-sm py-3 px-2 rounded-xl placeholder:text-black placeholder:text-sm" />
-                <button type="submit" onClick={changeValue} className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer">Subscribe</button>
-              </div>
+                <button type="submit" disabled={subscribe.isSubmitting} className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer">Subscribe</button>
+              </form>
             </div>
           </div>
         </div>
