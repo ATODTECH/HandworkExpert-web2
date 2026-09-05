@@ -25,10 +25,6 @@ const client = axios.create({
     Accept: "application/json",
     'Authorization': `Bearer ${import.meta.env.VITE_TOKEN_KEY}`,
   },
-  // Axios reads this cookie and echoes it back as this header automatically,
-  // matching Django's default CSRF cookie/header names — no manual wiring needed.
-  xsrfCookieName: "csrftoken",
-  xsrfHeaderName: "X-CSRFToken",
 });
 
 client.interceptors.response.use(
@@ -57,7 +53,7 @@ interface RequestOptions {
   signal?: AbortSignal;
 }
 
-function toAxiosConfig(options?: RequestOptions): AxiosRequestConfig {
+const toAxiosConfig = (options?: RequestOptions): AxiosRequestConfig => {
   return {
     timeout: options?.timeoutMs ?? DEFAULT_TIMEOUT_MS,
     signal: options?.signal, // lets a caller (e.g. React unmount cleanup) cancel the request
