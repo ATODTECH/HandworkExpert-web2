@@ -11,11 +11,11 @@ export const useSubscribePost = async (value: SubscribeType) => {
     const mainData = JSON.stringify(value);
 
     const res = await api.post<res>('/contact/subscribe/api/', mainData);
-    console.log(res)
+    // console.log(res)
 
     const { data, status } = res
     if (+status === 406) {
-      console.log(status)
+      // console.log(status)
       throw data
     }
 

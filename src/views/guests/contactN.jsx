@@ -1,19 +1,27 @@
 import FooterN from "@/src/components/guests/footerN";
 import TopBarN from "@/src/components/guests/topbarN";
 import SEOHead from "@/src/components/SEOHead"
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useSelector } from "react-redux";
 import ForegroundContactIndex from "./components/contact/foreground";
 import ContentContactIndex from "./components/contact/content";
 import DataLoading from "@/src/components/data-loading";
+import { useOnload } from "@/src/hooks/useOnload";
 
 const ContactHomeIndex = () => {
+  const isMounted = useRef(false);
   const { service_category } = useSelector((state) => state.user);
   const popularServices = useMemo(() => {
     let data = service_category || [];
     return data.slice(0, 7);
   }, [service_category]);
 
+  useEffect(() => {
+    if (isMounted.current) return;
+    isMounted.current = true;
+    useOnload()
+  }, [])
+  
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <SEOHead
