@@ -1,5 +1,5 @@
 
-export type FieldName = "name" | "phone" | "email" | "message";
+export type FieldName = "name" | "phoneNumber" | "email" | "message";
 
 export interface FieldConfig {
   name: FieldName;
@@ -9,7 +9,7 @@ export interface FieldConfig {
 
 export interface ContactUsType {
   name: string,
-  phone: string,
+  phoneNumber: string,
   email: string,
   message: string,
 }
