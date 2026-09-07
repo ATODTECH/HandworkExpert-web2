@@ -17,7 +17,7 @@ import { useSubscribePost } from "@/src/hooks/useSubscribePost";
 
 const FIELDS: FieldConfig[] = [
   { name: "name", label: "Name" },
-  { name: "phone", label: "Phone", type: "tel" },
+  { name: "phoneNumber", label: "Phone", type: "tel" },
 ];
 
 const EMAIL_FIELD: FieldConfig = { name: "email", label: "Email", type: "email" };
@@ -34,7 +34,7 @@ const validationSchema = Yup.object({
     .trim()
     .min(2, "Name must be at least 2 characters")
     .required("Name is required"),
-  phone: Yup.string()
+  phoneNumber: Yup.string()
     .trim()
     .matches(/^[0-9+\-\s()]{7,15}$/, "Enter a valid phone number")
     .required("Phone is required"),
@@ -133,7 +133,7 @@ const ContentContactIndex = () => {
   const formik = useFormik<ContactUsType>({
     initialValues: {
       name: "",
-      phone: "",
+      phoneNumber: "",
       email: "",
       message: "",
     },
