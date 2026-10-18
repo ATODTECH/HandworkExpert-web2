@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import CssTextField from "../../../components/cssTextField";
 import { CalendarMonth } from "@mui/icons-material";
 import BookAction from "./book-action";
-import ToastMessage from "../../../hooks/toastMessage";
+import ToastMessage from "../../../../hooks/toastMessage";
 
 export default function CreateSchedule({ handlePrev, handleNext, active }) {
   const [option, setOption] = useState("one");

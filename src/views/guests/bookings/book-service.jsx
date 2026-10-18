@@ -21,7 +21,7 @@ import UserImage from "../../../assets/img/user.png";
 import Promotions from "../promotion";
 import Footer from "../../../components/guests/footer";
 import { useSelector } from "react-redux";
-import formatAmount from "../../../hooks/formatAmount";
+import formatAmount from "../../../../hooks/formatAmount";
 export default function BookService() {
   const { activeService } = useSelector((state) => state.user);
   const [steps, setSteps] = useState([

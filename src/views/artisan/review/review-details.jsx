@@ -19,7 +19,7 @@ import EscrowImage from "../../../assets/img/escrow.png";
 
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
-import copyText from "../../../hooks/copytext";
+import copyText from "../../../../hooks/copytext";
 
 export default function ReviewDetails({ setDialog, dialog }) {
   const details = useMemo(

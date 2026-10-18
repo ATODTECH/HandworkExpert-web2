@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { FormikHelpers, useFormik } from "formik";
-import * as Yup from "yup";
 
 import engineer from  "@/src/assets/img/professional-image.webp"
 import newsletter from "@/src/assets/img/email-newsletter.webp"
@@ -11,9 +10,8 @@ import GooglePlay from "@/src/assets/img/google-play.png";
 import AppStore from "@/src/assets/img/apple-store.png";
 
 import { ContactUsType, FieldConfig, FieldName, SubscribeType } from "@/types/contact-us";
-import { useContactPost } from "@/src/hooks/useContact";
-import ToastMessage from "@/src/hooks/toastMessage";
-import { useSubscribePost } from "@/src/hooks/useSubscribePost";
+import { validationSchema, validationSubSchema } from "@/schema/validation";
+import { useContact, useSubscribe } from "@/hooks/use-contact";
 
 const FIELDS: FieldConfig[] = [
   { name: "name", label: "Name" },
@@ -22,31 +20,6 @@ const FIELDS: FieldConfig[] = [
 
 const EMAIL_FIELD: FieldConfig = { name: "email", label: "Email", type: "email" };
 const MESSAGE_FIELD: FieldConfig = { name: "message", label: "Message", type: "textarea" };
-
-const validationSubSchema = Yup.object({
-  email: Yup.string()
-    .trim()
-    .email("Enter a valid email address")
-    .required("Email is required"),
-});
-const validationSchema = Yup.object({
-  name: Yup.string()
-    .trim()
-    .min(2, "Name must be at least 2 characters")
-    .required("Name is required"),
-  phoneNumber: Yup.string()
-    .trim()
-    .matches(/^[0-9+\-\s()]{7,15}$/, "Enter a valid phone number")
-    .required("Phone is required"),
-  email: Yup.string()
-    .trim()
-    .email("Enter a valid email address")
-    .required("Email is required"),
-  message: Yup.string()
-    .trim()
-    .min(10, "Message must be at least 10 characters")
-    .required("Message is required"),
-});
 
 function Field({
   config,
@@ -75,18 +48,17 @@ function Field({
     <div className="w-full">
       <fieldset
         className={`w-full rounded-xl border px-4 transition-colors ${
-            showError
-              ? "border-red-400"
-              : focused
-              ? "border-secondary-blue"
-              : "border-slate-200"
-          } ${isTextarea ? "pb-3" : ""}`}
+          showError
+            ? "border-red-400"
+            : focused
+            ? "border-secondary-blue"
+            : "border-slate-200"
+        } ${isTextarea ? "pb-3": ""}`}
       >
         <legend
-          className={`px-1 text-xs font-medium text-secondary-blue transition-all duration-150 ${
-              showError ? "text-red-500" : "text-secondary-blue"
-            } ${
-            active ? "ml-1 max-w-50 opacity-100" : "ml-1 max-w-0 overflow-hidden opacity-0"
+          className={`px-1 text-xs font-medium text-secondary-blue transition-all duration-150 
+            ${showError ? "text-red-500": "text-secondary-blue"} 
+            ${ active ? "ml-1 max-w-50 opacity-100": "ml-1 max-w-0 overflow-hidden opacity-0"
           }`}
         >
           {config.label}
@@ -99,7 +71,7 @@ function Field({
             onFocus={onFocus}
             onBlur={onBlur}
             onChange={onChange}
-            placeholder={active ? "" : config.label}
+            placeholder={active ? "": config.label}
             rows={4}
             className="w-full resize-none bg-transparent text-sm text-black placeholder:text-black focus:outline-none"
           />
@@ -111,7 +83,7 @@ function Field({
             onFocus={onFocus}
             onBlur={onBlur}
             onChange={onChange}
-            placeholder={active ? "" : config.label}
+            placeholder={active ? "": config.label}
             className="w-full bg-transparent py-3 text-sm text-black placeholder:text-black focus:outline-none"
           />
         )}
@@ -126,10 +98,12 @@ function Field({
 
 
 
-const ContentContactIndex = () => {
+export const ContentContactIndex = () => {
+  const { mutate: contactSubmit, isPending: isSavingContact } = useContact()
+  const { mutate: subscribeUser, isPending: isSavingSubscribe } = useSubscribe()
   const [focusedField, setFocusedField] = useState<FieldName | null>(null);
   const subRef = useRef<HTMLInputElement>(null)
-
+  
   const formik = useFormik<ContactUsType>({
     initialValues: {
       name: "",
@@ -139,10 +113,8 @@ const ContentContactIndex = () => {
     },
     validationSchema,
     onSubmit: async (values: ContactUsType, { resetForm }: FormikHelpers<ContactUsType>) => {
-      let {data} = await useContactPost(values)
+      contactSubmit(values)
       resetForm();
-      const isSuccess = data=="success"
-      ToastMessage(isSuccess?"success":"error", isSuccess?"you have successfully submitted this form":"something occurred with this submission")
     },
   });
 
@@ -152,11 +124,9 @@ const ContentContactIndex = () => {
     },
     validationSchema: validationSubSchema,
     onSubmit: async (values: SubscribeType, { resetForm }: FormikHelpers<SubscribeType>) => {
-      let {data} = await useSubscribePost(values)
-      subRef.current? subRef.current.value="":''
+      subscribeUser(values)
+      subRef.current? subRef.current.value="": ""
       resetForm()
-      const isSuccess = data=="success"
-      ToastMessage(isSuccess?"success":"error", isSuccess?"message successfully sent":"something occurred with this submission")
     },
   });
 
@@ -194,8 +164,8 @@ const ContentContactIndex = () => {
                 {renderField(MESSAGE_FIELD)}
                 <button
                   type="submit"
-                  disabled={formik.isSubmitting}
-                  className="w-fit rounded-xl tracking-[2%] mt-4 bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                  disabled={formik.isSubmitting || isSavingContact || isSavingSubscribe}
+                  className="w-fit rounded-xl tracking-[2%] mt-4 bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity disabled:cursor-not-allowed hover:opacity-90"
                 >
                   Submit
                 </button>
@@ -212,7 +182,7 @@ const ContentContactIndex = () => {
               <form noValidate onSubmit={subscribe.handleSubmit} className="absolute flex flex-col -bottom-6 left-1/2 -translate-1/2 w-[85%] gap-2">
                 <input type="email" name="email" id="email" placeholder="Email" ref={subRef} onChange={subscribe.handleChange}
                 className=" bg-primary-white outline-0 text-sm py-3 px-2 rounded-xl placeholder:text-black placeholder:text-sm" />
-                <button type="submit" disabled={subscribe.isSubmitting} className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer">Subscribe</button>
+                <button type="submit" disabled={subscribe.isSubmitting || isSavingSubscribe || isSavingContact} className=" w-full rounded-xl tracking-[2%] bg-secondary-blue px-10 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer disabled:cursor-not-allowed">Subscribe</button>
               </form>
             </div>
           </div>
@@ -259,7 +229,7 @@ const ContentContactIndex = () => {
         </div>
 
         {/* map was here previously */}
-
+        
         <div className="flex justify-center w-full max-w-[90%] my-16 pt-0 lg:pt-16 text-primary-text">
           <div className=" flex flex-col justify-end 425xl:max-w-[80%]">
             <h4 className=" font-semibold self-center text-center sm:text-start sm:self-start text-xl 425xl:text-2xl sm:text-3xl lg:text-[2rem] lg:leading-10 425xl:max-w-[80%] mb-4">Join the network of professionals around you</h4>
@@ -289,5 +259,3 @@ const ContentContactIndex = () => {
     </section>
   )
 }
-
-export default ContentContactIndex

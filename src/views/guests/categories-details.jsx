@@ -1,46 +1,11 @@
 import DataLoading from "@/src/components/data-loading";
-import TopBar from "./components/categories-details/foreground";
-import FooterN from "@/src/components/guests/footerN";
+import {TopBar} from "./components/categories-details/foreground";
+import {Footer} from "@/src/components/guests/footer";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import CatDetailsContentIndex from "./components/categories-details/content";
-import service from "@/src/assets/img/service-details.webp"
-import shopping from "@/src/assets/img/playful-women-shopping-together.webp"
-import dressmaker from "@/src/assets/img/two-african-dressmaker-women-sew-clothes.webp"
-import seaport1 from "@/src/assets/img/seaport-1.webp"
-import seaport2 from "@/src/assets/img/seaport-2.webp"
-import seaport3 from "@/src/assets/img/seaport-3.webp"
-import plumber from "@/src/assets/img/female-plumber.webp"
-import woodcutting from "@/src/assets/img/woodcutting-carpenter.webp"
-import interior from "@/src/assets/img/wallroom-interior-design.webp"
-import painter from "@/src/assets/img/happy-painter.webp"
-import construction from "@/src/assets/img/building-construction.webp"
-import electrician from "@/src/assets/img/electrician.webp"
-import packaging from "@/src/assets/img/packaging-services.webp"
-import dispatch from "@/src/assets/img/dispatch-services.webp"
-import transport from "@/src/assets/img/female-dispatch-driver.webp"
-import loading from "@/src/assets/img/close-up-delivery-men.webp"
-import lawnmower from "@/src/assets/img/lawn-mower.webp"
-import container from "@/src/assets/img/container-logistics.webp"
-import agriproduct from "@/src/assets/img/container-logistics.webp"
-import farmEquipment from "@/src/assets/img/farm-equipment.webp"
-import seedFertilizer from "@/src/assets/img/seeds-fertilizer.webp"
-import farmManagement from "@/src/assets/img/vet-animal-doctor.webp"
-import manVegetables from "@/src/assets/img/short-man-holding-vegetables.webp"
-import deliveryMarket from "@/src/assets/img/delivery-worker-in-the-market.webp"
-import carWash from "@/src/assets/img/car-wash.webp"
-import autoElect from "@/src/assets/img/auto-electrician.webp"
-import airConditioner from "@/src/assets/img/air-condition-repairs.webp"
-import shoeMaker from "@/src/assets/img/shoemaker.webp"
-import generatorService from "@/src/assets/img/mechanic-car-repair.webp"
-import welder from "@/src/assets/img/welder.webp"
-import webDev from "@/src/assets/img/web-development.webp"
-import softwareDev from "@/src/assets/img/software-development.webp"
-import digitalMarketer from "@/src/assets/img/digital-marketer.webp"
-import gameDev from "@/src/assets/img/game-development.webp"
-import ITconsulting from "@/src/assets/img/IT-consultant.webp"
-import gadgetRepair from "@/src/assets/img/gadgets-repairs.webp"
+import {CatDetailsContentIndex} from "./components/categories-details/content";
+import {service, shopping, dressmaker, seaport1, seaport2, seaport3, plumber, woodcutting, interior, painter, construction, electrician, packaging, dispatch, transport, loading, lawnmower, container, agriproduct, farmEquipment, seedFertilizer, farmManagement, manVegetables, deliveryMarket, carWash, autoElect, airConditioner, shoeMaker, generatorService, welder, webDev, softwareDev, digitalMarketer, gameDev, ITconsulting, gadgetRepair} from "@/src/assets"
 
 // API Data
 const ResData = [
@@ -589,7 +554,7 @@ const CategoriesDetailsIndex = () => {
           { contentDisplayed() }
         </>
       )}
-      <FooterN />
+      <Footer />
     </div>
   )
 }

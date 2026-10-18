@@ -29,7 +29,7 @@ const AboutUsContIndex = () => {
               />
             </div>
             <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-[1rem] 425xl:leading-7 mb-5 ">
-              At prohandy, we bridge the gap between people and skilled artisans, offering a platform that delivers quality handiwork services with ease and professionalism. Whether it’s plumbing, painting, electrical repairs, or carpentry, we ensure that every task is handled by trusted experts who take pride in their craft.
+              At HandworkExpert, we bridge the gap between people and skilled artisans, offering a platform that delivers quality handiwork services with ease and professionalism. Whether it’s plumbing, painting, electrical repairs, or carpentry, we ensure that every task is handled by trusted experts who take pride in their craft.
             </p>
             {/* <button type="button"
             className=" flex items-center font-semibold w-fit gap-2 p-3 425xl:p-4 rounded-sm text-sm 425xl:text-[1rem] leading-6 text-primary-white bg-secondary-blue cursor-pointer">
@@ -82,7 +82,7 @@ const AboutUsContIndex = () => {
           <div className="flex flex-col items-center text-center">
             <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-14 text-secondary-orange mb-6.25">Why Choose Us</h3>
             <p className=" w-full max-w-[90%] lg:max-w-[60%] text-center text-primary-text font-normal tracking-[2%] text-sm leading-5 425xl:text-[1rem] 425xl:leading-6 mb-5 ">
-              At ProHandy, we make finding skilled artisans easy and reliable. With verified professionals, quality service, and a seamless booking process, we’re here to ensure every job is done right, the first time.
+              At HandworkExpert, we make finding skilled artisans easy and reliable. With verified professionals, quality service, and a seamless booking process, we’re here to ensure every job is done right, the first time.
             </p>
           </div>
           <div className="flex flex-col sm:grid items-center justify-center sm:grid-cols-2 lg:grid-cols-3 gap-6.25 lg:gap-11.25 w-[80%] 425xl:w-auto text-[1rem] ">
@@ -140,7 +140,7 @@ const AboutUsContIndex = () => {
               />
             </div>
             <p className=" text-primary-text font-normal tracking-[2%] text-sm leading-6 425xl:text-[1rem] 425xl:leading-7 mb-5 ">
-              We envision a world where finding skilled artisans is no longer a challenge. By fostering connections based on trust and quality, ProHandy strives to become the go-to platform for handiwork services, revolutionizing how people connect with professionals.
+              We envision a world where finding skilled artisans is no longer a challenge. By fostering connections based on trust and quality, HandworkExpert strives to become the go-to platform for handiwork services, revolutionizing how people connect with professionals.
             </p>
             {/* <button type="button"
             className=" flex items-center font-semibold w-fit gap-2 p-3 425xl:p-4 rounded-sm text-sm 425xl:text-[1rem] leading-6 text-primary-white bg-secondary-blue cursor-pointer">

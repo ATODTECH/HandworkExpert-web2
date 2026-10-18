@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import { useMemo } from "react";
-import formatAmount from "../../../hooks/formatAmount";
+import formatAmount from "../../../../hooks/formatAmount";
 
 export default function Stats() {
   const stats = useMemo(

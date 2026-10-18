@@ -13,7 +13,7 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
-    question: "What is Prohandy?",
+    question: "What is HandworkExpert?",
     answer:
       "is a platform that connects users with skilled artisans for various services, including plumbing, electrical work, painting, carpentry, and more",
   }, {

@@ -1,140 +1,52 @@
-import React from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Container,
-  Stack,
-  useMediaQuery,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { useTheme } from "@mui/material/styles";
-import BgImage from "../../../assets/img/join_as_artisan.png";
+import BgImage from "@/src/assets/img/join_as_artisan.webp";
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 
-// Custom styled components
-const StyledButton = styled(Button)(({ theme }) => ({
-  backgroundColor: "#1a237e",
-  color: "white",
-  padding: "10px 20px",
-  textTransform: "none",
-  "&:hover": {
-    backgroundColor: "#0d1752",
-  },
-  borderRadius: 4,
-}));
-
-const SecondaryButton = styled(Button)(({ theme }) => ({
-  color: "#000",
-  textTransform: "none",
-  fontWeight: 500,
-}));
-
-const MainHeading = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  color: "#ff6f43",
-  marginBottom: theme.spacing(2),
-}));
-
-const JoinAsArtisan = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+export const JoinAsArtisan = () => {
 
   return (
-    <Container maxWidth="xl" sx={{ py: 8 }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
-          position: "relative",
-          px: { xs: 0, md: 10 },
-          gap: { xs: 4, md: 8 },
-        }}
-      >
-        {/* Left Content Section */}
-        <Box sx={{ maxWidth: isMobile ? "100%" : "45%", mb: isMobile ? 4 : 0 }}>
-          <MainHeading
-            variant="h3"
-            sx={{
-              color: "#F85A2B",
-              fontWeight: 600,
-              mb: 2.5,
-              fontSize: { xs: "2rem", md: "3rem" },
-            }}
-          >
-            Join As as Artisan
-          </MainHeading>
-          <Typography
-            variant="h5"
-            component="h2"
-            sx={{
-              fontWeight: 400,
-              mb: 2.5,
-              fontSize: { xs: "1.6rem", md: "2rem" },
-              color: "#333",
-              width: "100%",
-              lineHeight: 1.6,
-            }}
-          >
-            Are you a skilled professional looking for more job opportunities?
-            Join ProHandy today and connect with customers in need of your
-            expertise.
-          </Typography>
-          <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
-            <StyledButton
-              variant="contained"
-              sx={{
-                backgroundColor: "#172153",
-                color: "white",
-                borderRadius: "4px",
-                fontWeight: 600,
-                "&:hover": {
-                  backgroundColor: "#232958",
-                },
-              }}
-            >
-              Register as a Professional
-            </StyledButton>
-            <SecondaryButton
-              sx={{
-                fontWeight: 600,
-                fontSize: "1rem",
-                "&:hover": {
-                  backgroundColor: "transparent",
-                  textDecoration: "underline",
-                },
-              }}
+    <section className="flex flex-col items-center w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5 ">
+      <div className="flex flex-col sm:flex-row justify-center items-center relative gap-15 w-[90%] sm:w-full mb-16 sm:mb-0 ">
+        {/* content */}
+        <div className="flex flex-col w-full sm:max-w-[45%] ">
+          <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6 text-center sm:text-start ">Join As an Artisan</h3>
+          {/* centre image */}
+          <div className="flex sm:hidden self-center w-60 425xl:w-75 sm:w-[45%] h-auto mb-6 ">
+            <img 
+              width={"598px"}
+              height={"498px"}
+              src={BgImage}
+              alt={'Skilled professionals working as artisans'}
+              className=" w-full h-full "
+            />
+          </div>
+          <p className="flex flex-col font-normal text-sm leading-6 425xl:leading-relaxed 425xl:text-xl sm:text-2xl text-primary-text mb-4">
+            Are you a skilled professional looking for more job opportunities? Join ProHandy today and connect with customers in need of your expertise.
+          </p>
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-4">
+            <div role="link" className="mt-8 flex items-center gap-2 rounded-sm w-fit font-semibold">
+              <img src={AppStore} draggable={false} alt="apple store" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+              <img src={GooglePlay} draggable={false} alt="Google play" className="h-8 lg:h-11 w-auto cursor-pointer " onClick={() => alert("Coming soon!")} />
+            </div>
+            {/* <button 
+            className=" text-nowrap text-secondary-blue outline-0 cursor-pointer text-[.625rem] 425xl:text-[.75rem] sm:text-sm h-fit font-semibold hover:underline hover:bg-transparent "
             >
               Learn More
-            </SecondaryButton>
-          </Stack>
-        </Box>
-
-        {/* Right Image Section */}
-        <Box
-          sx={{
-            position: "relative",
-            width: isMobile ? "100%" : "50%",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          {/* Main image */}
-          <Box
-            component="img"
+            </button> */}
+          </div>
+        </div>
+        {/* main image */}
+        <div className="hidden sm:flex w-60 425xl:w-75 sm:w-[45%] h-auto ">
+          <img 
+            width={"598px"}
+            height={"498px"}
             src={BgImage}
-            alt="Skilled professionals working as artisans"
-            sx={{
-              width: "90%",
-              height: "auto",
-              position: "relative",
-              zIndex: 1,
-            }}
+            alt={'Skilled professionals working as artisans'}
+            className=" w-full h-full "
           />
-        </Box>
-      </Box>
-    </Container>
-  );
-};
-
-export default JoinAsArtisan;
+        </div>
+      </div>
+    </section>
+  )
+}

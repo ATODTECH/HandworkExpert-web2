@@ -1,67 +1,65 @@
 import {
-  AppBar,
-  Popper,
-  Stack,
-  Grow,
-  Paper,
-  ClickAwayListener,
-  MenuList,
-  MenuItem,
-  Button,
-  IconButton,
-  useMediaQuery,
   Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Box,
   useTheme,
-  Collapse,
-  ListItemButton,
 } from "@mui/material";
-import UserImage from "../../assets/img/user-2.png";
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Login from "../../views/auth/login";
-import Register from "../../views/auth/register";
-import Logo from "../../assets/img/logo.png";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Logo from "@/src/assets/img/logo.png"
 import {
-  Circle,
-  NotificationsOutlined,
-  ExpandMore,
   Menu as MenuIcon,
   Close as CloseIcon,
   KeyboardArrowDown,
   KeyboardArrowUp,
 } from "@mui/icons-material";
-import { useSelector } from "react-redux";
-import localforage from "localforage";
 
-export default function Topbar({ popularServices }) {
+export const TopBar = ({ popularServices }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [regOpen, setRegOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const popUpRef = useRef(null)
 
+  // use this links instead of remPopularServices
+  const remPopularServices = [
+    {
+      id: 'fashion',
+      name: "Fashion And Beauty",
+    }, {
+      id: 'export',
+      name: "Export Services",
+    }, {
+      id: 'property',
+      name: "Home And Property",
+    }, {
+      id: 'logistics',
+      name: "Logistics And Warehousing",
+    }, {
+      id: 'agriculture',
+      name: "Agriculture",
+    }, {
+      id: 'automotive',
+      name: "Automotive",
+    }, {
+      id: 'tech-IT',
+      name: "Tech/IT",
+    },
+  ]
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (popUpRef.current && !popUpRef.current.contains(e.target)) {
+        setPopUp(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  
   const links = [
     { title: "About Us", route: "/about-us" },
-    { title: "Contact", route: "/contact" },
+    { title: "Contact Us", route: "/contact" },
     { title: "FAQs", route: "/faq" },
   ];
-
-  const regLinks = [
-    { title: "Become an Artisan", value: "Artisan", color: "#F56F46" },
-    { title: "Become a User", value: "User", color: "#292626" },
-  ];
-
-  const options = [
-    { title: "Dashboard", value: "dashboard", color: "#292626" },
-    { title: "Logout", value: "logout", color: "red" },
-  ];
-
-  const { user } = useSelector((state) => state.user);
 
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -70,27 +68,6 @@ export default function Topbar({ popularServices }) {
 
   const anchorRef2 = useRef(null);
   const anchorRef3 = useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen(false);
-    } else if (event.key === "Escape") {
-      setOpen(false);
-    }
-  }
 
   const prevOpen = useRef(open);
 
@@ -102,48 +79,7 @@ export default function Topbar({ popularServices }) {
     prevOpen.current = open;
   }, [open]);
 
-  const handleToggle2 = () => {
-    setOpen2((prevOpen) => !prevOpen);
-  };
-
-  const handleToggle3 = () => {
-    setOpen3((prevOpen) => !prevOpen);
-  };
-
-  const handleClose2 = (event) => {
-    if (anchorRef2.current && anchorRef2.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen2(false);
-  };
-
-  const handleClose3 = (event) => {
-    if (anchorRef3.current && anchorRef3.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen3(false);
-  };
-
-  function handleListKeyDown2(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen2(false);
-    } else if (event.key === "Escape") {
-      setOpen2(false);
-    }
-  }
-
-  function handleListKeyDown3(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen3(false);
-    } else if (event.key === "Escape") {
-      setOpen3(false);
-    }
-  }
-
+  
   const prevOpen2 = useRef(open2);
   const prevOpen3 = useRef(open3);
 
@@ -163,20 +99,8 @@ export default function Topbar({ popularServices }) {
     prevOpen3.current = open3;
   }, [open3]);
 
-  const [openLogin, setOpenLogin] = useState(false);
-  const [regAs, setRegAs] = useState("User");
-  const [openReg, setOpenReg] = useState(false);
-
-  const [distanceTop, setDistanceTop] = useState(0);
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const colorManager = useMemo(() => {
-    if (pathname === "/") {
-      return distanceTop <= 500 ? "rgba(255,255,255,0)" : "#172153";
-    }
-    return "#172153";
-  }, [distanceTop, pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", function (ev) {
@@ -184,8 +108,6 @@ export default function Topbar({ popularServices }) {
 
       const distanceToTop =
         window.scrollY + topbar?.getBoundingClientRect()?.top;
-
-      setDistanceTop(distanceToTop);
     });
   }, []);
 
@@ -203,176 +125,139 @@ export default function Topbar({ popularServices }) {
     setServicesOpen(!servicesOpen);
   };
 
-  const handleRegMobileToggle = () => {
-    setRegOpen(!regOpen);
-  };
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      // Compares scroll position to the full viewport height
+      setIsScrolled(window.scrollY >= window.innerHeight);
+    };
 
-  const handleLogout = async () => {
-    await window.localStorage.clear();
-    await localforage.clear();
-    window.location.reload();
-  };
-
-  const handleMobileLogin = () => {
-    setDrawerOpen(false);
-    setOpenLogin(true);
-  };
-
-  const handleMobileRegister = (regType) => {
-    setDrawerOpen(false);
-    setRegAs(regType);
-    setOpenReg(true);
-  };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);  
 
   const mobileDrawer = (
-    <Box sx={{ width: 280 }} role="presentation">
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          p: 2,
-          backgroundColor: "#172153",
-        }}
-      >
+    <div className=" w-full min-w-70 flex flex-col gap-2" role="presentation">
+      <div className="flex justify-between items-center p-4 bg-secondary-blue ">
         <Link to="/" onClick={toggleDrawer(false)}>
           <img
             src={Logo}
-            style={{ width: 110, height: 30 }}
-            className="w3-image"
+            style={{ width: "100%", height: 40 }}
             alt="Logo"
           />
         </Link>
-        <IconButton onClick={toggleDrawer(false)} sx={{ color: "white" }}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-      <Divider />
-      <List>
-        <ListItem
-          component={Link}
-          to="/"
+        <button
           onClick={toggleDrawer(false)}
-          sx={{
-            color: pathname === "/" ? "#F56F46" : "#292626",
-            textDecoration: "none",
-          }}
-        >
-          <ListItemText primary="Home" />
-        </ListItem>
+          className=" text-primary-white bg-none cursor-pointer border-none">
+          <CloseIcon />
+        </button>
+      </div>
+      <ul className="list-none m-0 p-0 flex flex-col" >
+        <li>
+          <Link
+            to="/"
+            onClick={toggleDrawer(false)}
+            className={` flex px-4 py-2 ${pathname === "/" ? "text-secondary-orange" : "text-primary-text"}`}
+          >
+            Home
+          </Link>
+        </li>
 
-        <ListItem>
-          <ListItemButton onClick={handleServicesMobileToggle} sx={{ p: 0 }}>
-            <ListItemText primary="Services" />
+        <li>
+          <button
+            onClick={handleServicesMobileToggle}
+            className={`flex justify-between items-center w-full px-4 py-2 bg-none cursor-pointer text-left border-none ${pathname === "/categories" ? "text-secondary-orange" : "text-primary-text"}`}
+          >
+            <span>Categories</span>
             {servicesOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-          </ListItemButton>
-        </ListItem>
-        <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {(popularServices || []).map((service, index) => (
-              <ListItem
-                key={index}
-                component={Link}
-                to={`/services/${service.id}`}
-                onClick={toggleDrawer(false)}
-                sx={{
-                  pl: 4,
-                  color: "#292626",
-                  textDecoration: "none",
-                  fontSize: "0.9rem",
-                }}
-              >
-                <ListItemText primary={service.name} />
-              </ListItem>
+          </button>
+        </li>
+
+        {servicesOpen && (
+          <ul className="list-none m-0 p-0" >
+            {(remPopularServices || []).map((service, index) => (
+              <li key={index}>
+                <Link
+                  to={`/categories/${service.id}`}
+                  onClick={toggleDrawer(false)}
+                  className="flex pl-8 py-2 text-[0.9rem] text-primary-text"
+                >
+                  {service.name}
+                </Link>
+              </li>
             ))}
-          </List>
-        </Collapse>
+          </ul>
+        )}
 
         {links.map((item, index) => (
-          <ListItem
-            key={index}
-            component={Link}
-            to={item.route}
-            onClick={toggleDrawer(false)}
-            sx={{
-              color: pathname === item.route ? "#F56F46" : "#292626",
-              textDecoration: "none",
-            }}
-          >
-            <ListItemText primary={item.title} />
-          </ListItem>
+          <li key={index}>
+            <Link
+              to={item.route}
+              onClick={toggleDrawer(false)}
+              className={` flex px-4 py-2 ${pathname === item.route ? "text-secondary-orange" : "text-primary-text"}`}
+            >
+              {item.title}
+            </Link>
+          </li>
         ))}
-      </List>
-      <Divider />
-      {!user ? (
-        <List>
-          <ListItem>
-            <Button
-              fullWidth
+      </ul>
+
+      {/*......... replace this div below with the commented div:hidden................................... */}
+      {/* {!user ? (
+        <ul className="list-none m-0 p-0">
+          <li className="px-4 py-2">
+            <button
               onClick={handleMobileLogin}
-              sx={{
-                color: "#172153",
-                textTransform: "uppercase",
-                fontWeight: "600",
-                border: "1px solid #172153",
-              }}
-              variant="outlined"
+              className="w-full rounded-sm text-secondary-blue uppercase font-semibold border border-secondary-blue bg-none py-2 px-0 cursor-pointer "
             >
               Login
-            </Button>
-          </ListItem>
+            </button>
+          </li>
 
-          <ListItem>
-            <ListItemButton onClick={handleRegMobileToggle} sx={{ p: 0 }}>
-              <ListItemText
-                primary="Register"
-                sx={{
-                  color: "#172153",
-                  textTransform: "uppercase",
-                  fontWeight: "600",
-                }}
-              />
+          <li>
+            <button
+              onClick={handleRegMobileToggle}
+              className="flex justify-between items-center w-full py-2 px-4 cursor-pointer text-left border-none"
+            >
+              <span
+              className="text-secondary-orange uppercase font-semibold"
+              >
+                Register
+              </span>
               {regOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-            </ListItemButton>
-          </ListItem>
-          <Collapse in={regOpen} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
+            </button>
+          </li>
+
+          {regOpen && (
+            <ul className="list-none m-0 p-0">
               {regLinks.map((item, index) => (
-                <ListItem
-                  key={index}
-                  button
-                  onClick={() => handleMobileRegister(item.value)}
-                  sx={{
-                    pl: 4,
-                    color: item.color,
-                    fontWeight: "500",
-                  }}
-                >
-                  <ListItemText primary={item.title} />
-                </ListItem>
+                <li key={index}>
+                  <button
+                    onClick={() => handleMobileRegister(item.value)}
+                    className={`flex w-full text-left pl-8 py-2 font-medium cursor-pointer bg-none border-none ${item.color}`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
               ))}
-            </List>
-          </Collapse>
-        </List>
+            </ul>
+          )}
+        </ul>
       ) : (
-        <List>
-          <ListItem sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <div style={{ position: "relative" }}>
+        <ul className="list-none m-0 p-0">
+          <li
+          className="flex items-center gap-4 py-2 px-4"
+          >
+            <div className={'relative'}>
               <img
                 src={UserImage}
-                style={{
-                  height: 30,
-                  width: 30,
-                  borderRadius: "50%",
-                }}
+                height={30}
+                width={30}
+                className="h-7.5 w-7.5 rounded-full"
                 alt="User"
               />
               <div
-                style={{
-                  position: "absolute",
-                  bottom: -5,
-                  right: 0,
-                  zIndex: 0,
-                }}
+              className="absolute -bottom-1.25 right-0 z-0"
               >
                 <Circle
                   sx={{
@@ -384,453 +269,76 @@ export default function Topbar({ popularServices }) {
                 />
               </div>
             </div>
-            <ListItemText
-              primary={user?.name || `${user?.last_name} ${user?.first_name}`}
-              sx={{ fontWeight: "600" }}
-            />
-          </ListItem>
-          <ListItem
-            button
-            onClick={() => {
-              navigate(`/${user?.role?.toLowerCase()}/dashboard`);
-              setDrawerOpen(false);
-            }}
-          >
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem button onClick={handleLogout}>
-            <ListItemText primary="Logout" sx={{ color: "red" }} />
-          </ListItem>
-        </List>
-      )}
-    </Box>
+            <span className="font-semibold">
+              {user?.name || `${user?.last_name} ${user?.first_name}`}
+            </span>
+          </li>
+
+          <li>
+            <button
+              onClick={() => {
+                navigate(`/${user?.role?.toLowerCase()}/dashboard`);
+                setDrawerOpen(false);
+              }}
+              className="flex w-full text-left py-2 px-4 cursor-pointer border-none bg-none"
+            >
+              Dashboard
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={handleLogout}
+              className="flex w-full text-left py-2 px-4 cursor-pointer border-none bg-none"
+            >
+              <span className={" text-red-500"}>Logout</span>
+            </button>
+          </li>
+        </ul>
+      )} */}
+    </div>
   );
 
+
   return (
-    <Fragment>
-      <AppBar
-        id={"topbar"}
-        elevation={0}
-        sx={{
-          backgroundColor: colorManager,
-          backdropFilter: "blur(6px)",
-          width: "100%",
-          padding: isMobile ? "15px 15px" : "15px 30px",
-        }}
-      >
-        <Stack
-          justifyContent="space-between"
-          direction={"row"}
-          alignItems={"center"}
-          spacing={1}
-          width={"100%"}
-        >
-          <div>
-            <Stack direction={"row"} alignItems={"center"} spacing={1}>
-              <Link to={"/"}>
-                <img
-                  src={Logo}
-                  style={{ width: 110, height: 30 }}
-                  className="w3-image"
-                  alt="Logo"
-                />
-              </Link>
-            </Stack>
+    <>
+      <header id="topbar" className={`fixed top-0 backdrop-blur-[6px] w-screen max-w-[1920px] py-3 px-4 sm:px-16 xl:px-28 z-20 shadow-md ${isScrolled?'bg-secondary-blue':''} `}>
+        <nav className="flex flex-row w-full items-center justify-between ">
+          <Link to={"/"} className="outline-0 w-[21%]">
+            <img
+              src={Logo}
+              draggable={false}
+              style={{ height: 40 }}
+              className="w-auto "
+              alt="Logo"
+            />
+          </Link>
+          {/* Destop nav */}
+          <div className={"hidden lg:flex items-center text-sm font-medium gap-8 text-primary-white"}>
+            <Link to={"/"} className={` ${pathname==="/"?'text-secondary-orange font-bold':''}`}>Home</Link>
+            <Link to={"/categories"} className={`flex items-center gap-1 ${pathname==="/categories"? 'text-secondary-orange font-bold':''}`}>
+              <span className="">Categories</span>
+            </Link>
+            {links.map((link) =>
+              <Link key={link.title.replace(" ", "")} to={link.route} className={` ${pathname===link.route?'text-secondary-orange font-bold':''}`}>{link.title}</Link>
+            )}
           </div>
-
-          {/* Desktop Navigation */}
-          {!isMobile && (
-            <>
-              <div>
-                <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                  <div>
-                    <Button
-                      component={Link}
-                      to="/"
-                      sx={{
-                        color: pathname === "/" ? "#F56F46" : "white",
-                        textTransform: "none",
-                        fontWeight: "600",
-                      }}
-                      variant="text"
-                    >
-                      Home
-                    </Button>
-
-                    <Button
-                      ref={anchorRef}
-                      id="composition-button"
-                      aria-controls={open ? "composition-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleToggle}
-                      sx={{
-                        color: "white",
-                        textTransform: "none",
-                        fontWeight: "600",
-                      }}
-                      variant="text"
-                      endIcon={<ExpandMore />}
-                    >
-                      Services
-                    </Button>
-                    <Popper
-                      open={open}
-                      anchorEl={anchorRef.current}
-                      role={undefined}
-                      placement="bottom-start"
-                      transition
-                      disablePortal
-                    >
-                      {({ TransitionProps, placement }) => (
-                        <Grow
-                          {...TransitionProps}
-                          style={{
-                            transformOrigin:
-                              placement === "bottom-start"
-                                ? "left top"
-                                : "left bottom",
-                          }}
-                        >
-                          <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
-                              <MenuList
-                                autoFocusItem={open}
-                                id="composition-menu"
-                                aria-labelledby="composition-button"
-                                onKeyDown={handleListKeyDown}
-                                sx={{
-                                  backgroundColor: "#172153",
-                                }}
-                              >
-                                {popularServices.map((item, index) => (
-                                  <MenuItem
-                                    component={Link}
-                                    to={`/services/${item.id}`}
-                                    sx={{
-                                      fontSize: 12,
-                                      color: "white",
-                                    }}
-                                    key={index}
-                                    onClick={(e) => handleClose(e, item)}
-                                  >
-                                    {item.name}
-                                  </MenuItem>
-                                ))}
-                              </MenuList>
-                            </ClickAwayListener>
-                          </Paper>
-                        </Grow>
-                      )}
-                    </Popper>
-                  </div>
-                  {links.map((item, index) => (
-                    <div key={index}>
-                      <Button
-                        component={Link}
-                        to={item.route}
-                        sx={{
-                          color: pathname === item.route ? "#F56F46" : "white",
-                          textTransform: "none",
-                          fontWeight: "600",
-                        }}
-                        variant="text"
-                      >
-                        {item.title}
-                      </Button>
-                    </div>
-                  ))}
-                </Stack>
-              </div>
-
-              {!user && (
-                <div>
-                  <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                    <div>
-                      <Button
-                        onClick={() => setOpenLogin(true)}
-                        disableElevation
-                        sx={{
-                          color: "white",
-                          textTransform: "uppercase",
-                          fontSize: 11,
-                          fontWeight: "600",
-                          backgroundColor: "transparent",
-                        }}
-                        variant="contained"
-                      >
-                        {"Login"}
-                      </Button>
-                    </div>
-                    <div>
-                      <Button
-                        ref={anchorRef2}
-                        id="composition-button"
-                        aria-controls={open2 ? "composition-menu" : undefined}
-                        aria-expanded={open2 ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleToggle2}
-                        sx={{
-                          color: "white",
-                          fontSize: 11,
-                          fontWeight: "600",
-                          backgroundColor: "#172153",
-                          textTransform: "none",
-                          "&:hover": {
-                            backgroundColor: "#F56F46",
-                          },
-                        }}
-                        variant="contained"
-                        endIcon={<ExpandMore />}
-                      >
-                        {"SIGN UP"}
-                      </Button>
-
-                      <Popper
-                        open={open2}
-                        anchorEl={anchorRef2.current}
-                        role={undefined}
-                        placement="bottom-start"
-                        transition
-                        disablePortal
-                      >
-                        {({ TransitionProps, placement }) => (
-                          <Grow
-                            {...TransitionProps}
-                            style={{
-                              transformOrigin:
-                                placement === "bottom-start"
-                                  ? "left top"
-                                  : "left bottom",
-                            }}
-                          >
-                            <Paper>
-                              <ClickAwayListener onClickAway={handleClose2}>
-                                <MenuList
-                                  autoFocusItem={open2}
-                                  id="composition-menu"
-                                  aria-labelledby="composition-button"
-                                  onKeyDown={handleListKeyDown2}
-                                  sx={{
-                                    backgroundColor: "#FFFFFF",
-                                    borderRadius: 2,
-                                    mt: 2,
-                                    minWidth: 200,
-                                  }}
-                                >
-                                  {regLinks.map((item, index) => (
-                                    <MenuItem
-                                      sx={{
-                                        fontSize: 13,
-                                        color: item.color,
-                                        borderBottom:
-                                          index === 0 ? "1px solid #DCDCDC" : 0,
-                                        padding: "10px 15px",
-                                        fontWeight: "500",
-                                      }}
-                                      key={index}
-                                      onClick={async (e) => {
-                                        await handleClose2(e, item);
-                                        setRegAs(item.value);
-                                        setOpenReg(true);
-                                      }}
-                                    >
-                                      {item.title}
-                                    </MenuItem>
-                                  ))}
-                                </MenuList>
-                              </ClickAwayListener>
-                            </Paper>
-                          </Grow>
-                        )}
-                      </Popper>
-                    </div>
-                  </Stack>
-                </div>
-              )}
-
-              {user && (
-                <div>
-                  <Stack
-                    direction={"row"}
-                    alignItems={"center"}
-                    justifyContent={"flex-end"}
-                    spacing={1}
-                  >
-                    <IconButton
-                      aria-label=""
-                      component={Link}
-                      to={`/${user?.role?.toLowerCase()}/notifications`}
-                      sx={{ color: "black", display: "none" }}
-                      size="small"
-                    >
-                      <NotificationsOutlined
-                        sx={{ fontSize: 18, color: "white" }}
-                      />
-                    </IconButton>
-
-                    <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                      <div style={{ position: "relative" }}>
-                        <img
-                          src={UserImage}
-                          style={{
-                            height: 30,
-                            width: 30,
-                            borderRadius: "50%",
-                          }}
-                          alt="User"
-                        />
-
-                        <div
-                          style={{
-                            position: "absolute",
-                            bottom: -5,
-                            right: 0,
-                            zIndex: 0,
-                          }}
-                        >
-                          <Circle
-                            sx={{
-                              fontSize: 10,
-                              color: "#667185",
-                              border: "2px solid white",
-                              borderRadius: "50%",
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          color: "white",
-                          fontSize: 14,
-                          fontWeight: "600",
-                          marginLeft: 10,
-                        }}
-                      >
-                        {user?.name || `${user?.last_name} ${user?.first_name}`}
-                      </div>
-
-                      <div>
-                        <IconButton
-                          aria-label=""
-                          sx={{ color: "white" }}
-                          size="small"
-                          ref={anchorRef3}
-                          id="composition-button"
-                          aria-controls={open3 ? "composition-menu" : undefined}
-                          aria-expanded={open3 ? "true" : undefined}
-                          aria-haspopup="true"
-                          onClick={handleToggle3}
-                        >
-                          <ExpandMore />
-                        </IconButton>
-                        <Popper
-                          open={open3}
-                          anchorEl={anchorRef3.current}
-                          role={undefined}
-                          placement="bottom-start"
-                          transition
-                          disablePortal
-                        >
-                          {({ TransitionProps, placement }) => (
-                            <Grow
-                              {...TransitionProps}
-                              style={{
-                                transformOrigin:
-                                  placement === "bottom-start"
-                                    ? "left top"
-                                    : "left bottom",
-                              }}
-                            >
-                              <Paper>
-                                <ClickAwayListener onClickAway={handleClose3}>
-                                  <MenuList
-                                    autoFocusItem={open3}
-                                    id="composition-menu"
-                                    aria-labelledby="composition-button"
-                                    onKeyDown={handleListKeyDown3}
-                                    sx={{
-                                      backgroundColor: "#FFFFFF",
-                                      borderRadius: 2,
-                                      mt: 2,
-                                      minWidth: 200,
-                                    }}
-                                  >
-                                    {options.map((item, index) => (
-                                      <MenuItem
-                                        sx={{
-                                          fontSize: 13,
-                                          color: item.color,
-                                          borderBottom:
-                                            index === 0
-                                              ? "1px solid #DCDCDC"
-                                              : 0,
-                                          padding: "10px 15px",
-                                          fontWeight: "500",
-                                        }}
-                                        key={index}
-                                        onClick={async (e) => {
-                                          if (index === 0) {
-                                            return navigate(
-                                              `/${user?.role?.toLowerCase()}/dashboard`
-                                            );
-                                          }
-
-                                          await window.localStorage.clear();
-                                          await localforage.clear();
-                                          window.location.reload();
-                                          await handleClose3(e, item);
-                                        }}
-                                      >
-                                        {item.title}
-                                      </MenuItem>
-                                    ))}
-                                  </MenuList>
-                                </ClickAwayListener>
-                              </Paper>
-                            </Grow>
-                          )}
-                        </Popper>
-                      </div>
-                    </Stack>
-                  </Stack>
-                </div>
-              )}
-            </>
-          )}
-
+          {/*......... replace this div below with the commented div:hidden................................... */}
+          <div className="w-[21%] py-6"></div>
           {/* Mobile Hamburger Menu */}
-          {isMobile && (
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={toggleDrawer(true)}
-              sx={{ ml: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-        </Stack>
-      </AppBar>
+          <button
+            onClick={toggleDrawer(true)}
+            className={`flex lg:hidden ml-2 ${isScrolled?'text-primary-white':'text-primary-text'}`}
+          >
+            <MenuIcon />
+          </button>
 
+        </nav>
+      </header>
       {/* Mobile Drawer */}
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         {mobileDrawer}
       </Drawer>
-
-      <Login
-        dialog={openLogin}
-        setDialog={setOpenLogin}
-        setRegAs={setRegAs}
-        setOpenReg={setOpenReg}
-      />
-      <Register
-        dialog={openReg}
-        setDialog={setOpenReg}
-        setOpenLogin={setOpenLogin}
-        regAs={regAs}
-      />
-    </Fragment>
-  );
+    </>
+  )
 }

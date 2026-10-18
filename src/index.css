@@ -7,7 +7,7 @@ body {
   font-size: 1rem;
 }
 
-@theme {
+@theme inline {
   --color-primary-text: #292626;
   --color-primary-white: #FFFFFF;
   --color-secondary-blue: #172153;
@@ -16,6 +16,14 @@ body {
   /* screens */
   --breakpoint-1280xl: 1280px;
   --breakpoint-425xl: 425px;
+
+  --color-danger: #D94949;
+  --color-ink-muted: #4F4E59;
+  --color-brand: #172153;
+  --color-ink-border: #E6E5EA;
+  --color-brand-surface: #F3E8FF;
+  --color-brand-surface-subtle: #FAF5FF;
+
 }
 
 

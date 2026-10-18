@@ -1,4 +1,4 @@
-
+export type ApiDataRes = 'success'|'error'
 export type FieldName = "name" | "phoneNumber" | "email" | "message";
 
 export interface FieldConfig {

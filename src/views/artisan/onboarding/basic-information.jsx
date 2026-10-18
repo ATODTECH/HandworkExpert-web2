@@ -15,7 +15,7 @@ import { EmailOutlined } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { LoadingButton } from "@mui/lab";
 import { SubmitOnboarding } from "../../../services/user-services";
-import ToastMessage from "../../../hooks/toastMessage";
+import ToastMessage from "../../../../hooks/toastMessage";
 export default function BasicInformation({ setActive, setPercent }) {
   const { user } = useSelector((state) => state.user);
 
