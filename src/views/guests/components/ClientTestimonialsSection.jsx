@@ -1,310 +1,15 @@
-// import React, { useState } from "react";
-// import {
-//   Box,
-//   Typography,
-//   Container,
-//   IconButton,
-//   useMediaQuery,
-// } from "@mui/material";
-// import { styled } from "@mui/material/styles";
-// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-// import { useTheme } from "@mui/material/styles";
-// import ClientTestimonial from "../../../assets/img/client-testimonial.png";
+import { useState } from "react";
 
-// const SectionTitle = styled(Typography)(({ theme }) => ({
-//   fontWeight: 600,
-//   color: "#ff6f43",
-//   textAlign: "center",
-//   marginBottom: theme.spacing(5),
-//   fontSize: "3rem",
-//   [theme.breakpoints.down("md")]: {
-//     fontSize: "2rem",
-//   },
-// }));
-
-// const TestimonialContainer = styled(Box)(({ theme }) => ({
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "space-between",
-//   gap: theme.spacing(4),
-//   [theme.breakpoints.down("md")]: {
-//     flexDirection: "column",
-//     textAlign: "center",
-//   },
-// }));
-
-// const ImageWrapper = styled(Box)(({ theme }) => ({
-//   position: "relative",
-//   display: "flex",
-//   alignItems: "center",
-// }));
-
-// const ImageBackground = styled(Box)(({ theme }) => ({
-//   position: "absolute",
-//   top: 0,
-//   left: 0,
-//   width: "100%",
-//   height: "100%",
-//   backgroundColor: "#1a237e",
-//   borderRadius: 8,
-//   zIndex: 0,
-// }));
-
-// const ClientImage = styled("img")(({ theme }) => ({
-//   position: "relative",
-//   height: 400,
-//   width: "100%",
-//   objectFit: "cover",
-//   borderRadius: 8,
-//   zIndex: 1,
-//   padding: theme.spacing(2),
-//   background: "white",
-// }));
-
-// const ClientNameWrapper = styled(Box)(({ theme }) => ({
-//   position: "absolute",
-//   bottom: 20, // Adjusted to bring the text up
-//   left: 165,
-//   display: "flex",
-//   gap: theme.spacing(0.5),
-//   alignItems: "center",
-//   zIndex: 2, // Ensuring it's above the image
-//   padding: "4px 8px",
-// }));
-
-// const ClientNameWhite = styled(Typography)(({ theme }) => ({
-//   fontWeight: 600,
-//   fontSize: "1.75rem",
-//   [theme.breakpoints.down("md")]: {
-//     fontSize: "1rem",
-//   },
-//   color: "white",
-// }));
-
-// const ClientNameBlue = styled(Typography)(({ theme }) => ({
-//   fontWeight: 600,
-//   fontSize: "1.75rem",
-//   [theme.breakpoints.down("md")]: {
-//     fontSize: "1rem",
-//   },
-//   color: "#1a237e",
-// }));
-
-// const QuoteWrapper = styled(Box)(({ theme }) => ({
-//   flex: 1,
-//   position: "relative",
-// }));
-
-// const QuoteText = styled(Typography)(({ theme }) => ({
-//   fontSize: "2.4rem",
-//   fontWeight: 300,
-//   lineHeight: 1.6,
-//   position: "relative",
-//   paddingLeft: theme.spacing(1),
-//   [theme.breakpoints.down("md")]: {
-//     fontSize: "1rem",
-//   },
-// }));
-
-// const QuotationMark = styled(Typography)(({ theme }) => ({
-//   fontFamily: "serif",
-//   fontSize: "7rem",
-//   color: "#1a237e",
-//   position: "absolute",
-//   lineHeight: 1,
-// }));
-
-// const NavigationButtons = styled(Box)(({ theme }) => ({
-//   display: "flex",
-//   justifyContent: "flex-end",
-//   gap: theme.spacing(1),
-//   marginTop: theme.spacing(4),
-// }));
-
-// const NavButton = styled(IconButton)(({ theme }) => ({
-//   backgroundColor: "#13183F",
-//   color: "white",
-//   "&:hover": {
-//     backgroundColor: "white",
-//     color: "#232958",
-//     border: "2px solid #232958",
-//   },
-//   width: 44,
-//   height: 44,
-//   borderRadius: "8px",
-// }));
-
-// const ClientTestimonialsSection = () => {
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-//   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-//   const testimonials = [
-//     {
-//       id: 1,
-//       name: "Emmanuel Samuel",
-//       image: ClientTestimonial,
-//       quote:
-//         "I had a major plumbing emergency, and ProHandy saved the day, quick response, professional service, and fair pricing.",
-//     },
-//     {
-//       id: 2,
-//       name: "Sarah Johnson",
-//       image: ClientTestimonial,
-//       quote:
-//         "The electrician was knowledgeable and fixed my wiring issue in no time. I'll definitely use ProHandy again!",
-//     },
-//   ];
-
-//   const handleNext = () => {
-//     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-//   };
-
-//   const handlePrev = () => {
-//     setCurrentTestimonial(
-//       (prev) => (prev - 1 + testimonials.length) % testimonials.length
-//     );
-//   };
-
-//   const testimonial = testimonials[currentTestimonial];
-
-//   return (
-//     <Container maxWidth="lg" sx={{ py: 8 }}>
-//       <SectionTitle variant="h3" component="h2">
-//         What Clients Says
-//       </SectionTitle>
-
-//       <TestimonialContainer>
-//         <ImageWrapper>
-//           <ImageBackground />
-//           <ClientImage src={testimonial.image} alt={testimonial.name} />
-//           <ClientNameWrapper>
-//             <ClientNameWhite>{testimonial.name.split(" ")[0]} </ClientNameWhite>
-//             <ClientNameBlue>{testimonial.name.split(" ")[1]}</ClientNameBlue>
-//           </ClientNameWrapper>
-//         </ImageWrapper>
-
-//         <QuoteWrapper>
-//           <QuotationMark sx={{ top: -40, left: -10 }}>&ldquo;</QuotationMark>
-
-//           <QuoteText variant="body1">{testimonial.quote}</QuoteText>
-
-//           <QuotationMark sx={{ bottom: -80, right: 0 }}>&rdquo;</QuotationMark>
-//         </QuoteWrapper>
-//       </TestimonialContainer>
-
-//       <NavigationButtons>
-//         <NavButton onClick={handlePrev} aria-label="Previous testimonial">
-//           <ArrowBackIcon />
-//         </NavButton>
-//         <NavButton onClick={handleNext} aria-label="Next testimonial">
-//           <ArrowForwardIcon />
-//         </NavButton>
-//       </NavigationButtons>
-//     </Container>
-//   );
-// };
-
-// export default ClientTestimonialsSection;
-import React, { useState, useRef, useEffect } from "react";
 import {
-  Box,
   Typography,
-  Container,
-  IconButton,
-  useMediaQuery,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTheme } from "@mui/material/styles";
-import ClientTestimonial from "../../../assets/img/client-testimonial.png";
+import ClientTestimonial from "@/src/assets/img/client-testimonial.webp";
+import ClientTestimonial2 from "@/src/assets/img/client-testimonial_2.webp";
 
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  color: "#ff6f43",
-  textAlign: "center",
-  marginBottom: theme.spacing(5),
-  fontSize: "3rem",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
-  },
-}));
-
-const TestimonialContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: theme.spacing(4),
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-    textAlign: "center",
-  },
-}));
-
-const ImageWrapper = styled(Box)(({ theme }) => ({
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-}));
-
-const ImageBackground = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: "#1a237e",
-  borderRadius: 8,
-  zIndex: 0,
-}));
-
-const ClientImage = styled("img")(({ theme }) => ({
-  position: "relative",
-  height: 400,
-  width: "100%",
-  objectFit: "cover",
-  borderRadius: 8,
-  zIndex: 1,
-  padding: theme.spacing(2),
-  background: "white",
-}));
-
-const ClientNameWrapper = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  bottom: 20,
-  left: 165,
-  display: "flex",
-  gap: theme.spacing(0.5),
-  alignItems: "center",
-  zIndex: 2,
-  padding: "4px 8px",
-}));
-
-const ClientName = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  fontSize: "1.75rem",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1.2rem",
-  },
-}));
-
-const QuoteWrapper = styled(Box)(({ theme }) => ({
-  flex: 1,
-  position: "relative",
-}));
-
-const QuoteText = styled(Typography)(({ theme }) => ({
-  fontSize: "2.4rem",
-  fontWeight: 300,
-  lineHeight: 1.6,
-  position: "relative",
-  paddingLeft: theme.spacing(1),
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1.2rem",
-  },
-}));
 
 const QuotationMark = styled(Typography)(({ theme }) => ({
   fontFamily: "serif",
@@ -314,34 +19,9 @@ const QuotationMark = styled(Typography)(({ theme }) => ({
   lineHeight: 1,
 }));
 
-const NavigationButtons = styled(Box)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "flex-end",
-  gap: theme.spacing(1),
-  marginTop: theme.spacing(4),
-}));
 
-const NavButton = styled(IconButton)(({ theme }) => ({
-  backgroundColor: "#13183F",
-  color: "white",
-  "&:hover": {
-    backgroundColor: "white",
-    color: "#232958",
-    border: "2px solid #232958",
-  },
-  width: 44,
-  height: 44,
-  borderRadius: "8px",
-}));
-
-const ClientTestimonialsSection = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+export const ClientTestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const nameRef = useRef(null);
-  const imageRef = useRef(null);
-  const [splitIndex, setSplitIndex] = useState(0);
-
   const testimonials = [
     {
       id: 1,
@@ -353,12 +33,12 @@ const ClientTestimonialsSection = () => {
     {
       id: 2,
       name: "Sarah Johnson",
-      image: ClientTestimonial,
+      image: ClientTestimonial2,
       quote:
         "The electrician was knowledgeable and fixed my wiring issue in no time. I'll definitely use ProHandy again!",
     },
   ];
-
+  
   const handleNext = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
@@ -371,71 +51,46 @@ const ClientTestimonialsSection = () => {
 
   const testimonial = testimonials[currentTestimonial];
 
-  useEffect(() => {
-    if (nameRef.current && imageRef.current) {
-      const nameBox = nameRef.current.getBoundingClientRect();
-      const imageBox = imageRef.current.getBoundingClientRect();
-
-      let nameText = testimonial.name;
-      let splitPos = nameText.length;
-
-      // Determine where the split should be
-      for (let i = 0; i < nameText.length; i++) {
-        let charWidth = nameBox.width / nameText.length;
-        let charX = nameBox.left + charWidth * i;
-        if (charX > imageBox.right) {
-          splitPos = i;
-          break;
-        }
-      }
-
-      setSplitIndex(splitPos);
-    }
-  }, [currentTestimonial, testimonial.name]);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <SectionTitle variant="h3" component="h2">
-        What Clients Says
-      </SectionTitle>
+    <section className="flex relative justify-center overflow-hidden w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5">
+      <div className="flex flex-col relative w-full max-w-[80%] sm:max-w-[90%] justify-center items-center 425xl:gap-15 mb-16 sm:mb-0">
+        <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6 text-center">What Clients Says</h3>
+        <div className="flex flex-col md:flex-row relative w-full gap-17.5 md:gap-9.5 lg:gap-17.5 ">
+          <div className="flex relative self-center md:self-start w-[80%] 425xl:w-[60%] h-fit ">
+            <img src={testimonial.image} height={"55px"} width={"100%"} alt="client_testimonal" draggable={false}
+            className="w-full h-full " />
+            <div className="absolute flex items-end justify-end font-semibold text-sm sm:text-base lg:text-xl w-[85%] h-full ">
+              <span className=" text-primary-white flex absolute bottom-5 ">{testimonial.name.slice(0, 4)}</span>
+            </div>
+            <div className="absolute flex items-end justify-end font-semibold text-sm sm:text-base lg:text-xl w-[15%] right-0 h-full ">
+              <span className=" text-primary-text flex absolute bottom-5 w-full truncate overflow-visible ">{testimonial.name.slice(4,)}</span>
+            </div>
 
-      <TestimonialContainer>
-        <ImageWrapper>
-          <ImageBackground />
-          <ClientImage
-            ref={imageRef}
-            src={testimonial.image}
-            alt={testimonial.name}
-          />
-          <ClientNameWrapper ref={nameRef}>
-            <ClientName sx={{ color: "white" }}>
-              {testimonial.name.slice(0, splitIndex)}
-            </ClientName>
-            <ClientName sx={{ color: "#1a237e" }}>
-              {testimonial.name.slice(splitIndex)}
-            </ClientName>
-          </ClientNameWrapper>
-        </ImageWrapper>
-
-        <QuoteWrapper>
-          <QuotationMark sx={{ top: -40, left: -10 }}>&ldquo;</QuotationMark>
-
-          <QuoteText variant="body1">{testimonial.quote}</QuoteText>
-
-          <QuotationMark sx={{ bottom: -80, right: 0 }}>&rdquo;</QuotationMark>
-        </QuoteWrapper>
-      </TestimonialContainer>
-
-      <NavigationButtons>
-        <NavButton onClick={handlePrev} aria-label="Previous testimonial">
-          <ArrowBackIcon />
-        </NavButton>
-        <NavButton onClick={handleNext} aria-label="Next testimonial">
-          <ArrowForwardIcon />
-        </NavButton>
-      </NavigationButtons>
-    </Container>
-  );
-};
-
-export default ClientTestimonialsSection;
+          </div>
+          <div className="flex flex-col relative justify-between w-full gap-10">
+            <div className="flex relative ">
+              <QuotationMark sx={{ top: -40, left: -10 }}>&ldquo;</QuotationMark>
+              <p className="text-primary-text font-normal text-base leading-6 425xl:text-xl 425xl:leading-normal sm:text-2xl pt-6.5 pb-3.25 px-5 425xl:py-4 425xl:px-9 sm:px-16.25 ">
+                {testimonial.quote}
+              </p>
+              <QuotationMark sx={{ bottom: -80, right: 0 }}>&rdquo;</QuotationMark>
+            </div>
+            <div className="flex self-start md:self-end gap-4 z-10">
+              <button 
+              className="bg-secondary-blue rounded-[5px] text-primary-white h-8 w-8 sm:h-11 sm:w-11 outline-0 cursor-pointer "
+              onClick={handlePrev} aria-label="Previous testimonial">
+                <ArrowBackIcon fontSize="small" />
+              </button>
+              <button 
+              className="bg-primary-white rounded-[5px] text-secondary-blue border border-secondary-blue h-8 w-8 sm:h-11 sm:w-11 outline-0 cursor-pointer "
+              onClick={handleNext} aria-label="Next testimonial">
+                <ArrowForwardIcon fontSize="small" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

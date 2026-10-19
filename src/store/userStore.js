@@ -94,9 +94,9 @@ const UserStore = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getCategories.fulfilled, (state, action) => {
-      if (action.payload.status) state.categories = action.payload.data;
-    });
+    // builder.addCase(getCategories.fulfilled, (state, action) => {
+    //   if (action.payload.status) state.categories = action.payload.data;
+    // });
 
     builder.addCase(getAllServices.fulfilled, (state, action) => {
       if (action.payload.status) state.services = action.payload.data;
@@ -104,9 +104,9 @@ const UserStore = createSlice({
     builder.addCase(getServiceList.fulfilled, (state, action) => {
       if (action.payload.status) state.service_list = action.payload.data;
     });
-    builder.addCase(getServiceCategories.fulfilled, (state, action) => {
-      if (action.payload.status) state.service_category = action.payload.data;
-    });
+    // builder.addCase(getServiceCategories.fulfilled, (state, action) => {
+    //   if (action.payload.status) state.service_category = action.payload.data;
+    // });
     builder.addCase(getUserDetails.fulfilled, (state, action) => {
       if (action.payload.status) state.user_details = action.payload.data;
     });

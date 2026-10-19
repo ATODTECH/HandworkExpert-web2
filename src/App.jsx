@@ -1,6 +1,6 @@
 // import "./assets/css/w3.css";
 
-import { routes } from "./routes/routes";
+import { routes } from "../routes/routes";
 import { Outlet, RouterProvider } from "react-router-dom";
 function App() {
   return (

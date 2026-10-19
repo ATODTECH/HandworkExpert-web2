@@ -1,127 +1,54 @@
-import React from "react";
-import { Box, Typography, Container, Grid, Paper } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import BgCheck from "../../../assets/img/background-check.png";
-import SecureTrans from "../../../assets/img/credit-card.png";
-import CustomerSupport from "../../../assets/img/customer-support.png";
+import BgCheck from "@/src/assets/img/background-check.webp";
+import CreditCard from "@/src/assets/img/credit-card.png";
+import CustomerSupport from "@/src/assets/img/customer-support.png";
 
-// Custom styled components
-const TrustFactorCard = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  textAlign: "center",
-  backgroundColor: "#f2f3f7",
-  borderRadius: 16,
-  boxShadow: "none",
-  height: "100%",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "flex-start",
-  transition: "transform 0.3s ease-in-out",
-  "&:hover": {
-    transform: "translateY(-5px)",
-  },
-}));
-
-const IconCircle = styled(Box)(({ theme }) => ({
-  marginBottom: theme.spacing(4),
-}));
-
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  color: "#ff6f43",
-  textAlign: "center",
-  marginBottom: theme.spacing(5),
-  fontSize: "3rem",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
-  },
-}));
-
-const CardTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  fontSize: "1.2rem",
-  marginBottom: theme.spacing(2),
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1.4rem",
-  },
-}));
-
-const CardDescription = styled(Typography)(({ theme }) => ({
-  color: "#424242",
-  fontWeight: 500,
-  fontSize: "1.65rem",
-  lineHeight: 1.5,
-}));
-
-const TrustFactorsSection = () => {
+export const TrustFactorsSection = () => {
   return (
-    <Container maxWidth="xl" sx={{ py: 8 }}>
-      <SectionTitle variant="h3" component="h2">
-        Services Guaranteed And Trust Factors
-      </SectionTitle>
-
-      <Grid
-        container
-        spacing={5}
-        sx={{
-          px: { xs: 0, md: 10 },
-        }}
-      >
-        {/* Background Checked Card */}
-        <Grid item xs={12} md={4}>
-          <TrustFactorCard>
-            <IconCircle>
-              <img
-                src={BgCheck}
-                alt="Background Check"
-                style={{ width: "90px", height: "90px" }}
-              />
-            </IconCircle>
-            <CardTitle variant="h5">Background Checked</CardTitle>
-            <CardDescription variant="body1">
-              Every professional is verified for skills and trustworthiness.
-            </CardDescription>
-          </TrustFactorCard>
-        </Grid>
-
-        {/* Secure Transactions Card */}
-        <Grid item xs={12} md={4}>
-          <TrustFactorCard>
-            <IconCircle>
-              <img
-                src={SecureTrans}
-                alt="Secure Transactions"
-                style={{ width: "90px", height: "90px" }}
-              />
-            </IconCircle>
-            <CardTitle variant="h5">Secure Transactions</CardTitle>
-            <CardDescription variant="body1">
-              Payments are safe, and completion is guaranteed.
-            </CardDescription>
-          </TrustFactorCard>
-        </Grid>
-
-        {/* Customer Support Card */}
-        <Grid item xs={12} md={4}>
-          <TrustFactorCard>
-            <IconCircle>
-              <img
-                src={CustomerSupport}
-                alt="Customer Support"
-                style={{ width: "90px", height: "90px" }}
-              />
-            </IconCircle>
-            <CardTitle variant="h5">Customer Support</CardTitle>
-            <CardDescription variant="body1">
-              Dedicated help whenever you need it.
-            </CardDescription>
-          </TrustFactorCard>
-        </Grid>
-      </Grid>
-    </Container>
-  );
-};
-
-export default TrustFactorsSection;
+    <section className="flex flex-col items-center w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5 ">
+      <div className="flex flex-col justify-center items-center relative 425xl:gap-15 w-[90%] sm:w-full mb-16 sm:mb-0 ">
+        <h3 className="font-semibold text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6 text-center">Services Guaranteed And Trust Factors</h3>
+        <div className="flex flex-col sm:grid items-center justify-center sm:grid-cols-2 lg:grid-cols-3 gap-6.25 lg:gap-11.25 w-[90%] 425xl:w-auto text-[1rem] ">
+          <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 bg-[#E8E9EE] py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
+            <div className=" mb-8 lg:mb-10.5 p-3 rounded-full bg-secondary-blue ">
+              <img src={BgCheck} alt="Background_Check" className="w-7 h-7 " />
+            </div>
+            <div className="flex flex-col h-full text-center ">
+              <p className=" font-semibold ">
+                Background Checked
+              </p>
+              <p className=" font-medium text-center">
+                Every professional is verified for skills and trustworthiness.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 bg-[#E8E9EE] py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] ">
+            <div className="flex justify-center items-center mb-8 lg:mb-10.5 p-3 rounded-full bg-secondary-blue ">
+              <img src={CreditCard} alt="CreditCard" height={28} width={28} className="w-7 h-7 " />
+            </div>
+            <div className="flex flex-col h-full text-center ">
+              <p className=" font-semibold ">
+                Secure Transactions
+              </p>
+              <p className=" font-medium text-center">
+                Payments are safe, and  completion is guaranteed.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between items-center h-full max-h-120.5 w-full max-w-75 lg:max-w-130.75 bg-[#E8E9EE] py-8.5 425xl:py-12.5 px-5 text-primary-text rounded-[15px] sm:col-span-2 sm:mx-auto lg:col-span-1 lg:mx-0 ">
+            <div className="flex justify-center items-center mb-8 lg:mb-10.5 p-3 rounded-full bg-secondary-blue ">
+              <img src={CustomerSupport} alt="CustomerSupport" className="w-7 h-7 " />
+            </div>
+            <div className="flex flex-col h-full text-center ">
+              <p className=" font-semibold ">
+                Customer Support
+              </p>
+              <p className=" font-medium text-center">
+                Dedicated help whenever you need it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

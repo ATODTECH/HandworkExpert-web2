@@ -17,7 +17,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useSelector } from "react-redux";
 import { LoadingButton } from "@mui/lab";
-import ToastMessage from "../../../hooks/toastMessage";
+import ToastMessage from "../../../../hooks/toastMessage";
 import { CreateSkills } from "../../../services/user-services";
 export default function AddSkills({ setActive, setPercent }) {
   const { user, service_category } = useSelector((state) => state.user);

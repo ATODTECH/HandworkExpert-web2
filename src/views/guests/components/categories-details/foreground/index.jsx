@@ -2,14 +2,12 @@ import {
   Drawer,
   useTheme,
 } from "@mui/material";
-import UserImage from "@/src/assets/img/user-2.png";
+// import UserImage from "@/src/assets/img/user-2.png";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Login from "@/src/views/auth/login";
-import Register from "@/src/views/auth/register";
-import Logo from "@/src/assets/img/logo.png"
+import { logo } from "@/src/assets";
+
 import {
-  Circle,
   Menu as MenuIcon,
   Close as CloseIcon,
   KeyboardArrowDown,
@@ -17,9 +15,8 @@ import {
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import localforage from "localforage";
-import PopUpRegister from "@/src/components/guests/become-professional";
 
-const TopBar = ({ popularServices }) => {
+export const TopBar = ({ popularServices }) => {
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -164,7 +161,7 @@ const TopBar = ({ popularServices }) => {
       <div className="flex justify-between items-center p-4 bg-secondary-blue ">
         <Link to="/" onClick={toggleDrawer(false)}>
           <img
-            src={Logo}
+            src={logo}
             style={{ width: "100%", height: 40 }}
             alt="Logo"
           />
@@ -329,7 +326,7 @@ const TopBar = ({ popularServices }) => {
         <nav className="flex flex-row w-full items-center justify-between ">
           <Link to={"/"} className="outline-0 w-[21%]">
             <img
-              src={Logo}
+              src={logo}
               draggable={false}
               style={{ height: 40 }}
               className="w-auto "
@@ -341,7 +338,6 @@ const TopBar = ({ popularServices }) => {
             <Link to={"/"}>Home</Link>
             <Link to={"/categories"} className={`flex items-center gap-1 text-secondary-orange font-bold`}>
               <span className="">Categories</span>
-              <KeyboardArrowDown />
             </Link>
             {links.map((link) =>
               <Link key={link.title.replace(" ", "")} to={link.route}>{link.title}</Link>
@@ -382,5 +378,3 @@ const TopBar = ({ popularServices }) => {
     </>
   )
 }
-
-export default TopBar

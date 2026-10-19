@@ -1,9 +1,7 @@
 import SEOHead from "@/src/components/SEOHead"
 import { ChevronDown, ChevronRight, MapPin, PhoneCall, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import engineer from  "@/src/assets/img/professional-image.webp"
-import GooglePlay from "@/src/assets/img/google-play.png";
-import AppStore from "@/src/assets/img/apple-store.png";
+import {engineer, GooglePlay, AppStore} from "@/src/assets"
 
 
 interface CatDetailsProps {
@@ -151,7 +149,7 @@ function StarRating({ rating }: {rating: number}) {
   );
 }
 
-const CatDetailsContentIndex = ({ id, details } : CatDetailsProps) => {
+export const CatDetailsContentIndex = ({ id, details } : CatDetailsProps) => {
   const {category, categoryList} = details
   const [currency, setCurrency] = useState(CURRENCIES[0]);
 
@@ -299,5 +297,3 @@ const CatDetailsContentIndex = ({ id, details } : CatDetailsProps) => {
     </section>
   )
 }
-
-export default CatDetailsContentIndex

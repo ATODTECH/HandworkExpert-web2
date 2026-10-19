@@ -1,124 +1,73 @@
-import React from "react";
-import { Box, Typography, Grid, Card, Container } from "@mui/material";
-import searchImage from "../../../assets/img/work_1.png";
-import chooseImage from "../../../assets/img/work_2.png";
-import bookImage from "../../../assets/img/work_3.png";
-import doneImage from "../../../assets/img/work_4.png";
+import searchImage from "@/src/assets/img/work_1.webp";
+import chooseImage from "@/src/assets/img/work_2.webp";
+import bookImage from "@/src/assets/img/work_3.webp";
+import doneImage from "@/src/assets/img/work_4.webp";
 
-const HowItWorks = () => {
-  const steps = [
-    {
-      title: "Search for a service",
-      description: "Browse through various artisans categories",
-      image: searchImage,
-    },
-    {
-      title: "Choose a skilled professional",
-      description: "View artisan profile, reviews and ratings",
-      image: chooseImage,
-    },
-    {
-      title: "Book and pay securely",
-      description: "Schedule your services with confidence",
-      image: bookImage,
-    },
-    {
-      title: "Get the job done",
-      description: "Sit back while the expert handles the work",
-      image: doneImage,
-    },
-  ];
+const steps = [
+  {
+    title: "Search for a service",
+    description: "Browse through various artisans categories",
+    image: searchImage,
+  },
+  {
+    title: "Choose a skilled professional",
+    description: "View artisan profile, reviews and ratings",
+    image: chooseImage,
+  },
+  {
+    title: "Book and pay securely",
+    description: "Schedule your services with confidence",
+    image: bookImage,
+  },
+  {
+    title: "Get the job done",
+    description: "Sit back while the expert handles the work",
+    image: doneImage,
+  },
+];
 
+export const HowItWorks = () => {
+  
+  const StepCard = ({ image, title, description }) => {
+    return (
+      <div className="flex flex-col h-full p-3 border-[.5px] border-secondary-blue/10 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
+        {/* Image Container */}
+        <div className="relative md:w-full aspect-square mb-6 overflow-hidden rounded-xl">
+          <img
+            src={image}
+            alt={title}
+            className="object-cover w-full h-full"
+          />
+        </div>
+        
+        {/* Content */}
+        <div className="flex flex-col grow text-base text-primary-text">
+          <h3 className=" font-semibold mb-3 leading-tight">
+            {title}
+          </h3>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
+  };
+  
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Typography
-        variant="h2"
-        component="h2"
-        align="center"
-        gutterBottom
-        sx={{
-          color: "#F85A2B",
-          fontWeight: 600,
-          mb: 6,
-          fontSize: { xs: "2rem", md: "3rem" },
-        }}
-      >
-        How It Works
-      </Typography>
-
-      <Grid container spacing={3}>
-        {steps.map((step, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card
-              elevation={0}
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                border: "1px solid #e0e0e0",
-                borderRadius: "16px",
-                overflow: "hidden",
-                transition: "transform 0.3s ease-in-out",
-                p: 1.3, // Added padding around the entire card content
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  mb: 2, // Margin bottom for spacing between image and text
-                  // height: "200px",
-                  height: "auto",
-                }}
-              >
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </Box>
-              <Box sx={{ flexGrow: 1 }}>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="h3"
-                  sx={{
-                    fontWeight: 600,
-                    // fontSize: "1.13rem",
-                    fontSize: { xs: "1.5rem", md: "1.13rem" },
-                    mb: 1,
-                  }}
-                >
-                  {step.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  // color="text.secondary"
-                  color="#292626"
-                  sx={{
-                    // fontSize: "15px",
-                    // fontSize: "1.1rem",
-                    fontSize: { xs: "1.2rem", md: "1.2rem" },
-                    fontWeight: 500,
-                    wordWrap: "break-word",
-                  }}
-                >
-                  {step.description}
-                </Typography>
-              </Box>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-  );
-};
-
-export default HowItWorks;
+    <section className=" w-full p-16 px-4 py-10 sm:px-16 xl:px-28 lg:mt-12 ">
+      <div className="flex flex-col my-16.25 sm:my-16.25 ">
+        <h3 className="font-semibold text-center text-2xl 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary-orange mb-6.25 ">How It Works</h3>
+        <div className="flex justify-center py-6 sm:py-12 sm:px-4 max-w-360 mx-auto">
+          <div className="grid grid-cols-1 w-[80%] 425xl:w-[60%] sm:w-full sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {steps.map((step, index) => (
+              <StepCard 
+                key={index}
+                image={step.image}
+                title={step.title}
+                description={step.description}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

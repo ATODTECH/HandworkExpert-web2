@@ -1,112 +1,34 @@
-import React from "react";
-import { Box, Typography, Container, useMediaQuery } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { useTheme } from "@mui/material/styles";
-import PhoneImage from "../../../assets/img/phones-image.png";
-import GooglePlay from "../../../assets/img/google-play.png";
-import AppStore from "../../../assets/img/apple-store.png";
-import ToastMessage from "../../../hooks/toastMessage";
+import PhoneImage from "@/src/assets/img/phones-image.webp";
+import GooglePlay from "@/src/assets/img/google-play.png";
+import AppStore from "@/src/assets/img/apple-store.png";
 
-// Custom styled components
-const SectionContainer = styled(Container)(({ theme }) => ({
-  padding: theme.spacing(5, 2),
-  display: "flex",
-  gap: theme.spacing(10),
-  alignItems: "center",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-    textAlign: "center",
-    gap: theme.spacing(5),
-  },
-}));
-
-const PhoneContainer = styled(Box)(({ theme }) => ({
-  [theme.breakpoints.down("md")]: {
-    marginRight: 0,
-  },
-}));
-
-const ContentContainer = styled(Box)(({ theme }) => ({
-  flex: 1,
-}));
-
-const MainHeading = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
-  fontSize: "3rem",
-  marginBottom: theme.spacing(3),
-  [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
-  },
-}));
-
-const SubHeading = styled(Typography)(({ theme }) => ({
-  fontSize: "1.5rem",
-  fontWeight: 500,
-  marginBottom: theme.spacing(5),
-  lineHeight: 1.5,
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1.25rem",
-  },
-}));
-
-const ProHandyAppSection = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleDownloadClick = (store) => {
-    ToastMessage("info", `${store} - Coming Soon!`);
-  };
-
+export const ProHandyAppSection = () => {
+  
   return (
-    <SectionContainer maxWidth="lg">
-      <PhoneContainer>
-        {/* Single phone image container */}
-        <Box
-          component="img"
-          src={PhoneImage}
-          alt="ProHandy App Screenshots"
-          sx={{
-            width: isMobile ? 280 : 550,
-            height: "auto",
-          }}
-        />
-      </PhoneContainer>
+    <section className="flex relative justify-center w-full px-4 py-10 p-16 sm:px-16 xl:px-28 425xl:mb-12 sm:mb-28.5 ">
+      <div className="flex flex-col-reverse md:grid grid-cols-2 relative w-full max-w-[80%] lg:max-w-[80%] gap-15 md:gap-8 lg:gap-15 mb-16 sm:mb-0 ">
+        <div className="flex relative h-fit 425xl:w-[80%] mx-auto lg:mx-0 lg:h-auto md:w-auto ">
+          <img src={PhoneImage} height={"23px"} width={"100%"} alt="ProHandy App Screenshots"
+          className={"h-full w-full "} />
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="flex flex-col gap-6 sm:gap-8 ">
+            <h2 className="font-semibold text-2xl text-center 425xl:text-3xl sm:text-4xl lg:text-[2.75rem] md:leading-12 lg:leading-15 md:text-start text-primary-text ">Get the Prohandy App</h2>
+            <h5 className=" text-lg 425xl:text-xl sm:text-2xl text-primary-text ">
+              Book services on the go. Faster, easier, and more convenient.
+            </h5>
+            <div className="flex gap-4 lg:flex-wrap">
+              <img src={AppStore} draggable={false} alt="Professional worker with safety equipment"
+              className="h-8 lg:h-11 w-auto " 
+              onClick={() => alert("Coming soon!")} />
+              <img src={GooglePlay} draggable={false} alt="Professional worker with safety equipment"
+              className="h-8 lg:h-11 w-auto "
+              onClick={() => alert("Coming soon!")} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <ContentContainer>
-        <MainHeading variant="h2">Get the Prohandy App</MainHeading>
-
-        <SubHeading variant="h5">
-          Book services on the go. Faster, easier, and more convenient.
-        </SubHeading>
-
-        <Box sx={{ display: "flex", gap: 1, flexDirection: "row" }}>
-          <Box
-            component="img"
-            src={AppStore}
-            alt="Professional worker with safety equipment"
-            sx={{
-              width: 200,
-              height: "auto",
-              cursor: "pointer",
-            }}
-            onClick={() => handleDownloadClick("App Store")}
-          />
-
-          <Box
-            component="img"
-            src={GooglePlay}
-            alt="Professional worker with safety equipment"
-            sx={{
-              width: 200,
-              height: "auto",
-              cursor: "pointer",
-            }}
-            onClick={() => handleDownloadClick("Google Play")}
-          />
-        </Box>
-      </ContentContainer>
-    </SectionContainer>
-  );
-};
-
-export default ProHandyAppSection;
+  )
+}

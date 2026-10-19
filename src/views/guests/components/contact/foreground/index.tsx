@@ -1,7 +1,7 @@
 import contactForegroundImage from "@/src/assets/img/contact-us.webp"
 import { AnimatePresence, motion } from "framer-motion"
 
-const ForegroundContactIndex = () => {
+export const ForegroundContactIndex = () => {
   return (
     <section className="min-h-screen w-full flex items-center justify-center relative px-4 p-16 sm:px-16 xl:px-28 bg-[#151327]">
       {/* foreground landing about image */}
@@ -33,5 +33,3 @@ const ForegroundContactIndex = () => {
     </section>
   )
 }
-
-export default ForegroundContactIndex
