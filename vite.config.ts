@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-
+import reactNativeWeb from "vite-plugin-react-native-web";
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode }) => {
@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       tailwindcss(),
+      reactNativeWeb(),
       react()
     ],
     resolve: {

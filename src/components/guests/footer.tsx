@@ -1,3 +1,5 @@
+import Policy from "@/src/views/guests/privacy-policy";
+import TermsOfUse from "@/src/views/guests/terms-of-use";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -86,11 +88,9 @@ export const Footer = () => {
       </div>
       <div className="flex items-center justify-between gap-5 w-full lg:pr-25 text-[.75rem] sm:text-sm ">
         <span className="">© 2023 All Rights Reserved</span>
-        <p className="flex gap-4  ">
-          <button role="link" onClick={()=> alert("Coming soon!")}>Privacy Policy</button>
-          <button role="link" onClick={()=> alert("Coming soon!")}>Terms and conditions</button>
-          {/* <Link to={""}>Privacy Policy</Link>
-          <Link to={""}>Terms and conditions</Link> */}
+        <p className="flex gap-4 ">
+          <Policy />
+          <TermsOfUse />
         </p>
       </div>
     </footer>

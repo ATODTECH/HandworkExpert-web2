@@ -1,4 +1,5 @@
 import React from "react";
+import { AppRegistry } from 'react-native';
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -22,6 +23,7 @@ const theme = createTheme({
   },
 });
 
+AppRegistry.registerComponent('App', () => App);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>

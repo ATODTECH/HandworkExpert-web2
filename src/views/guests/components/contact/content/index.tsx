@@ -209,7 +209,7 @@ export const ContentContactIndex = () => {
               <div className=" h-auto w-12 ">
                 <img src={email} alt="email" height={28} width={28} className="w-full h-full object-cover " />
               </div>
-              <span className=" text-[1rem] font-bold break-all">Prohandy@gmail.com</span>
+              <span className=" text-[1rem] font-bold break-all">support@handworkexpert.com</span>
             </div>
             <p className=" font-normal text-sm">
               Have questions or need assistance? Reach out to us, we’re here to help.

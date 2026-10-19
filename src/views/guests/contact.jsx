@@ -11,7 +11,19 @@ import { WidgetError } from "@/src/shared/widget-error";
 
 const ContactHomeIndex = () => {
   const { isPending, isError, refetch, isRefetching } = useOnload()
+  const { service_category } = useSelector((state) => state.user);
+  const isMounted = useRef(false);
+  const popularServices = useMemo(() => {
+    let data = service_category || [];
+    return data.slice(0, 7);
+  }, [service_category]);
   
+  useEffect(() => {
+    if (isMounted.current) return;
+    isMounted.current = true;
+  }, [])
+
+
   if (isPending) return <DataLoading mt={50} />
   if (isError) {
     return (
@@ -22,18 +34,7 @@ const ContactHomeIndex = () => {
       </div>
     )
   }
-  
-  const isMounted = useRef(false);
-  const { service_category } = useSelector((state) => state.user);
-  const popularServices = useMemo(() => {
-    let data = service_category || [];
-    return data.slice(0, 7);
-  }, [service_category]);
 
-  useEffect(() => {
-    if (isMounted.current) return;
-    isMounted.current = true;
-  }, [])
   
   return (
     <div className="flex flex-col justify-between min-h-screen">

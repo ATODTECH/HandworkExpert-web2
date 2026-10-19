@@ -7,6 +7,6 @@ type res = {
 }
 
 export const Onload = async () => {
-  const { data } = await api.get<res>('/contact/onload/api/')
+  const { data } = await api.get<res>('/contact/onload/token/api/')
   return data
 }
