@@ -26,7 +26,7 @@ export default function Categories() {
   ];
 
   return (
-    <div className="flex flex-col justify-end bg-primary-white min-h-screen">
+    <div className="flex flex-col justify-between bg-primary-white min-h-screen">
       <SEOHead
         title="Browse Service Categories"
         description="Explore all service categories on Handwork Expert — from plumbing and electrical to carpentry, painting, and more. Find the right artisan for any job."

@@ -13,13 +13,13 @@ const Policy = () => {
       <DialogTrigger render={<button>Privacy Policy</button>} />
       <DialogContent className="sm:max-w-[70%] h-fit max-h-[90vh] overflow-hidden">
         <DialogHeader className="p-5">
-          <DialogTitle className={"text-2xl font-bold"}>ACCEPTABLE USE POLICY</DialogTitle>
-          <DialogDescription className={"flex flex-col text-lg text-ink-muted font-semibold"}>
+          <DialogTitle className={"text-xl sm:text-2xl font-bold"}>ACCEPTABLE USE POLICY</DialogTitle>
+          <DialogDescription className={"flex flex-col text-base sm:text-lg text-ink-muted font-semibold"}>
             <span className="">Handwork Expert</span>
             <span className="">Last Updated: April 11, 2026</span>
           </DialogDescription>
         </DialogHeader>
-        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin text-base px-5 space-y-3 pb-[10vh]">
+        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin text-sm sm:text-base px-5 space-y-3 pb-[20vh]">
           <p>
             This Acceptable Use Policy (“Policy”) governs your access to and use of the Handwork Expert mobile application and related services (collectively, the “Services”).
           </p>
@@ -140,12 +140,12 @@ const Policy = () => {
             <p>
               If you become aware of any violation of this policy, please report it immediately:
             </p>
-            <div className="flex gap-5">
-              <div className="flex">
-                📧 Email:&nbsp;<a href="mailto:support@handworkexpert.com" className="font-medium">support@handworkexpert.com</a>
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-wrap">
+                <span>Email:</span>&nbsp;<a href="mailto:support@handworkexpert.com" className="font-medium text-wrap flex">support@handworkexpert.com</a>
               </div>
-              <div className="flex">
-                📞 Phone:&nbsp;<a href="tel:+2347072814869" className="font-medium">+2347072814869</a>
+              <div className="flex flex-wrap">
+                <span>Phone:</span>&nbsp;<a href="tel:+2347072814869" className="font-medium">+2347072814869</a>
               </div>
             </div>
             <p className="">
