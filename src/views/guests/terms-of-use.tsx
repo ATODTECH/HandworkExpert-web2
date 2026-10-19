@@ -13,13 +13,13 @@ const TermsOfUse = () => {
       <DialogTrigger render={<button>Terms and conditions</button>} />
       <DialogContent className="sm:max-w-[70%] h-fit max-h-[90vh] overflow-hidden">
         <DialogHeader className="p-5">
-          <DialogTitle className={"text-2xl font-bold"}>TERMS OF USE</DialogTitle>
-          <DialogDescription className={"flex flex-col text-lg text-ink-muted font-semibold"}>
+          <DialogTitle className={"text-xl sm:text-2xl  font-bold"}>TERMS OF USE</DialogTitle>
+          <DialogDescription className={"flex flex-col text-base sm:text-lg text-ink-muted font-semibold"}>
             <span className="">Handwork Expert</span>
             <span className="">Last Updated: April 11, 2026</span>
           </DialogDescription>
         </DialogHeader>
-        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin text-base px-5 space-y-3 pb-[10vh]">
+        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin text-sm sm:text-base px-5 space-y-3 pb-[20vh]">
           <div className=" space-y-1.5 mb-4">
             <h2 className="font-bold uppercase">AGREEMENT TO OUR LEGAL TERMS</h2>
             <div className=" space-y-4">
